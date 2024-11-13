@@ -1,11 +1,11 @@
 <?php
 include_once "connect.php";
 
-function getproduct($idcatalog=0){
+function getproduct($id_category=0){
    $db = new ConnectModel();
    $sql = "SELECT * FROM product WHERE 1";
-   if($idcatalog > 0){
-      $sql .= " AND idcatalog=".$idcatalog;
+   if($id_category > 0){
+      $sql .= " AND id_category=".$id_category;
    }
    $sql .= " ORDER BY id DESC";
    return $db->get_all($sql);
