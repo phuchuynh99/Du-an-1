@@ -1,6 +1,6 @@
 <?php 
 ob_start();
-    require_once ('../view/global.php');
+    require_once ('../views/global.php');
     require_once('../model/connect.php');
     require_once('../model/catalog.php');
     require_once('../model/product.php');
