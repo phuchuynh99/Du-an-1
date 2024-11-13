@@ -205,7 +205,11 @@
           <a href="index.php?page=categories" class="nav-link">
             <i class="nav-icon fa-solid fa-folder-open"></i>
             <p>
+<<<<<<< Updated upstream
               Quản lí chuyên mục
+=======
+              Quản lí danh mục
+>>>>>>> Stashed changes
               <span class="badge badge-info right">6</span>
               <!-- <span class="right badge badge-danger">New</span> -->
             </p>
@@ -231,6 +235,19 @@
             </p>
           </a>
         </li>
+<<<<<<< Updated upstream
+=======
+        <li class="nav-item">
+          <a href="index.php?page=users" class="nav-link">
+            <i class="nav-icon fa-solid fa-user"></i>
+            <p>
+              Quản lí đơn hàng
+              <!-- <i class="fas fa-angle-left right"></i> -->
+              <span class="badge badge-info right">6</span>
+            </p>
+          </a>
+        </li>
+>>>>>>> Stashed changes
 
       </ul>
     </nav>

@@ -1,6 +1,6 @@
 <?php 
 ob_start();
-    require_once ('../views/global.php');
+    require_once ('../view/global.php');
     require_once('../model/connect.php');
     require_once('../model/catalog.php');
     require_once('../model/product.php');
@@ -134,6 +134,7 @@ ob_start();
             case 'users':
                 require_once('public/users.php');
                 break;
+            case 'blockusers':
             default:
                 require_once('public/404.php');
         }

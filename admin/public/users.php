@@ -36,11 +36,20 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+<<<<<<< Updated upstream
                                         <th scope="col">#</th>
                                         <th scope="col">Tên chủ đề</th>
                                         <th scope="col">Chế độ</th>
                                         <th scope="col">Số lượng câu hỏi</th>
                                         <th scope="col">Thao tác</th>
+=======
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Customer's Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+>>>>>>> Stashed changes
                                     </tr>
                                 </thead>
                                 <tbody>
