@@ -9,7 +9,7 @@ class ConnectModel {
         $password = "";
 
         try {
-            $this->conn = new PDO("mysql:host=$servername;dbname=asm2_php1", $username, $password);
+            $this->conn = new PDO("mysql:host=$servername;dbname=duan1", $username, $password);
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $e) {
