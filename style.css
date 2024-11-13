@@ -1,0 +1,95 @@
+/* Centered text for p-login */
+.p-login {
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Form container styling */
+  #form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  /* Input styling to match Bootstrap but with custom border color */
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #745f5f;
+    border-radius: 5px;
+    background-color: transparent;
+  }
+  
+  /* Login button styling */
+  .login-btn {
+    background-color: #745f5f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  .login-btn:hover {
+    background-color: #5b4233;
+  }
+  
+  /* "Or" separator styling */
+  .or {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  /* Link styling */
+  .a-log {
+    color: #c81d25;
+    text-decoration: none;
+  }
+  
+  .a-log:hover {
+    text-decoration: underline;
+  }
+  
+  /* Google login button styling */
+  .login-with-gg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f7e8;
+    border: 1px solid #d3c8a1;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-with-gg img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .login-with-gg:hover {
+    background-color: #ebe6d1;
+  }
+  

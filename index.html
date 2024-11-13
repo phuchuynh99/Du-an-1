@@ -4,9 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Trúc nè</h1>
-    <p>Vầy nè</p>
+    <header>
+        <div class="container">
+            <div class="logo"></div>
+        </div>
+    </header>
+    <div class="container" style="max-width: 1280px; margin: 0 auto;">
+        <div class="row">
+          <div class="col-12">
+            <nav class="breadcrumb">
+              <a href="index.html" class="breadcrumb-item">Trang chủ</a>
+              <span class="breadcrumb-item active">Đăng nhập</span>
+            </nav>
+          </div>
+        </div>
+      
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-8 col-12">
+            <h2 class="title text-center">Đăng nhập tài khoản</h2>
+            <p class="p-login text-center">Nhập username và mật khẩu của bạn</p>
+      
+            <form action="" id="form-login">
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Nhập username..." />
+              </div>
+              <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Nhập mật khẩu..." />
+              </div>
+      
+              <div class="text-end">
+                <a href="#" class="forget">Quên mật khẩu? Lấy lại mật khẩu</a>
+              </div>
+      
+              <button type="submit" class="btn login-btn w-100 mt-3">Đăng nhập</button>
+      
+              <div class="have-account text-center mt-3">
+                Bạn chưa có tài khoản? <a href="register.html" class="a-log">Đăng ký</a>
+              </div>
+            </form>
+      
+            <div class="or text-center mt-3">Hoặc</div>
+      
+            <div class="login-with-gg d-flex align-items-center justify-content-center mt-3">
+              <img src="images/gg-logo.png" alt="Google logo" />
+              Đăng nhập với Google
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+    <script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+></script>
 </body>
 </html>
+
+
+
