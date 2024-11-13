@@ -1,11 +1,11 @@
 <?php
 include_once "connect.php";
 
-function getproduct($id_category=0){
+function getproduct($id=0){
    $db = new ConnectModel();
    $sql = "SELECT * FROM product WHERE 1";
-   if($id_category > 0){
-      $sql .= " AND id_category=".$id_category;
+   if($id > 0){
+      $sql .= " AND id_category=".$id;
    }
    $sql .= " ORDER BY id DESC";
    return $db->get_all($sql);
@@ -29,21 +29,21 @@ function getfeatureproduct(){
    return $db->get_all($sql);
 }
 
-function get_related_product($idcatalog, $idproduct){
+function get_related_product($idcatalog, $id){
    $db = new ConnectModel();
-   $sql = "SELECT * FROM product WHERE idcatalog = ".$idcatalog." AND id <> ".$idproduct." ORDER BY id DESC";
+   $sql = "SELECT * FROM product WHERE idcatalog = ".$idcatalog." AND id <> ".$id." ORDER BY id DESC";
    return $db->get_all($sql);
 }
 
-function get_product_detail($idproduct){
+function get_product_detail($id){
    $db = new ConnectModel();
-   $sql = "SELECT * FROM product WHERE id = ".$idproduct;
+   $sql = "SELECT * FROM product WHERE id = ".$id;
    return $db->get_one($sql);
 }
 
-function get_idcatalog($idproduct){
+function get_idcatalog($id){
    $db = new ConnectModel();
-   $sql = "SELECT idcatalog FROM product WHERE id = ".$idproduct;
+   $sql = "SELECT idcatalog FROM product WHERE id = ".$id;
    $getone = $db->get_one($sql);
    extract($getone);
    return $idcatalog;
@@ -52,15 +52,15 @@ function get_idcatalog($idproduct){
 function ten_file_hinh($id){
    $db = new ConnectModel();
    $sql = "SELECT img FROM product WHERE id = ".$id;
-   $ten_file_hinh = $db->get_one($sql);
-   extract($ten_file_hinh);
+   $img_url = $db->get_one($sql);
+   extract($img_url);
    return $img; 
 }
 
-function update_product($id, $idcatalog, $ten_file_hinh, $name, $price){
+function update_product($id, $idcatalog, $img_url, $name, $price){
    $db = new ConnectModel();
-   if($ten_file_hinh != ""){
-      $sql = "UPDATE product SET img = '$ten_file_hinh', idcatalog = '$idcatalog', name = '$name', price = '$price' WHERE id = ".$id;
+   if($img_url != ""){
+      $sql = "UPDATE product SET img = '$img_url', idcatalog = '$idcatalog', name = '$name', price = '$price' WHERE id = ".$id;
    } else {
       $sql = "UPDATE product SET idcatalog = '$idcatalog', name = '$name', price = '$price' WHERE id = ".$id;
    }
@@ -75,9 +75,9 @@ function delete_product($id){
    return $tb;
 }
 
-function add_product($idcatalog, $ten_file_hinh, $name, $price) {
+function add_product($idcatalog, $img_url, $name, $price) {
    $db = new ConnectModel();
-   $sql = "INSERT INTO product(idcatalog, name, img, price) VALUES ('$idcatalog', '$name', '$ten_file_hinh', '$price')";
+   $sql = "INSERT INTO product(idcatalog, name, img, price) VALUES ('$idcatalog', '$name', '$img_url', '$price')";
    $db->insert($sql);
 }
 ?>

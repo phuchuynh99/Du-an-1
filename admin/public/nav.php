@@ -11,6 +11,20 @@
     <li class="nav-item d-none d-sm-inline-block">
       <a href="https://www.facebook.com/ngocphucne" class="nav-link">Liên hệ</a>
     </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" 
+          type="search" placeholder="Search" aria-label="Search" style="background-color: #fff; border-radius:30px;">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
   </ul>
 
   <!-- Right navbar links -->
@@ -137,13 +151,7 @@
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-  <!-- Brand Logo -->
-  <a href="home/" class="brand-link">
-    <img src="dist/img/Logo.png" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light"> 3</span>
-  </a>
-
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #fff;">
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
@@ -152,19 +160,7 @@
         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Huỳnh Ngọc Phúc</a>
-      </div>
-    </div>
-
-    <!-- SidebarSearch Form -->
-    <div class="form-inline">
-      <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-sidebar">
-            <i class="fas fa-search fa-fw"></i>
-          </button>
-        </div>
+        <a href="#" class="d-block">NAILUXE ADMIN</a>
       </div>
     </div>
 
@@ -203,9 +199,9 @@
         </li>
         <li class="nav-item">
           <a href="index.php?page=categories" class="nav-link">
-            <i class="nav-icon fa-solid fa-folder-open"></i>
+            <i class="fa-solid fa-table-cells"></i>
             <p>
-              Quản lí danh mục
+              Category
               <span class="badge badge-info right">6</span>
               <!-- <span class="right badge badge-danger">New</span> -->
             </p>
@@ -213,9 +209,9 @@
         </li>
         <li class="nav-item">
           <a href="index.php?page=product" class="nav-link">
-            <i class="nav-icon fa-solid fa-folder-plus"></i>
+            <i class="fa-brands fa-product-hunt"></i>
             <p>
-              Quản lí sản phẩm
+              Product
               <!-- <span class="right badge badge-danger">New</span> -->
               <span class="badge badge-info right">6</span>
             </p>
@@ -223,9 +219,9 @@
         </li>
         <li class="nav-item">
           <a href="index.php?page=users" class="nav-link">
-            <i class="nav-icon fa-solid fa-user"></i>
+            <i class="fa-solid fa-ticket"></i>
             <p>
-              Quản lí thành viên
+              Voucher
               <!-- <i class="fas fa-angle-left right"></i> -->
               <span class="badge badge-info right">6</span>
             </p>
@@ -233,9 +229,50 @@
         </li>
         <li class="nav-item">
           <a href="index.php?page=users" class="nav-link">
-            <i class="nav-icon fa-solid fa-user"></i>
+            <i class="fa-solid fa-address-book"></i>
             <p>
-              Quản lí đơn hàng
+              Contact
+              <!-- <i class="fas fa-angle-left right"></i> -->
+              <span class="badge badge-info right">6</span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.php?page=users" class="nav-link">
+            <i class="fa-solid fa-money-bill"></i>
+            <p>
+              Order
+              <!-- <i class="fas fa-angle-left right"></i> -->
+              <span class="badge badge-info right">6</span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.php?page=users" class="nav-link">
+            <i class="fa-solid fa-user"></i>
+            <p>
+              User
+              <!-- <i class="fas fa-angle-left right"></i> -->
+              <span class="badge badge-info right">6</span>
+            </p>
+          </a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a href="index.php?page=users" class="nav-link">
+            <i class="fa-solid fa-gear"></i>
+            <p>
+              Setting
+              <!-- <i class="fas fa-angle-left right"></i> -->
+              <span class="badge badge-info right">6</span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.php?page=users" class="nav-link">
+            <i class="fa-solid fa-power-off"></i>
+            <p>
+              Layout
               <!-- <i class="fas fa-angle-left right"></i> -->
               <span class="badge badge-info right">6</span>
             </p>
