@@ -218,10 +218,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php?page=users" class="nav-link">
+          <a href="index.php?page=coupon" class="nav-link">
             <i class="fa-solid fa-ticket"></i>
             <p>
-              Voucher
+              Coupon
               <!-- <i class="fas fa-angle-left right"></i> -->
               <span class="badge badge-info right">6</span>
             </p>

@@ -4,6 +4,7 @@ ob_start();
     require_once('../model/connect.php');
     require_once('../model/catalog.php');
     require_once('../model/product.php');
+    require_once('../model/coupon.php');
     require_once('public/head.php');
     require_once('public/nav.php');
     
@@ -135,6 +136,28 @@ ob_start();
                 require_once('public/users.php');
                 break;
             case 'blockusers':
+                require_once('public/users.php');
+                break;
+            case 'coupon':
+                if (isset($_GET['action'])) {
+                    if ($_GET['action'] == 'create_coupon') {
+                        // Gọi hàm tạo mã giảm giá
+                        if (isset($_POST['code'], $_POST['discount'], $_POST['expiry_date'])) {
+                            createCoupon($_POST['code'], $_POST['discount'], $_POST['expiry_date']);
+                        }
+                    } elseif ($_GET['action'] == 'apply_coupon') {
+                        // Gọi hàm kiểm tra mã giảm giá
+                        if (isset($_POST['code'])) {
+                            $coupon = validateCoupon($_POST['code']);
+                            if ($coupon) {
+                                // Xử lý nếu mã giảm giá hợp lệ
+                            } else {
+                                // Xử lý nếu mã giảm giá không hợp lệ
+                            }
+                        }
+                    }
+                }
+            case 'logout':
             default:
                 require_once('public/404.php');
         }
