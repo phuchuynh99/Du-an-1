@@ -139,24 +139,56 @@ ob_start();
                 require_once('public/users.php');
                 break;
             case 'coupon':
-                if (isset($_GET['action'])) {
-                    if ($_GET['action'] == 'create_coupon') {
-                        // Gọi hàm tạo mã giảm giá
-                        if (isset($_POST['code'], $_POST['discount'], $_POST['expiry_date'])) {
-                            createCoupon($_POST['code'], $_POST['discount'], $_POST['expiry_date']);
-                        }
-                    } elseif ($_GET['action'] == 'apply_coupon') {
-                        // Gọi hàm kiểm tra mã giảm giá
-                        if (isset($_POST['code'])) {
-                            $coupon = validateCoupon($_POST['code']);
-                            if ($coupon) {
-                                // Xử lý nếu mã giảm giá hợp lệ
-                            } else {
-                                // Xử lý nếu mã giảm giá không hợp lệ
-                            }
-                        }
-                    }
+                $couponlist=get_coupon();
+                require_once('public/coupon.php');
+                break;
+            case 'addCoupon':
+                //lấy data từ form
+                if(isset($_POST['btnadd'])){
+                    $code=$_POST['code'];
+                    $discount=$_POST['discount'];
+                    $end_date=$_POST['end_date'];
+                    add_coupon($code, $discount, $end_date);
                 }
+                //load lại
+                $couponlist = get_coupon();
+                require_once('public/coupon.php');
+                break;
+            case 'delCoupon':
+                if(isset($_GET['id'])&&($_GET['id']>0)){
+                    //xáo danh mục
+                    $id=$_GET['id'];
+                    $tb=delete_coupon($id);
+                }
+                $couponlist=get_coupon();
+                require_once('public/coupon.php');
+                break;
+            case 'couponUpdateForm':
+                if(isset($_GET['id'])&& ($_GET['id']>0)){
+                    $id=$_GET['id'];
+                    $couponone=get_coupon_detail($id);
+                    $couponlist=get_coupon();
+                    require_once('public/couponUpdateForm.php');
+                } else {
+                    require_once('public/coupon.php');
+                }  
+                break;
+            case 'couponUpdate':
+                // Lấy dữ liệu từ form
+                if (isset($_POST['btnupdate'])) {
+                    $id = $_POST['id']; // Lấy ID của coupon cần cập nhật
+                    $code = $_POST['code']; // Tên coupon
+                    $discount = $_POST['discount']; // Giá trị giảm giá
+                    $end_date = $_POST['end_date']; // Ngày hết hạn coupon
+
+                    // Cập nhật coupon trong cơ sở dữ liệu
+                    update_coupon($id, $code, $discount, $end_date);
+                }
+            
+                // Load lại danh sách coupon
+                $couponlist=get_coupon();
+                require_once('public/coupon.php');
+                break;                
             case 'logout':
             default:
                 require_once('public/404.php');
