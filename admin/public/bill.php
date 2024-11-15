@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Thành viên</h1>
+          <h1>Contact</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Thành viên</li>
+            <li class="breadcrumb-item active">Contact</li>
           </ol>
         </div>
       </div>
@@ -22,7 +22,7 @@
     <div class="container-fluid">
       <div class="d-flex justify-content-end">
         <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-default">
-          Thêm thành viên
+          Thêm liên hệ
         </button>
       </div>
       <div class="row">
@@ -33,31 +33,35 @@
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Customer's Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Chức vụ</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Tên khách hàng</th>
+                    <th scope="col">Số điện thoại</th>
+                    <th scope="col">Địa chỉ</th>
+                    <th scope="col">Phương thức thanh toán</th>
+                    <th scope="col">Ngày mua</th>
+                    <th scope="col">Tổng tiền</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Hành động</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php
-                  $i = 1;
-                  foreach ($userlist as $user):
-                    extract($user);
-                    $edit = "<a href='index.php?page=userUpdateForm&id=" . $id . "'>Sửa</a>";
-                    $del = "<a href='index.php?page=deluser&id=" . $id . "'>Xóa</a>";
-                  ?>
-                    <tr>
-                      <td><?php echo $i++; ?></td>
-                      <td><?php echo $user['username']; ?></td>
-                      <td><?php echo $user['email']; ?></td>
-                      <td><?php echo $user['phone']; ?></td>
-                      <td><?php echo $user['role']; ?></td>
-                      <td><?php echo $user['status']; ?></td>
-                      <td><?php echo $edit . ' - ' . $del; ?></td>
-                    </tr>
+                    <?php
+                    $i = 1;
+                    foreach ($billlist as $bill):
+                      extract($bill);
+                      $edit = "<a href='index.php?page=contactUpdateForm&id=" . $id . "'>Sửa</a>";
+                      $del = "<a href='index.php?page=delcontact&id=" . $id . "'>Xóa</a>";
+                    ?>
+                      <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $user['name']; ?></td>
+                        <td><?php echo $user['phone']; ?></td>
+                        <td><?php echo $user['address']; ?></td>
+                        <td><?php echo $user['payment_method']; ?></td>
+                        <td><?php echo $user['buy_date']; ?></td>
+                        <td><?php echo $user['total_amount']; ?></td>
+                        <td><?php echo $user['ststus']; ?></td>
+                        <td><?php echo $edit . ' - ' . $del; ?></td>
+                      </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>
@@ -69,29 +73,29 @@
   </section>
 </div>
 
-<!-- Modal for adding new member -->
+<!-- Modal for adding new contact -->
 <div class="modal fade" id="modal-default">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Thêm thành viên mới</h4>
+        <h4 class="modal-title">Thêm liên hệ mới</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="index.php?page=addusers" method="POST">
+      <form action="index.php?page=addcontact" method="POST">
         <div class="modal-body">
           <div class="mb-3">
-            <label for="username" class="col-form-label">Tên tài khoản:</label>
-            <input type="text" class="form-control" name="username" placeholder="Tên tài khoản" required>
+            <label for="name" class="col-form-label">Tên liên hệ:</label>
+            <input type="text" class="form-control" name="name" placeholder="Tên liên hệ" required>
           </div>
           <div class="mb-3">
-            <label for="password" class="col-form-label">Mật khẩu:</label>
-            <input type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="col-form-label">email:</label>
+            <label for="email" class="col-form-label">Email:</label>
             <input type="email" class="form-control" name="email" placeholder="Email" required>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="col-form-label">Số điện thoại:</label>
+            <input type="text" class="form-control" name="phone" placeholder="Số điện thoại" required>
           </div>
           <div class="mb-3">
             <div class="form-group">
@@ -105,7 +109,7 @@
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-          <button type="submit" name="btnadd" class="btn btn-primary">Thêm người dùng</button>
+          <button type="submit" name="btnadd" class="btn btn-primary">Thêm liên hệ</button>
         </div>
       </form>
     </div>

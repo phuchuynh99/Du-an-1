@@ -1,8 +1,8 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2023 <a href="https://www.facebook.com/ngocphucne">Huỳnh Ngọc Phúc</a>.</strong>
+    <strong>Nhóm 4 - Dự án 1 <a href="https://www.facebook.com/ngocphucne">Huỳnh Ngọc Phúc</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 1.0
+        <b>Naillux</b>
     </div>
 </footer>
 

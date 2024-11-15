@@ -228,7 +228,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php?page=users" class="nav-link">
+          <a href="index.php?page=contact" class="nav-link">
             <i class="fa-solid fa-address-book"></i>
             <p>
               Contact
@@ -238,10 +238,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php?page=users" class="nav-link">
+          <a href="index.php?page=bill" class="nav-link">
             <i class="fa-solid fa-money-bill"></i>
             <p>
-              Order
+              Bill
               <!-- <i class="fas fa-angle-left right"></i> -->
               <span class="badge badge-info right">6</span>
             </p>
@@ -272,7 +272,7 @@
           <a href="index.php?page=users" class="nav-link">
             <i class="fa-solid fa-power-off"></i>
             <p>
-              Layout
+              Logout
               <!-- <i class="fas fa-angle-left right"></i> -->
               <span class="badge badge-info right">6</span>
             </p>

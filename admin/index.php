@@ -1,5 +1,6 @@
 <?php
 ob_start();
+include_once "../model/connect.php";
 require_once('../view/global.php');
 require_once('../model/connect.php');
 require_once('../model/catalog.php');
@@ -138,26 +139,50 @@ if (isset($_GET['page'])) {
             require_once('public/users.php');
             break;
         case 'addusers':
-            if ($role === 'admin') {
-                // Kiểm tra nếu người dùng đã nhấn nút "Tạo user"
-                if (isset($_POST['btnadd'])) {
-                    // Lấy thông tin từ form
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $role = $_POST['role']; // Lấy giá trị role từ form
-                    $email = $_POST['email']; // Nếu có email trong form
-                    
-                    // Gọi hàm thêm người dùng
-                    addUser(['username' => $username, 'password' => $password, 'role' => $role, 'email' => $email]);
+            if (isset($_POST['btnadd'])) {
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $role = $_POST['role']; // Có thể là 'admin' hoặc 'user', tùy thuộc vào form
+            
+                // Dữ liệu cho thêm user
+                $data = [
+                    'username' => $username,
+                    'email' => $email,
+                    'password' => $password,
+                    'role' => $role // Lấy role từ form
+                ];
+            
+                // Thêm người dùng
+                $result = addUser($data);
+            
+                if ($result) {
+                    // Nếu thêm thành công, quay lại danh sách người dùng
+                    $userlist = getAllUser();
+                    require_once('public/users.php');
+                } else {
+                    // Nếu có lỗi
+                    echo "Đã xảy ra lỗi khi thêm người dùng.";
                 }
-                
-                // Load lại danh sách người dùng
-                $userlist = getAllUser(); // Hàm này lấy tất cả người dùng từ CSDL
-                require_once('public/users.php');
             } else {
-                // Nếu người dùng không phải admin, chuyển đến trang 404
                 require_once('public/404.php');
             }
+            break;
+        case 'deluser':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                // Lấy ID của người dùng
+                $id = $_GET['id'];
+                
+                // Xóa người dùng trong cơ sở dữ liệu
+                $tb = deleteUser($id); // Hàm xóa người dùng (cần được định nghĩa trong model hoặc controller)
+            }
+            
+            // Load lại danh sách người dùng sau khi xóa
+            $userlist = getAllUser(); // Hàm lấy danh sách người dùng từ DB
+            
+            // Điều hướng lại trang người dùng
+            header('location: index.php?page=users');
+            exit();
             break;
         case 'blockusers':
             require_once('public/users.php');
@@ -212,6 +237,24 @@ if (isset($_GET['page'])) {
             // Load lại danh sách coupon
             $couponlist = get_coupon();
             require_once('public/coupon.php');
+            break;
+        case 'contact':
+            function get_contact() {
+                $db = new ConnectModel();
+                $sql = "SELECT * FROM contact";
+                return $db->get_all($sql);
+            }
+            $contactlist = get_contact();
+            require_once('public/contact.php');
+            break;
+        case 'bill':
+            function get_bill() {
+                $db = new ConnectModel();
+                $sql = "SELECT * FROM bill";
+                return $db->get_all($sql);
+            }
+            $billlist = get_bill();
+            require_once('public/bill.php');
             break;
         case 'logout':
         default:
