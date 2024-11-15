@@ -1,3 +1,19 @@
+<?php
+include_once "../model/getTotal.php";
+
+// Lấy tổng số sản phẩm từ database
+$totalProducts = get_total_product();
+$totalCategory = get_total_category();
+$totalCoupon = get_total_coupons();
+$totalBill = get_total_bill();
+$totalContact = get_total_contact();
+$totalUser = get_total_users();
+?>
+<style>
+  p {
+    color: #6F6A58;
+  }
+</style>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Left navbar links -->
@@ -10,6 +26,20 @@
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="https://www.facebook.com/ngocphucne" class="nav-link">Liên hệ</a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar"
+            type="search" placeholder="Search" aria-label="Search" style="background-color: #fff; border-radius:30px;">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </li>
   </ul>
 
@@ -137,34 +167,16 @@
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-  <!-- Brand Logo -->
-  <a href="home/" class="brand-link">
-    <img src="dist/img/Logo.png" alt=" Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light"> 3</span>
-  </a>
-
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#fff;">
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
+      <!-- <div class="image">
         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <a href="#" class="d-block">Huỳnh Ngọc Phúc</a>
-      </div>
-    </div>
-
-    <!-- SidebarSearch Form -->
-    <div class="form-inline">
-      <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-sidebar">
-            <i class="fas fa-search fa-fw"></i>
-          </button>
-        </div>
+      </div> -->
+      <div class="info" style="text-align: center;">
+        <a href="#" class="d-block" style="color: #6F6A58; font-weight: bold; font-size: 1.4em; font-family: poppins;">NAILUXE ADMIN</a>
       </div>
     </div>
 
@@ -203,39 +215,71 @@
         </li>
         <li class="nav-item">
           <a href="index.php?page=categories" class="nav-link">
-            <i class="nav-icon fa-solid fa-folder-open"></i>
+            <i class="fa-solid fa-table-cells"></i>
             <p>
-              Quản lí danh mục
-              <span class="badge badge-info right">6</span>
+              Category
+              <span class="badge badge-info right"><?php echo $totalCategory; ?></span>
               <!-- <span class="right badge badge-danger">New</span> -->
             </p>
           </a>
         </li>
         <li class="nav-item">
           <a href="index.php?page=product" class="nav-link">
-            <i class="nav-icon fa-solid fa-folder-plus"></i>
+            <i class="fa-brands fa-product-hunt"></i>
             <p>
-              Quản lí sản phẩm
+              Product
               <!-- <span class="right badge badge-danger">New</span> -->
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-info right"><?php echo $totalProducts; ?></span>
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="index.php?page=users" class="nav-link">
-            <i class="nav-icon fa-solid fa-user"></i>
+          <a href="index.php?page=coupon" class="nav-link">
+            <i class="fa-solid fa-ticket"></i>
             <p>
-              Quản lí thành viên
+              Coupon
               <!-- <i class="fas fa-angle-left right"></i> -->
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-info right"><?php echo $totalCoupon; ?></span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.php?page=contact" class="nav-link">
+            <i class="fa-solid fa-address-book"></i>
+            <p>
+              Contact
+              <!-- <i class="fas fa-angle-left right"></i> -->
+              <span class="badge badge-info right"><?php echo $totalContact; ?></span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="index.php?page=bill" class="nav-link">
+            <i class="fa-solid fa-money-bill"></i>
+            <p>
+              Bill
+              <!-- <i class="fas fa-angle-left right"></i> -->
+              <span class="badge badge-info right"><?php echo $totalBill; ?></span>
             </p>
           </a>
         </li>
         <li class="nav-item">
           <a href="index.php?page=users" class="nav-link">
-            <i class="nav-icon fa-solid fa-user"></i>
+            <i class="fa-solid fa-user"></i>
             <p>
-              Quản lí đơn hàng
+              User
+              <!-- <i class="fas fa-angle-left right"></i> -->
+              <span class="badge badge-info right"><?php echo $totalUser; ?></span>
+            </p>
+          </a>
+        </li>
+        <hr>
+
+        <li class="nav-item" style="border-top: 1px solid #000;">
+          <a href="index.php?page=users" class="nav-link">
+            <i class="fa-solid fa-power-off"></i>
+            <p>
+              Logout
               <!-- <i class="fas fa-angle-left right"></i> -->
               <span class="badge badge-info right">6</span>
             </p>

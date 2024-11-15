@@ -1,3 +1,11 @@
+<?php
+include_once "../model/getTotal.php";
+
+// Lấy tổng số sản phẩm từ database
+$totalProducts = get_total_product();
+$totalUser = get_total_users();
+?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -27,7 +35,7 @@
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3><?php echo $totalProducts; ?></h3>
 
                   <p>New Orders</p>
                 </div>
@@ -57,7 +65,7 @@
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3><?php echo $totalUser; ?></h3>
 
                   <p>User Registrations</p>
                 </div>
