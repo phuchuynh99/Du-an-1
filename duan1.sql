@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2024 lúc 06:03 AM
+-- Thời gian đã tạo: Th10 15, 2024 lúc 12:19 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -67,6 +67,17 @@ CREATE TABLE `category` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Sơn móng', '2024-11-14 15:49:36', '2024-11-14 15:49:36'),
+(2, 'Dụng cụ làm móng', '2024-11-15 10:37:10', '2024-11-15 10:37:10'),
+(3, 'Thiết bị làm móng', '2024-11-15 10:37:16', '2024-11-15 10:37:16'),
+(4, 'Sản phẩm trang trí móng', '2024-11-15 10:37:28', '2024-11-15 10:37:28'),
+(5, 'Móng giả', '2024-11-15 10:37:36', '2024-11-15 10:37:36');
+
 -- --------------------------------------------------------
 
 --
@@ -99,6 +110,26 @@ CREATE TABLE `contact` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `coupons`
+--
+
+CREATE TABLE `coupons` (
+  `id` int(11) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `discount` int(11) NOT NULL,
+  `end_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `coupons`
+--
+
+INSERT INTO `coupons` (`id`, `code`, `discount`, `end_date`) VALUES
+(3, 'welcome', 10, '2024-11-16');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `product`
 --
 
@@ -107,13 +138,22 @@ CREATE TABLE `product` (
   `name` varchar(255) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  `img_url` varchar(255) DEFAULT NULL,
+  `img` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `stock` int(11) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL,
-  `id_category` int(11) DEFAULT NULL
+  `id_category` int(11) DEFAULT NULL,
+  `discount_price` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `img`, `created_at`, `updated_at`, `stock`, `status`, `id_category`, `discount_price`) VALUES
+(1, 'Ngoc Phuc', 20000000.00, NULL, 'erd_usecase.drawio.png', '2024-11-15 07:40:07', '2024-11-15 10:00:22', NULL, NULL, 1, 1500000.00),
+(3, 'Nghĩa', 1233333.00, NULL, 'pngtree-a-butterfly-pink-png-image_9158312.png', '2024-11-15 10:39:36', '2024-11-15 10:40:18', NULL, NULL, 1, 2522522.00);
 
 -- --------------------------------------------------------
 
@@ -138,15 +178,23 @@ CREATE TABLE `review` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `status` varchar(20) DEFAULT NULL,
-  `role` varchar(255) DEFAULT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `role` enum('admin','user') DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `phone`, `status`, `role`, `created_at`, `updated_at`) VALUES
+(7, 'ngocphuc', '$2y$10$2PzMIxN8il.TgqVHEVEBJu3JqoqmSD3lYwH8OylFIfqGOucskN9WK', 'phuchnps39812@gmail.com', '0931287430', 'active', 'admin', '2024-11-15 02:56:33', '2024-11-15 05:13:56'),
+(10, '123', '$2y$10$z1dIskQiIlbFJ6z9tNLhXuetJhBgmOrO14VK2ZQGJNKDKY0MS/PeG', 'admin@ngocphuc.id.vn', '0931287430', 'inactive', 'user', '2024-11-15 03:01:33', '2024-11-15 09:41:36');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -189,6 +237,13 @@ ALTER TABLE `contact`
   ADD KEY `fk_contact_user` (`id_user`);
 
 --
+-- Chỉ mục cho bảng `coupons`
+--
+ALTER TABLE `coupons`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `code` (`code`);
+
+--
 -- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
@@ -207,6 +262,40 @@ ALTER TABLE `review`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `coupons`
+--
+ALTER TABLE `coupons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT cho bảng `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
