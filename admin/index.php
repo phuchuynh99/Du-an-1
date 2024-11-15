@@ -5,6 +5,7 @@ require_once('../model/connect.php');
 require_once('../model/catalog.php');
 require_once('../model/product.php');
 require_once('../model/coupon.php');
+require_once('../model/user.php');
 require_once('public/head.php');
 require_once('public/nav.php');
 
@@ -132,7 +133,31 @@ if (isset($_GET['page'])) {
             require_once('public/products.php');
             break;
         case 'users':
+            //load user
+            $userlist = getAllUser();
             require_once('public/users.php');
+            break;
+        case 'addusers':
+            if ($role === 'admin') {
+                // Kiểm tra nếu người dùng đã nhấn nút "Tạo user"
+                if (isset($_POST['btnadd'])) {
+                    // Lấy thông tin từ form
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $role = $_POST['role']; // Lấy giá trị role từ form
+                    $email = $_POST['email']; // Nếu có email trong form
+                    
+                    // Gọi hàm thêm người dùng
+                    addUser(['username' => $username, 'password' => $password, 'role' => $role, 'email' => $email]);
+                }
+                
+                // Load lại danh sách người dùng
+                $userlist = getAllUser(); // Hàm này lấy tất cả người dùng từ CSDL
+                require_once('public/users.php');
+            } else {
+                // Nếu người dùng không phải admin, chuyển đến trang 404
+                require_once('public/404.php');
+            }
             break;
         case 'blockusers':
             require_once('public/users.php');
