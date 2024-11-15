@@ -9,7 +9,11 @@ $totalBill = get_total_bill();
 $totalContact = get_total_contact();
 $totalUser = get_total_users();
 ?>
-
+<style>
+  p {
+    color: #6F6A58;
+  }
+</style>
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Left navbar links -->
@@ -163,7 +167,7 @@ $totalUser = get_total_users();
 <!-- /.navbar -->
 
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#fff;">
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
@@ -171,8 +175,8 @@ $totalUser = get_total_users();
       <!-- <div class="image">
         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div> -->
-      <div class="info" style="color: #6F6A58">
-        <a href="#" class="d-block" style="color: #6F6A58">NAILUXE ADMIN</a>
+      <div class="info" style="text-align: center;">
+        <a href="#" class="d-block" style="color: #6F6A58; font-weight: bold; font-size: 1.4em; font-family: poppins;">NAILUXE ADMIN</a>
       </div>
     </div>
 
@@ -271,7 +275,7 @@ $totalUser = get_total_users();
         </li>
         <hr>
 
-        <li class="nav-item">
+        <li class="nav-item" style="border-top: 1px solid #000;">
           <a href="index.php?page=users" class="nav-link">
             <i class="fa-solid fa-power-off"></i>
             <p>

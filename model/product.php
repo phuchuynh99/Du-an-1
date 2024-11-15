@@ -13,7 +13,7 @@ function getproduct($id=0){
 
 function getsaleproduct(){
    $db = new ConnectModel();
-   $sql = "SELECT * FROM product WHERE promotion > 0 ORDER BY promotion DESC";
+   $sql = "SELECT * FROM product WHERE discount_price > 0 ORDER BY discount_price DESC";
    return $db->get_all($sql);
 }
 
