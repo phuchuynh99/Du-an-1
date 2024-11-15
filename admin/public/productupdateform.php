@@ -12,6 +12,7 @@
     $productname=$name;
     $productid=$id;
     $productimg=$img;
+    $discount_price=$discount_price;
 
     // load danh sách ra select
     $select_html="";
@@ -65,6 +66,12 @@
             <div class="mb-3">
                 <label for="topic-name" class="col-form-label">Giá:</label>
                 <input type="text" class="form-control" name="price" value="<?=$price?>">
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="topic-name" class="col-form-label">Giá khuyến mãi:</label>
+                <input type="text" class="form-control" name="discount_price" value="<?=$discount_price?>">
             </div>
         </div>
         <div class="modal-body">

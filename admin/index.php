@@ -89,6 +89,7 @@ if (isset($_GET['page'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
                 $price = $_POST['price'];
+                $discount_price = $_POST['discount_price'];
                 $id_category = $_POST['idcatalog'];
                 //lấy hình về 
                 $img = $_FILES['img']['name'];
@@ -101,7 +102,7 @@ if (isset($_GET['page'])) {
                     if (file_exists($hinh_cu)) unlink($hinh_cu);
                 }
                 //upload vô db
-                update_product($id, $id_category, $img, $name, $price);
+                update_product($id, $id_category, $img, $name, $price,$discount_price);
             }
             $productlist = getproduct();
             header('location: index.php?page=product');

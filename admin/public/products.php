@@ -52,6 +52,7 @@ foreach ($cataloglist as $item){
                                         <th scope="col">Hình ảnh</th>
                                         <th scope="col">Tên sản phẩm</th>
                                         <th scope="col">Giá</th>
+                                        <th scope="col">Giá khuyến mãi</th>
                                         <th scope="col">Thao tác</th>
                                         <!-- <th scope="col">Giá</th>
                                         <th scope="col">Thao tác</th> -->
@@ -59,22 +60,29 @@ foreach ($cataloglist as $item){
                                 </thead>
                                 <tbody>
                                 <?php
-                                        $i=1;
-                                        foreach ($productlist as $item){
-                                            extract($item);
-                                            if($img!="") $img='../'.PATH_IMG.$img;
-                                            $edit="<a href='index.php?page=productupdateform&id=".$id."'>Sửa</a>";
-                                            $del="<a href='index.php?page=delproduct&id=".$id."'>Xóa</a>";
-                                            echo '<tr>
-                                                    <td>'.$i.'</td>
-                                                    <td><img src="'.$img.'" width="80"></td>
-                                                    <td>'.$name.'</td>
-                                                    <td>'.$price.'</td>
-                                                    <td>'.$edit.' - '.$del.'</td>
-                                                </tr>';
-                                            $i++;
-                                        }
-                                    ?>
+                                    $i = 1;
+                                    foreach ($productlist as $item) {
+                                        extract($item);
+                                        if ($img != "") $img = '../' . PATH_IMG . $img;
+                                        $edit = "<a href='index.php?page=productupdateform&id=" . $id . "'>Sửa</a>";
+                                        $del = "<a href='index.php?page=delproduct&id=" . $id . "'>Xóa</a>";
+
+                                        // Định dạng giá tiền
+                                        $formatted_price = number_format($price, 0, ',', '.');
+                                        $formatted_discount_price = number_format($discount_price, 0, ',', '.');
+
+                                        echo '<tr>
+                                                <td>' . $i . '</td>
+                                                <td><img src="' . $img . '" width="80"></td>
+                                                <td>' . $name . '</td>
+                                                <td>' . $formatted_price . '</td>
+                                                <td>' . $formatted_discount_price . '</td>
+                                                <td>' . $edit . ' - ' . $del . '</td>
+                                            </tr>';
+                                        $i++;
+                                    }
+                                ?>
+
                                 <!-- <tr>
                                       <td>Trident</td>
                                       <td>Internet

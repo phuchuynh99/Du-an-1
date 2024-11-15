@@ -27,8 +27,8 @@ $totalUser = get_total_users();
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
-        <input class="form-control form-control-sidebar" 
-          type="search" placeholder="Search" aria-label="Search" style="background-color: #fff; border-radius:30px;">
+          <input class="form-control form-control-sidebar"
+            type="search" placeholder="Search" aria-label="Search" style="background-color: #fff; border-radius:30px;">
           <div class="input-group-append">
             <button class="btn btn-sidebar">
               <i class="fas fa-search fa-fw"></i>
@@ -168,11 +168,11 @@ $totalUser = get_total_users();
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
+      <!-- <div class="image">
         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <a href="#" class="d-block">NAILUXE ADMIN</a>
+      </div> -->
+      <div class="info" style="color: #6F6A58">
+        <a href="#" class="d-block" style="color: #6F6A58">NAILUXE ADMIN</a>
       </div>
     </div>
 
@@ -270,16 +270,7 @@ $totalUser = get_total_users();
           </a>
         </li>
         <hr>
-        <li class="nav-item">
-          <a href="index.php?page=users" class="nav-link">
-            <i class="fa-solid fa-gear"></i>
-            <p>
-              Setting
-              <!-- <i class="fas fa-angle-left right"></i> -->
-              <span class="badge badge-info right">6</span>
-            </p>
-          </a>
-        </li>
+
         <li class="nav-item">
           <a href="index.php?page=users" class="nav-link">
             <i class="fa-solid fa-power-off"></i>
