@@ -19,7 +19,11 @@
 
     <!-- Main content -->
 <?php
-    extract($catalogone);
+extract($catalogone);
+
+// Kiểm tra trạng thái hiện tại của danh mục
+$status_active = ($status == 1) ? 'selected' : '';  // Nếu trạng thái là 1, chọn "Hoạt động"
+$status_inactive = ($status == 0) ? 'selected' : '';  // Nếu trạng thái là 0, chọn "Ẩn"
 ?>
 <section class="content">
     <form action="index.php?page=update" method="POST">
@@ -28,6 +32,15 @@
                 <label for="topic-name" class="col-form-label">Tên danh mục:</label>
                 <input type="text" class="form-control" name="name" placeholder="Tên danh mục">
             </div>
+        </div>
+        <div class="modal-body">
+        <div class="mb-3">
+            <label for="status" class="col-form-label">Trạng thái:</label>
+            <select class="form-control" name="status">
+                <option value="1" <?=$status_active?>>Hoạt động</option>
+                <option value="0" <?=$status_inactive?>>Ẩn</option>
+            </select>
+        </div>
         </div>
         <div class="modal-footer justify-content-between">
             <input type="hidden" name="id" value="<?=$id?>">

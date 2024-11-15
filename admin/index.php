@@ -43,7 +43,8 @@ if (isset($_GET['page'])) {
             if (isset($_POST['btnupdate']) && ($_POST['btnupdate'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
-                set_catalog($id, $name);
+                $status = $_POST['status']; 
+                set_catalog($id, $name, $status);
                 $cataloglist = get_catalog();
                 require_once('public/catagories.php');
             }
@@ -309,7 +310,7 @@ if (isset($_GET['page'])) {
             require_once('public/bill.php');
             break;
         case 'logout':
-            
+
         default:
             require_once('public/404.php');
     }
