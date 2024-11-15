@@ -17,7 +17,7 @@
     $select_html="";
     foreach ($cataloglist as $item){
         extract($item);
-        if($id==$idcatalog){
+        if($id == $id_category){
             $slc="selected";
         } else {
             $slc="";

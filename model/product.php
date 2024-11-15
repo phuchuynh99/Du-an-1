@@ -52,17 +52,17 @@ function get_idcatalog($id){
 function ten_file_hinh($id){
    $db = new ConnectModel();
    $sql = "SELECT img FROM product WHERE id = ".$id;
-   $img_url = $db->get_one($sql);
-   extract($img_url);
+   $img = $db->get_one($sql);
+   extract($img);
    return $img; 
 }
 
-function update_product($id, $idcatalog, $img_url, $name, $price){
+function update_product($id, $id_category, $img, $name, $price){
    $db = new ConnectModel();
-   if($img_url != ""){
-      $sql = "UPDATE product SET img = '$img_url', idcatalog = '$idcatalog', name = '$name', price = '$price' WHERE id = ".$id;
+   if($img != ""){
+      $sql = "UPDATE product SET img = '$img', id_category = '$id_category', name = '$name', price = '$price' WHERE id = ".$id;
    } else {
-      $sql = "UPDATE product SET idcatalog = '$idcatalog', name = '$name', price = '$price' WHERE id = ".$id;
+      $sql = "UPDATE product SET id_category = '$id_category', name = '$name', price = '$price' WHERE id = ".$id;
    }
    $db->update($sql);
 }
@@ -75,9 +75,9 @@ function delete_product($id){
    return $tb;
 }
 
-function add_product($idcatalog, $img_url, $name, $price) {
+function add_product($id_category, $img, $name, $price) {
    $db = new ConnectModel();
-   $sql = "INSERT INTO product(idcatalog, name, img, price) VALUES ('$idcatalog', '$name', '$img_url', '$price')";
+   $sql = "INSERT INTO product(id_category, name, img, price) VALUES ('$id_category', '$name', '$img', '$price')";
    $db->insert($sql);
 }
 

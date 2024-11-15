@@ -62,9 +62,9 @@ if (isset($_GET['page'])) {
                 //xáo danh mục
                 $id = $_GET['id'];
                 //kiểm tra sp có hình không? có hình thì xóa
-                $ten_file_hinh = "../" . PATH_IMG . ten_file_hinh($id);
-                if (file_exists($ten_file_hinh)) {
-                    unlink($ten_file_hinh);
+                $img = "../" . PATH_IMG . ten_file_hinh($id);
+                if (file_exists($img)) {
+                    unlink($img);
                 }
                 //xóa sp trong db
                 $tb = delete_product($id);
@@ -89,10 +89,10 @@ if (isset($_GET['page'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
                 $price = $_POST['price'];
-                $idcatalog = $_POST['idcatalog'];
+                $id_category = $_POST['idcatalog'];
                 //lấy hình về 
-                $ten_file_hinh = $_FILES['img']['name'];
-                if ($ten_file_hinh != "") {
+                $img = $_FILES['img']['name'];
+                if ($img != "") {
                     //upload lên host
                     $target_file = "../" . PATH_IMG . basename($_FILES['img']['name']);
                     move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
@@ -101,31 +101,33 @@ if (isset($_GET['page'])) {
                     if (file_exists($hinh_cu)) unlink($hinh_cu);
                 }
                 //upload vô db
-                update_product($id, $idcatalog, $ten_file_hinh, $name, $price);
+                update_product($id, $id_category, $img, $name, $price);
             }
             $productlist = getproduct();
             header('location: index.php?page=product');
             // require_once('public/products.php');
             break;
         case 'addproduct':
-            //lấy dữ liệu từ form
+            // Lấy dữ liệu từ form
             if (isset($_POST['btnadd'])) {
                 $name = $_POST['name'];
                 $price = $_POST['price'];
-                $idcatalog = $_POST['idcatalog'];
-                //lấy hình về 
-                $ten_file_hinh = $_FILES['img']['name'];
-                if ($ten_file_hinh != "") {
-                    //upload lên host
+                $id_category = $_POST['idcatalog']; // Đã sửa key
+
+                // Lấy hình về
+                $img = $_FILES['img']['name'];
+                if ($img != "") {
+                    // Upload lên host
                     $target_file = "../" . PATH_IMG . basename($_FILES['img']['name']);
                     move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
                 }
-                //thêm vô db
-                add_product($idcatalog, $ten_file_hinh, $name, $price);
+
+                // Thêm vô database
+                add_product($id_category, $img, $name, $price);
             }
+
             $productlist = getproduct();
             header('location: index.php?page=product');
-            // require_once('public/products.php');
             break;
         case 'product':
             //load sản phẩm
@@ -144,7 +146,7 @@ if (isset($_GET['page'])) {
                 $password = $_POST['password'];
                 $email = $_POST['email'];
                 $role = $_POST['role']; // Có thể là 'admin' hoặc 'user', tùy thuộc vào form
-            
+
                 // Dữ liệu cho thêm user
                 $data = [
                     'username' => $username,
@@ -152,10 +154,10 @@ if (isset($_GET['page'])) {
                     'password' => $password,
                     'role' => $role // Lấy role từ form
                 ];
-            
+
                 // Thêm người dùng
                 $result = addUser($data);
-            
+
                 if ($result) {
                     // Nếu thêm thành công, quay lại danh sách người dùng
                     $userlist = getAllUser();
@@ -172,14 +174,14 @@ if (isset($_GET['page'])) {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 // Lấy ID của người dùng
                 $id = $_GET['id'];
-                
+
                 // Xóa người dùng trong cơ sở dữ liệu
                 $tb = deleteUser($id); // Hàm xóa người dùng (cần được định nghĩa trong model hoặc controller)
             }
-            
+
             // Load lại danh sách người dùng sau khi xóa
             $userlist = getAllUser(); // Hàm lấy danh sách người dùng từ DB
-            
+
             // Điều hướng lại trang người dùng
             header('location: index.php?page=users');
             exit();
@@ -202,7 +204,7 @@ if (isset($_GET['page'])) {
                 $phone = $_POST['phone'];       // Số điện thoại
                 $role = $_POST['role'];         // Chức vụ (admin, user)
                 $status = $_POST['status'];     // Trạng thái (active, inactive)
-        
+
                 // Tạo mảng dữ liệu để truyền vào hàm updateUser
                 $data = [
                     'id' => $id,
@@ -212,15 +214,15 @@ if (isset($_GET['page'])) {
                     'role' => $role,
                     'status' => $status
                 ];
-        
+
                 // Cập nhật thông tin người dùng vào cơ sở dữ liệu
                 updateUser($data);
-        
+
                 // Sau khi cập nhật, chuyển hướng lại trang người dùng
-                header('location: index.php?page=users');  // Chuyển hướng về trang danh sách người dùng
+                header('location: index.php?page=users');
                 exit;  // Dừng tiếp tục thực thi
             }
-            break;                       
+            break;
         case 'coupon':
             $couponlist = get_coupon();
             require_once('public/coupon.php');
@@ -243,6 +245,7 @@ if (isset($_GET['page'])) {
                 $id = $_GET['id'];
                 $tb = delete_coupon($id);
             }
+            //load lại
             $couponlist = get_coupon();
             require_once('public/coupon.php');
             break;
@@ -273,7 +276,8 @@ if (isset($_GET['page'])) {
             require_once('public/coupon.php');
             break;
         case 'contact':
-            function get_contact() {
+            function get_contact()
+            {
                 $db = new ConnectModel();
                 $sql = "SELECT * FROM contact";
                 return $db->get_all($sql);
@@ -282,7 +286,8 @@ if (isset($_GET['page'])) {
             require_once('public/contact.php');
             break;
         case 'bill':
-            function get_bill() {
+            function get_bill()
+            {
                 $db = new ConnectModel();
                 $sql = "SELECT * FROM bill";
                 return $db->get_all($sql);
