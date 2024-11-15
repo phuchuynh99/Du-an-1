@@ -1,3 +1,15 @@
+<?php
+include_once "../model/getTotal.php";
+
+// Lấy tổng số sản phẩm từ database
+$totalProducts = get_total_product();
+$totalCategory = get_total_category();
+$totalCoupon = get_total_coupons();
+$totalBill = get_total_bill();
+$totalContact = get_total_contact();
+$totalUser = get_total_users();
+?>
+
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Left navbar links -->
@@ -202,7 +214,7 @@
             <i class="fa-solid fa-table-cells"></i>
             <p>
               Category
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-info right"><?php echo $totalCategory; ?></span>
               <!-- <span class="right badge badge-danger">New</span> -->
             </p>
           </a>
@@ -213,7 +225,7 @@
             <p>
               Product
               <!-- <span class="right badge badge-danger">New</span> -->
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-info right"><?php echo $totalProducts; ?></span>
             </p>
           </a>
         </li>
@@ -223,7 +235,7 @@
             <p>
               Coupon
               <!-- <i class="fas fa-angle-left right"></i> -->
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-info right"><?php echo $totalCoupon; ?></span>
             </p>
           </a>
         </li>
@@ -233,7 +245,7 @@
             <p>
               Contact
               <!-- <i class="fas fa-angle-left right"></i> -->
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-info right"><?php echo $totalContact; ?></span>
             </p>
           </a>
         </li>
@@ -243,7 +255,7 @@
             <p>
               Bill
               <!-- <i class="fas fa-angle-left right"></i> -->
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-info right"><?php echo $totalBill; ?></span>
             </p>
           </a>
         </li>
@@ -253,7 +265,7 @@
             <p>
               User
               <!-- <i class="fas fa-angle-left right"></i> -->
-              <span class="badge badge-info right">6</span>
+              <span class="badge badge-info right"><?php echo $totalUser; ?></span>
             </p>
           </a>
         </li>

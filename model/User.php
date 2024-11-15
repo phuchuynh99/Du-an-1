@@ -1,5 +1,6 @@
 <?php
-include_once "../model/connect.php";
+include_once "connect.php";
+
 
 function getAllUser() {
     $db = new ConnectModel();

@@ -80,4 +80,5 @@ function add_product($idcatalog, $img_url, $name, $price) {
    $sql = "INSERT INTO product(idcatalog, name, img, price) VALUES ('$idcatalog', '$name', '$img_url', '$price')";
    $db->insert($sql);
 }
+
 ?>
