@@ -30,7 +30,7 @@ class ConnectModel {
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         return $stmt->fetch();
     }
-
+        
     public function update($sql, $params = []) {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($params);
