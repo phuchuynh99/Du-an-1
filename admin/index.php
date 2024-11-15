@@ -1,12 +1,12 @@
 <?php
 ob_start();
-include_once "../model/connect.php";
 require_once('../view/global.php');
 require_once('../model/connect.php');
 require_once('../model/catalog.php');
 require_once('../model/product.php');
 require_once('../model/coupon.php');
 require_once('../model/user.php');
+require_once('../model/bill.php');
 require_once('public/head.php');
 require_once('public/nav.php');
 
@@ -300,15 +300,34 @@ if (isset($_GET['page'])) {
             require_once('public/contact.php');
             break;
         case 'bill':
-            function get_bill()
-            {
-                $db = new ConnectModel();
-                $sql = "SELECT * FROM bill";
-                return $db->get_all($sql);
-            }
             $billlist = get_bill();
             require_once('public/bill.php');
             break;
+        case 'billUpdateForm':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id = $_GET['id'];
+                $billone = getOneBillById($id);
+                require_once('public/billUpdateForm.php');
+            } else {
+                require_once('public/404.php');
+            }
+            break;
+        case 'updatebill':
+            if (isset($_POST['btnupdate']) && $_POST['btnupdate']) {
+                $id = $_POST['id'];
+                $status = isset($_POST['status']) ? $_POST['status'] : null; // Đảm bảo status có giá trị hợp lệ
+        
+                // Kiểm tra nếu $status là giá trị hợp lệ (ví dụ: 0, 1, 2, 3)
+                if ($status !== null && in_array($status, [0, 1, 2, 3])) {
+                    updateBill($id, $status); // Cập nhật trạng thái
+                    $billlist = get_bill(); // Lấy lại danh sách hóa đơn
+                    require_once('public/bill.php'); // Hiển thị lại danh sách
+                } else {
+                    // Nếu trạng thái không hợp lệ, có thể thông báo lỗi hoặc quay lại form
+                    echo "Trạng thái không hợp lệ!";
+                }
+            }
+            break;            
         case 'logout':
 
         default:

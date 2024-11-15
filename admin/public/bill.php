@@ -1,3 +1,13 @@
+<?php
+$statusList = [
+    0 => 'Mới', 
+    1 => 'Đang xử lý', 
+    2 => 'Hoàn thành', 
+    3 => 'Hủy bỏ'
+];
+?>
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -44,26 +54,33 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    $i = 1;
-                    foreach ($billlist as $bill):
-                      extract($bill);
-                      $edit = "<a href='index.php?page=contactUpdateForm&id=" . $id . "'>Sửa</a>";
-                      $del = "<a href='index.php?page=delcontact&id=" . $id . "'>Xóa</a>";
-                    ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $user['name']; ?></td>
-                        <td><?php echo $user['phone']; ?></td>
-                        <td><?php echo $user['address']; ?></td>
-                        <td><?php echo $user['payment_method']; ?></td>
-                        <td><?php echo $user['buy_date']; ?></td>
-                        <td><?php echo $user['total_amount']; ?></td>
-                        <td><?php echo $user['ststus']; ?></td>
-                        <td><?php echo $edit . ' - ' . $del; ?></td>
-                      </tr>
-                  <?php endforeach; ?>
+                  <?php
+                  $i = 1;
+                  foreach ($billlist as $bill) {
+                    extract($bill);
+                    $edit = "<a href='index.php?page=billUpdateForm&id=" . $id . "'>Sửa</a>";
+                    $del = "<a href='index.php?page=delcontact&id=" . $id . "'>Xóa</a>";
+                    $total_amount = number_format($total_amount, 0, ',', '.');
+
+                    // Dùng mảng $statusList để chuyển đổi trạng thái số thành chữ
+                    $status = isset($statusList[$status]) ? $statusList[$status] : 'Chưa xác định';
+
+                    echo '<tr>
+                                <td>' . $i . '</td>
+                                <td>' . $name . '</td>
+                                <td>' . $phone . '</td>
+                                <td>' . $address . '</td>
+                                <td>' . $payment_method . '</td>
+                                <td>' . $buy_date . '</td>
+                                <td>' . $total_amount . '</td>
+                                <td>' . $status . '</td>
+                                <td>' . $edit . ' - ' . $del . '</td>
+                            </tr>';
+                    $i++;
+                  }
+                  ?>
                 </tbody>
+
               </table>
             </div>
           </div>
