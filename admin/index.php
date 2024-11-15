@@ -84,30 +84,42 @@ if (isset($_GET['page'])) {
             }
             break;
         case 'productupdate':
-            //lấy dữ liệu từ form
+            // Lấy dữ liệu từ form
             if (isset($_POST['btnupdate'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
                 $price = $_POST['price'];
                 $discount_price = $_POST['discount_price'];
                 $id_category = $_POST['idcatalog'];
-                //lấy hình về 
+                $status = $_POST['status'];  // Lấy giá trị trạng thái từ form
                 $img = $_FILES['img']['name'];
+        
+                // Kiểm tra nếu có hình mới, upload hình mới và xóa hình cũ
                 if ($img != "") {
-                    //upload lên host
                     $target_file = "../" . PATH_IMG . basename($_FILES['img']['name']);
-                    move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
-                    //xóa hình cũ
-                    $hinh_cu = "../" . PATH_IMG . $_POST['hinhcu'];
-                    if (file_exists($hinh_cu)) unlink($hinh_cu);
+                    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                        // Xóa hình cũ nếu tồn tại
+                        $hinh_cu = "../" . PATH_IMG . $_POST['hinhcu'];
+                        if (file_exists($hinh_cu)) {
+                            unlink($hinh_cu);
+                        }
+                    } else {
+                        // Xử lý nếu upload không thành công
+                        echo "Lỗi khi tải ảnh lên.";
+                    }
+                } else {
+                    // Nếu không có ảnh mới, giữ ảnh cũ
+                    $img = $_POST['hinhcu'];
                 }
-                //upload vô db
-                update_product($id, $id_category, $img, $name, $price,$discount_price);
+        
+                // Cập nhật sản phẩm vào database, bao gồm trạng thái
+                update_product($id, $id_category, $img, $name, $price, $discount_price, $status);
+        
+                // Chuyển hướng về trang danh sách sản phẩm
+                header('Location: index.php?page=product');
+                exit(); // Đảm bảo dừng mã sau khi chuyển hướng
             }
-            $productlist = getproduct();
-            header('location: index.php?page=product');
-            // require_once('public/products.php');
-            break;
+            break;                     
         case 'addproduct':
             // Lấy dữ liệu từ form
             if (isset($_POST['btnadd'])) {
@@ -297,6 +309,7 @@ if (isset($_GET['page'])) {
             require_once('public/bill.php');
             break;
         case 'logout':
+            
         default:
             require_once('public/404.php');
     }
