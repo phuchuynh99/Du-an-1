@@ -184,9 +184,43 @@ if (isset($_GET['page'])) {
             header('location: index.php?page=users');
             exit();
             break;
-        case 'blockusers':
-            require_once('public/users.php');
+        case 'userUpdateForm':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id = $_GET['id'];
+                $userone = getOneUserById($id);
+                require_once('public/userUpdateForm.php');
+            } else {
+                require_once('public/404.php');
+            }
             break;
+        case 'userUpdate':
+            if (isset($_POST['btnupdate'])) {
+                // Nhận thông tin từ form
+                $id = $_POST['id'];         // ID người dùng
+                $username = $_POST['username'];  // Tên người dùng
+                $email = $_POST['email'];       // Email người dùng
+                $phone = $_POST['phone'];       // Số điện thoại
+                $role = $_POST['role'];         // Chức vụ (admin, user)
+                $status = $_POST['status'];     // Trạng thái (active, inactive)
+        
+                // Tạo mảng dữ liệu để truyền vào hàm updateUser
+                $data = [
+                    'id' => $id,
+                    'username' => $username,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'role' => $role,
+                    'status' => $status
+                ];
+        
+                // Cập nhật thông tin người dùng vào cơ sở dữ liệu
+                updateUser($data);
+        
+                // Sau khi cập nhật, chuyển hướng lại trang người dùng
+                header('location: index.php?page=users');  // Chuyển hướng về trang danh sách người dùng
+                exit;  // Dừng tiếp tục thực thi
+            }
+            break;                       
         case 'coupon':
             $couponlist = get_coupon();
             require_once('public/coupon.php');

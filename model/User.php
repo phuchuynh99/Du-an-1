@@ -37,13 +37,13 @@ function addUser($data) {
 // Cập nhật người dùng, bao gồm mã hóa lại mật khẩu nếu có thay đổi
 function updateUser($data) {
     $db = new ConnectModel();
-    $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
-    $sql = "UPDATE users SET username = ?, password = ?, email = ?, address = ?, phone = ?, name = ? WHERE id = ?";
+    $sql = "UPDATE users SET username = ?, email = ?, phone = ?, role = ?, status = ? WHERE id = ?";
     return $db->update($sql, [
-        $data['username'], $hashedPassword, $data['email'], 
-        $data['address'], $data['phone'], $data['name'], $data['id']
+        $data['username'], $data['email'], $data['phone'], 
+        $data['role'], $data['status'], $data['id']
     ]);
 }
+
 
 function deleteUser($id) {
     $db = new ConnectModel();
