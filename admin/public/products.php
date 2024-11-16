@@ -53,6 +53,7 @@ foreach ($cataloglist as $item){
                                         <th scope="col">Tên sản phẩm</th>
                                         <th scope="col">Giá</th>
                                         <th scope="col">Giá khuyến mãi</th>
+                                        <th scope="col">Trạng thái</th>
                                         <th scope="col">Thao tác</th>
                                         <!-- <th scope="col">Giá</th>
                                         <th scope="col">Thao tác</th> -->
@@ -71,12 +72,16 @@ foreach ($cataloglist as $item){
                                         $formatted_price = number_format($price, 0, ',', '.');
                                         $formatted_discount_price = number_format($discount_price, 0, ',', '.');
 
+                                        // Kiểm tra status và chuyển đổi sang tiếng Việt
+                                        $status = ($status == 1) ? 'Hoạt động' : 'Ẩn';
+
                                         echo '<tr>
                                                 <td>' . $i . '</td>
                                                 <td><img src="' . $img . '" width="80"></td>
                                                 <td>' . $name . '</td>
                                                 <td>' . $formatted_price . '</td>
                                                 <td>' . $formatted_discount_price . '</td>
+                                                <td>' . $status . '</td>
                                                 <td>' . $edit . ' - ' . $del . '</td>
                                             </tr>';
                                         $i++;

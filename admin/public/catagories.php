@@ -41,6 +41,7 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">Tên danh mục</th>
+                                        <th scope="col">Trạng thái</th>
                                         <th scope="col">Thao tác</th>
                                     </tr>
                                 </thead>
@@ -51,9 +52,13 @@
                                             extract($item);
                                             $edit="<a href='index.php?page=updateform&id=".$id."'>Sửa</a>";
                                             $del="<a href='index.php?page=del&id=".$id."'>Xóa</a>";
+
+                                            $status = ($status == 1) ? 'Hoạt động' : 'Ẩn'; 
+
                                             echo '<tr>
                                                     <td>'.$i.'</td>
                                                     <td>'.$name.'</td>
+                                                    <td>' . $status . '</td>
                                                     <td>'.$edit.' - '.$del.'</td>
                                                 </tr>';
                                             $i++;

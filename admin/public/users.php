@@ -33,32 +33,34 @@
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Customer's Name</th>
+                    <th scope="col">Username</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Chức vụ</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Số điện thoại</th>
+                    <th scope="col">Phân quyền</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Thao tác</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   $i = 1;
-                  foreach ($userlist as $user):
+                  foreach ($userlist as $user){
                     extract($user);
                     $edit = "<a href='index.php?page=userUpdateForm&id=" . $id . "'>Sửa</a>";
                     $del = "<a href='index.php?page=deluser&id=" . $id . "'>Xóa</a>";
+                    
+                    echo '<tr>
+                            <td>' . $i . '</td>
+                            <td>' . $username. '</td>
+                            <td>' . $email . '</td>
+                            <td>' . $phone . '</td>
+                            <td>' . $role . '</td>
+                            <td>' . $status . '</td>
+                            <td>' . $edit . ' - ' . $del . '</td>
+                        </tr>';
+                    $i++;
+                  }
                   ?>
-                    <tr>
-                      <td><?php echo $i++; ?></td>
-                      <td><?php echo $user['username']; ?></td>
-                      <td><?php echo $user['email']; ?></td>
-                      <td><?php echo $user['phone']; ?></td>
-                      <td><?php echo $user['role']; ?></td>
-                      <td><?php echo $user['status']; ?></td>
-                      <td><?php echo $edit . ' - ' . $del; ?></td>
-                    </tr>
-                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>

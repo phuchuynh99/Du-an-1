@@ -1,3 +1,13 @@
+<?php
+$statusList = [
+    0 => 'Đơn hàng mới', 
+    1 => 'Đang xử lý', 
+    2 => 'Hoàn thành', 
+    3 => 'Hủy bỏ'
+];
+?>
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -44,26 +54,35 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    $i = 1;
-                    foreach ($billlist as $bill):
-                      extract($bill);
-                      $edit = "<a href='index.php?page=contactUpdateForm&id=" . $id . "'>Sửa</a>";
-                      $del = "<a href='index.php?page=delcontact&id=" . $id . "'>Xóa</a>";
-                    ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $user['name']; ?></td>
-                        <td><?php echo $user['phone']; ?></td>
-                        <td><?php echo $user['address']; ?></td>
-                        <td><?php echo $user['payment_method']; ?></td>
-                        <td><?php echo $user['buy_date']; ?></td>
-                        <td><?php echo $user['total_amount']; ?></td>
-                        <td><?php echo $user['ststus']; ?></td>
-                        <td><?php echo $edit . ' - ' . $del; ?></td>
-                      </tr>
-                  <?php endforeach; ?>
+                  <?php
+                  $i = 1;
+                  foreach ($billlist as $bill) {
+                    extract($bill);
+                    $edit = "<a href='index.php?page=billUpdateForm&id=" . $id . "'>Sửa</a>";
+                    $del = "<a href='index.php?page=delcontact&id=" . $id . "'>Xóa</a>";
+                    $total_amount = number_format($total_amount, 0, ',', '.');
+
+                    // Dùng mảng $statusList để chuyển đổi trạng thái số thành chữ
+                    $status = isset($statusList[$status]) ? $statusList[$status] : 'Chưa xác định';
+
+                    $details = "<button type='button' class='btn btn-info btn-sm' data-toggle='modal' data-target='#modal-detail-$id'>Chi tiết</button>";
+                    
+                    echo '<tr>
+                            <td>' . $i . '</td>
+                            <td>' . $name . '</td>
+                            <td>' . $phone . '</td>
+                            <td>' . $address . '</td>
+                            <td>' . $payment_method . '</td>
+                            <td>' . $buy_date . '</td>
+                            <td>' . $total_amount . '</td>
+                            <td>' . $status . '</td>
+                            <td>' . $edit . ' - ' . $del . ' - ' . $details . '</td>
+                          </tr>';
+                    $i++;
+                  }
+                  ?>
                 </tbody>
+
               </table>
             </div>
           </div>
@@ -112,6 +131,53 @@
           <button type="submit" name="btnadd" class="btn btn-primary">Thêm liên hệ</button>
         </div>
       </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal for order details -->
+<div class="modal fade" id="modal-detail-<?php echo $id; ?>">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Chi tiết sản phẩm - Đơn hàng #<?php echo $id; ?></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Tên sản phẩm</th>
+              <th>Số lượng</th>
+              <th>Đơn giá</th>
+              <th>Tổng tiền</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            if (!empty($bill['product'])) {
+              foreach ($bill['product'] as $product) {
+                $product_total = $product['quantity'] * $product['price'];
+                echo '<tr>
+                        <td>' . $product['name'] . '</td>
+                        <td>' . $product['quantity'] . '</td>
+                        <td>' . number_format($product['price'], 0, ',', '.') . 'đ</td>
+                        <td>' . number_format($product_total, 0, ',', '.') . 'đ</td>
+                      </tr>';
+              }
+            } else {
+              echo '<tr><td colspan="4">Không có sản phẩm nào trong đơn hàng này.</td></tr>';
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+      </div>
     </div>
   </div>
 </div>

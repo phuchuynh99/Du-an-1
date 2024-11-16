@@ -276,7 +276,7 @@ $totalUser = get_total_users();
         <hr>
 
         <li class="nav-item" style="border-top: 1px solid #000;">
-          <a href="index.php?page=users" class="nav-link">
+          <a href="index.php?page=logout" class="nav-link">
             <i class="fa-solid fa-power-off"></i>
             <p>
               Logout

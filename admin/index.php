@@ -1,12 +1,12 @@
 <?php
 ob_start();
-include_once "../model/connect.php";
 require_once('../view/global.php');
 require_once('../model/connect.php');
 require_once('../model/catalog.php');
 require_once('../model/product.php');
 require_once('../model/coupon.php');
 require_once('../model/user.php');
+require_once('../model/bill.php');
 require_once('public/head.php');
 require_once('public/nav.php');
 
@@ -43,7 +43,8 @@ if (isset($_GET['page'])) {
             if (isset($_POST['btnupdate']) && ($_POST['btnupdate'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
-                set_catalog($id, $name);
+                $status = $_POST['status']; 
+                set_catalog($id, $name, $status);
                 $cataloglist = get_catalog();
                 require_once('public/catagories.php');
             }
@@ -84,30 +85,42 @@ if (isset($_GET['page'])) {
             }
             break;
         case 'productupdate':
-            //lấy dữ liệu từ form
+            // Lấy dữ liệu từ form
             if (isset($_POST['btnupdate'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
                 $price = $_POST['price'];
                 $discount_price = $_POST['discount_price'];
                 $id_category = $_POST['idcatalog'];
-                //lấy hình về 
+                $status = $_POST['status'];  // Lấy giá trị trạng thái từ form
                 $img = $_FILES['img']['name'];
+        
+                // Kiểm tra nếu có hình mới, upload hình mới và xóa hình cũ
                 if ($img != "") {
-                    //upload lên host
                     $target_file = "../" . PATH_IMG . basename($_FILES['img']['name']);
-                    move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);
-                    //xóa hình cũ
-                    $hinh_cu = "../" . PATH_IMG . $_POST['hinhcu'];
-                    if (file_exists($hinh_cu)) unlink($hinh_cu);
+                    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+                        // Xóa hình cũ nếu tồn tại
+                        $hinh_cu = "../" . PATH_IMG . $_POST['hinhcu'];
+                        if (file_exists($hinh_cu)) {
+                            unlink($hinh_cu);
+                        }
+                    } else {
+                        // Xử lý nếu upload không thành công
+                        echo "Lỗi khi tải ảnh lên.";
+                    }
+                } else {
+                    // Nếu không có ảnh mới, giữ ảnh cũ
+                    $img = $_POST['hinhcu'];
                 }
-                //upload vô db
-                update_product($id, $id_category, $img, $name, $price,$discount_price);
+        
+                // Cập nhật sản phẩm vào database, bao gồm trạng thái
+                update_product($id, $id_category, $img, $name, $price, $discount_price, $status);
+        
+                // Chuyển hướng về trang danh sách sản phẩm
+                header('Location: index.php?page=product');
+                exit(); // Đảm bảo dừng mã sau khi chuyển hướng
             }
-            $productlist = getproduct();
-            header('location: index.php?page=product');
-            // require_once('public/products.php');
-            break;
+            break;                     
         case 'addproduct':
             // Lấy dữ liệu từ form
             if (isset($_POST['btnadd'])) {
@@ -287,16 +300,49 @@ if (isset($_GET['page'])) {
             require_once('public/contact.php');
             break;
         case 'bill':
-            function get_bill()
-            {
-                $db = new ConnectModel();
-                $sql = "SELECT * FROM bill";
-                return $db->get_all($sql);
-            }
+            $billlist = [
+                [
+                    'id' => 1,
+                    'name' => 'Nguyen Van A',
+                    'phone' => '0123456789',
+                    'address' => '123 ABC, HCM',
+                    'payment_method' => 'COD',
+                    'buy_date' => '2024-11-16',
+                    'total_amount' => 200000,
+                    'status' => 0,
+                    'products' => [
+                        ['name' => 'Sản phẩm A', 'quantity' => 2, 'price' => 50000],
+                        ['name' => 'Sản phẩm B', 'quantity' => 1, 'price' => 100000],
+                    ]
+                ],
+                // Thêm các đơn hàng khác nếu cần
+            ];
+        
             $billlist = get_bill();
             require_once('public/bill.php');
             break;
+        case 'billUpdateForm':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $id = $_GET['id'];
+                $billone = getOneBillById($id);
+                require_once('public/billUpdateForm.php');
+            } else {
+                require_once('public/404.php');
+            }
+            break;
+        case 'updatebill':
+            if (isset($_POST['btnupdate'])) {
+                $id = $_POST['id'];
+                $status = $_POST['status']; 
+
+                updateBill($id, $status);
+        
+                header('Location: index.php?page=bill');
+                exit();
+            }
+            break;            
         case 'logout':
+
         default:
             require_once('public/404.php');
     }
