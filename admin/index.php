@@ -313,19 +313,12 @@ if (isset($_GET['page'])) {
             }
             break;
         case 'updatebill':
-            if (isset($_POST['btnupdate']) && $_POST['btnupdate']) {
+            if (isset($_POST['btnupdate'])) {
                 $id = $_POST['id'];
-                $status = isset($_POST['status']) ? $_POST['status'] : null; // Đảm bảo status có giá trị hợp lệ
-        
-                // Kiểm tra nếu $status là giá trị hợp lệ (ví dụ: 0, 1, 2, 3)
-                if ($status !== null && in_array($status, [0, 1, 2, 3])) {
-                    updateBill($id, $status); // Cập nhật trạng thái
-                    $billlist = get_bill(); // Lấy lại danh sách hóa đơn
-                    require_once('public/bill.php'); // Hiển thị lại danh sách
-                } else {
-                    // Nếu trạng thái không hợp lệ, có thể thông báo lỗi hoặc quay lại form
-                    echo "Trạng thái không hợp lệ!";
-                }
+                $status = $_POST['status']; 
+                updateBill($id, $status);
+                header('Location: index.php?page=bill');
+                exit();
             }
             break;            
         case 'logout':

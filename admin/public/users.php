@@ -51,7 +51,7 @@
                     
                     echo '<tr>
                             <td>' . $i . '</td>
-                            <td>' . $name. '</td>
+                            <td>' . $username. '</td>
                             <td>' . $email . '</td>
                             <td>' . $phone . '</td>
                             <td>' . $role . '</td>

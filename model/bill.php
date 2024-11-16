@@ -15,8 +15,8 @@ function getOneBillById($id) {
 
 function updateBill($id, $status) {
     $db = new ConnectModel();
-    $sql = "UPDATE bill SET status = ? WHERE id = ?";
-    $db->update($sql, [$status, $id]);
+    $sql = "UPDATE bill SET status = '$status' WHERE id = ".$id;
+    $db->update($sql);
 }
 
 
