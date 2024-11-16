@@ -29,10 +29,10 @@ body {
     font-size: 18px;
 }
 .product-colors .color-sample {
-    width: 50px; /* Kích thước của ảnh mẫu màu */
+    width: 50px; 
     height: 50px;
     margin: 5px;
-    border-radius: 8px; /* Định dạng hình ảnh nếu muốn */
+    border-radius: 8px; 
     overflow: hidden;
     border: 1px solid #ccc;
 }
@@ -40,7 +40,7 @@ body {
 .product-colors .color-sample img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Đảm bảo ảnh vừa với khung */
+    object-fit: cover; 
 }
 .description-tabs {
     margin-top: 20px;
@@ -63,6 +63,48 @@ body {
     background-color: #6b4f4f;
     border: none;
 }
+  .comment-section {
+    width: 60%;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .comment img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+
+  .comment-content {
+    background-color: #ffeef5;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  .username {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .date {
+    font-size: 0.85em;
+    color: #777;
+  }
+
+  .message {
+    margin: 5px 0;
+  }
 .product-card {
     background-color: #ffffff;
     border-radius: 8px;
