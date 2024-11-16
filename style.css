@@ -493,11 +493,6 @@ nav a:hover {
 }
 
  /* trang contact */
-body {
-  background-color: #eeebdf;
-}
-
-/* Hero Section */
 .hero {
   position: relative;
   text-align: center;
@@ -521,7 +516,6 @@ body {
   border-radius: 5px;
 }
 
-/* Contact Page */
 .contact-page {
   display: flex;
   gap: 20px;
