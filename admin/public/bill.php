@@ -1,6 +1,6 @@
 <?php
 $statusList = [
-    0 => 'Mới', 
+    0 => 'Đơn hàng mới', 
     1 => 'Đang xử lý', 
     2 => 'Hoàn thành', 
     3 => 'Hủy bỏ'

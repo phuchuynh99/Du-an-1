@@ -53,6 +53,7 @@ foreach ($cataloglist as $item){
                                         <th scope="col">Tên sản phẩm</th>
                                         <th scope="col">Giá</th>
                                         <th scope="col">Giá khuyến mãi</th>
+                                        <th scope="col">Màu sắc</th>
                                         <th scope="col">Trạng thái</th>
                                         <th scope="col">Thao tác</th>
                                         <!-- <th scope="col">Giá</th>
@@ -81,6 +82,7 @@ foreach ($cataloglist as $item){
                                                 <td>' . $name . '</td>
                                                 <td>' . $formatted_price . '</td>
                                                 <td>' . $formatted_discount_price . '</td>
+                                                <td>' . $color . '</td> <!-- Hiển thị màu sắc -->
                                                 <td>' . $status . '</td>
                                                 <td>' . $edit . ' - ' . $del . '</td>
                                             </tr>';
@@ -152,6 +154,12 @@ foreach ($cataloglist as $item){
                     <div class="mb-3">
                         <label for="topic-name" class="col-form-label">Giá:</label>
                         <input type="text" class="form-control" name="price">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="product-color" class="col-form-label">Màu sắc:</label>
+                        <input type="text" class="form-control" name="color" placeholder="Nhập màu sắc">
                     </div>
                 </div>
                 <div class="modal-body">

@@ -114,7 +114,7 @@ if (isset($_GET['page'])) {
                 }
         
                 // Cập nhật sản phẩm vào database, bao gồm trạng thái
-                update_product($id, $id_category, $img, $name, $price, $discount_price, $status);
+                update_product($id, $id_category, $img, $name, $price, $discount_price, $status, $color);
         
                 // Chuyển hướng về trang danh sách sản phẩm
                 header('Location: index.php?page=product');
@@ -127,7 +127,7 @@ if (isset($_GET['page'])) {
                 $name = $_POST['name'];
                 $price = $_POST['price'];
                 $id_category = $_POST['idcatalog']; // Đã sửa key
-
+                $color = $_POST['color'];
                 // Lấy hình về
                 $img = $_FILES['img']['name'];
                 if ($img != "") {
@@ -137,7 +137,7 @@ if (isset($_GET['page'])) {
                 }
 
                 // Thêm vô database
-                add_product($id_category, $img, $name, $price);
+                add_product($id_category, $img, $name, $price, $color);
             }
 
             $productlist = getproduct();

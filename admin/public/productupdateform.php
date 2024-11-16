@@ -1,17 +1,17 @@
 <?php
     extract($productone);
-    if($img != "") {
+    $hinh = "";
+    if ($img != "") {
         $img = "../".PATH_IMG.$img;
-        if(file_exists($img)) {
+        if (file_exists($img)) {
             $hinh = "<br><img src='".$img."' width='120'>";
-        } else {
-            $hinh = "";
         }
     }
     $productname = $name;
     $productid = $id;
     $productimg = $img;
     $discount_price = $discount_price;
+    $color = $color;
     $status_active = ($status == 1) ? 'selected' : '';
     $status_inactive = ($status == 0) ? 'selected' : '';
 
@@ -54,6 +54,15 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
+                    <label for="status" class="col-form-label">Status:</label>
+                    <select class="form-control select2" name="status">
+                        <option value="active" <?=($status == 'active') ? 'selected' : ''?>>Active</option>
+                        <option value="inactive" <?=($status == 'inactive') ? 'selected' : ''?>>Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
                     <label for="topic-name" class="col-form-label">Tên sản phẩm:</label>
                     <input type="text" class="form-control" name="name" value="<?=$productname?>">
                 </div>
@@ -68,6 +77,12 @@
                 <div class="mb-3">
                     <label for="topic-name" class="col-form-label">Giá khuyến mãi:</label>
                     <input type="text" class="form-control" name="discount_price" value="<?=$discount_price?>">
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="topic-name" class="col-form-label">Màu sắc:</label>
+                    <input type="text" class="form-control" name="color" value="<?=$color?>">
                 </div>
             </div>
             <div class="modal-body">
