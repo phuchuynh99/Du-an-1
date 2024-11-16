@@ -57,7 +57,7 @@ function ten_file_hinh($id){
    return $img; 
 }
 
-function update_product($id, $id_category, $img, $name, $price, $discount_price, $status, $color){
+function update_product($id, $id_category, $img, $name, $price, $discount_price, $status){
    $db = new ConnectModel();
    // Kiểm tra nếu có ảnh được cập nhật
    if($img != ""){
@@ -68,8 +68,7 @@ function update_product($id, $id_category, $img, $name, $price, $discount_price,
                    name = '$name', 
                    price = '$price', 
                    discount_price = '$discount_price', 
-                   status = '$status',
-                   color = '$color'
+                   status = '$status' 
                WHERE id = ".$id;
    } else {
        // Nếu không có ảnh mới, giữ ảnh cũ
@@ -78,8 +77,7 @@ function update_product($id, $id_category, $img, $name, $price, $discount_price,
                    name = '$name', 
                    price = '$price', 
                    discount_price = '$discount_price', 
-                   status = '$status',
-                   color = '$color'
+                   status = '$status' 
                WHERE id = ".$id;
    }
    $db->update($sql);
@@ -95,9 +93,9 @@ function delete_product($id){
    return $tb;
 }
 
-function add_product($id_category, $img, $name, $price, $color) {
+function add_product($id_category, $img, $name, $price) {
    $db = new ConnectModel();
-   $sql = "INSERT INTO product(id_category, name, img, price, color) VALUES ('$id_category', '$name', '$img', '$price', '$color')";
+   $sql = "INSERT INTO product(id_category, name, img, price) VALUES ('$id_category', '$name', '$img', '$price')";
    $db->insert($sql);
 }
 
