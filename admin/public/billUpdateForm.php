@@ -30,10 +30,10 @@ $status_canceled= ($status == 4) ? 'selected' : '';
                 <div class="mb-3">
                     <label for="status" class="col-form-label">Trạng thái:</label>
                     <select class="form-control" name="status">
-                        <option value="1" <?=$status_new?>>Đơn hàng mới</option>
-                        <option value="0" <?=$status_processing?>>Đăng xử lí</option>
-                        <option value="0" <?=$status_completed?>>Hoàn thành</option>
-                        <option value="0" <?=$status_canceled?>>Hủy bỏ</option>
+                        <option value="0" <?=$status_new?>>Đơn hàng mới</option>
+                        <option value="1" <?=$status_processing?>>Đăng xử lí</option>
+                        <option value="2" <?=$status_completed?>>Hoàn thành</option>
+                        <option value="3" <?=$status_canceled?>>Hủy bỏ</option>
                     </select>
                 </div>
             </div>
