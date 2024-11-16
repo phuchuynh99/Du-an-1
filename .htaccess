@@ -1,0 +1,8 @@
+
+RewriteEngine On
+RewriteRule ^controller/ - [F]
+RewriteRule ^model/ - [F]
+RewriteRule ^view/ - [F]
+
+RewriteRule ^(\w+)$ index.php?action=$1
+RewriteRule ^(\w+)/(\w+)$ index.php?action=$1&id=$2

@@ -57,28 +57,32 @@ function ten_file_hinh($id){
    return $img; 
 }
 
-function update_product($id, $id_category, $img, $name, $price, $discount_price){
+function update_product($id, $id_category, $img, $name, $price, $discount_price, $status){
    $db = new ConnectModel();
+   // Kiểm tra nếu có ảnh được cập nhật
    if($img != ""){
-      // Nếu có ảnh được cập nhật
-      $sql = "UPDATE product 
-              SET img = '$img', 
-                  id_category = '$id_category', 
-                  name = '$name', 
-                  price = '$price', 
-                  discount_price = '$discount_price' 
-              WHERE id = ".$id;
+       // Cập nhật với ảnh mới
+       $sql = "UPDATE product 
+               SET img = '$img', 
+                   id_category = '$id_category', 
+                   name = '$name', 
+                   price = '$price', 
+                   discount_price = '$discount_price', 
+                   status = '$status' 
+               WHERE id = ".$id;
    } else {
-      // Nếu không có ảnh được cập nhật
-      $sql = "UPDATE product 
-              SET id_category = '$id_category', 
-                  name = '$name', 
-                  price = '$price', 
-                  discount_price = '$discount_price' 
-              WHERE id = ".$id;
+       // Nếu không có ảnh mới, giữ ảnh cũ
+       $sql = "UPDATE product 
+               SET id_category = '$id_category', 
+                   name = '$name', 
+                   price = '$price', 
+                   discount_price = '$discount_price', 
+                   status = '$status' 
+               WHERE id = ".$id;
    }
    $db->update($sql);
 }
+
 
 
 function delete_product($id){

@@ -1,26 +1,26 @@
 <?php
-include_once "connect.php";
+// include_once "connect.php";
 
-$mysql = new mysql($username, $password, $name, $phone);
+// $mysql = new mysql($username, $password, $name, $phone);
 
-$id = $_POST['id'];
-$block_status = 0;
+// $id = $_POST['id'];
+// $block_status = 0;
 
-$response = array();
-$result = mysql_query($mysql, "UPDATE users SET status = 1 WHERE id = $id ")
-if($result) {
-    $response['message'] = "user block successfully!";
-    $response['status'] = 200;
-} else {
-    $response['message'] = "Error block user!";
-    $response['status'] = 500;
-}
+// $response = array();
+// $result = mysql_query($mysql, "UPDATE users SET status = 1 WHERE id = $id ")
+// if($result) {
+//     $response['message'] = "user block successfully!";
+//     $response['status'] = 200;
+// } else {
+//     $response['message'] = "Error block user!";
+//     $response['status'] = 500;
+// }
 
-echo json_encode($response);
+// echo json_encode($response);
 
+?>
+<!-- function blc() {
 
-function blc() {
-    // init sweet aleart
     swal({
         title: "Block User",
         text: "Are you sure?",
@@ -64,4 +64,5 @@ function blc() {
             Swal("Cancelled", "Your selected User is safe :)", "error");
         }
     });
-}
+} -->
+
