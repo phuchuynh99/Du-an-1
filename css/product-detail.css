@@ -84,6 +84,9 @@ body {
     border-radius: 50%;
     margin-right: 15px;
   }
+  .cme{
+    text-align: center;
+  }
 
   .comment-content {
     background-color: #ffeef5;
