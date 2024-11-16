@@ -300,6 +300,24 @@ if (isset($_GET['page'])) {
             require_once('public/contact.php');
             break;
         case 'bill':
+            $billlist = [
+                [
+                    'id' => 1,
+                    'name' => 'Nguyen Van A',
+                    'phone' => '0123456789',
+                    'address' => '123 ABC, HCM',
+                    'payment_method' => 'COD',
+                    'buy_date' => '2024-11-16',
+                    'total_amount' => 200000,
+                    'status' => 0,
+                    'products' => [
+                        ['name' => 'Sản phẩm A', 'quantity' => 2, 'price' => 50000],
+                        ['name' => 'Sản phẩm B', 'quantity' => 1, 'price' => 100000],
+                    ]
+                ],
+                // Thêm các đơn hàng khác nếu cần
+            ];
+        
             $billlist = get_bill();
             require_once('public/bill.php');
             break;
@@ -313,19 +331,14 @@ if (isset($_GET['page'])) {
             }
             break;
         case 'updatebill':
-            if (isset($_POST['btnupdate']) && $_POST['btnupdate']) {
+            if (isset($_POST['btnupdate'])) {
                 $id = $_POST['id'];
-                $status = isset($_POST['status']) ? $_POST['status'] : null; // Đảm bảo status có giá trị hợp lệ
+                $status = $_POST['status']; 
+
+                updateBill($id, $status);
         
-                // Kiểm tra nếu $status là giá trị hợp lệ (ví dụ: 0, 1, 2, 3)
-                if ($status !== null && in_array($status, [0, 1, 2, 3])) {
-                    updateBill($id, $status); // Cập nhật trạng thái
-                    $billlist = get_bill(); // Lấy lại danh sách hóa đơn
-                    require_once('public/bill.php'); // Hiển thị lại danh sách
-                } else {
-                    // Nếu trạng thái không hợp lệ, có thể thông báo lỗi hoặc quay lại form
-                    echo "Trạng thái không hợp lệ!";
-                }
+                header('Location: index.php?page=bill');
+                exit();
             }
             break;            
         case 'logout':

@@ -1,11 +1,10 @@
 <?php
     extract($productone);
-    if($img != "") {
+    $hinh = ""; // Đặt giá trị mặc định cho $hinh
+    if ($img != "") {
         $img = "../".PATH_IMG.$img;
-        if(file_exists($img)) {
+        if (file_exists($img)) {
             $hinh = "<br><img src='".$img."' width='120'>";
-        } else {
-            $hinh = "";
         }
     }
     $productname = $name;

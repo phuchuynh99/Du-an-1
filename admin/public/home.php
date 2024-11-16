@@ -4,6 +4,9 @@ include_once "../model/getTotal.php";
 // Lấy tổng số sản phẩm từ database
 $totalProducts = get_total_product();
 $totalUser = get_total_users();
+$totalBill = get_total_bill();
+$totalNewBill = total_new_bill();
+$getNewBill = isset($totalNewBill) ? $totalNewBill : 0;
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -35,7 +38,7 @@ $totalUser = get_total_users();
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3><?php echo $totalProducts; ?></h3>
+                  <h3><?php echo $getNewBill; ?></h3>
 
                   <p>New Orders</p>
                 </div>
