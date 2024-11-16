@@ -492,7 +492,7 @@ nav a:hover {
   border-radius: 10px;
 }
 
-/* /* trang contact */
+ /* trang contact */
 body {
   background-color: #eeebdf;
 }
@@ -526,6 +526,7 @@ body {
   display: flex;
   gap: 20px;
   padding: 20px;
+  margin: 30px;
 }
 
 .left-section {
