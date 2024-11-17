@@ -52,7 +52,9 @@
                 <a href="cart.html" class="text-white">
                     <i class="fas fa-shopping-cart head-icon"></i>
                 </a>
-                <i class="fas fa-user head-icon"></i>
+                <a href="index.php?page=login">
+                    <i class="fas fa-user head-icon"></i>
+                </a>
             </div>
         </div>
     </header>
