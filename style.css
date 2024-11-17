@@ -491,3 +491,84 @@ nav a:hover {
   height: auto;
   border-radius: 10px;
 }
+
+ /* trang contact */
+.hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF4CC;
+  font-size: 2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.contact-page {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  margin: 30px;
+}
+
+.left-section {
+  flex: 1;
+}
+
+.left-section h2,
+.left-section h3 {
+  margin-bottom: 10px;
+}
+
+.left-section p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.map iframe {
+  border: none;
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.right-section {
+  flex: 1;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.right-section fieldset {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #6F6A58;
+  padding: 12px;
+}
+
+.right-section .input-contact {
+  color: #544f40;
+}
+
+.right-section .chat-contact {
+  padding: 50px 14px;
+}
+
+.right-section button {
+  margin-top: 10px;
+  padding: 5px 30px;
+  border-radius: 5px;
+  background-color: #6F6A58;
+  color: #fff;
+} 
