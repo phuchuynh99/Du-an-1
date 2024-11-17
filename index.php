@@ -12,7 +12,7 @@
    include_once "view/header.php";
 
    if(isset($_GET['page'])&&($_GET['page'] != "")){
-      switch ($_GET['pg']) {
+      switch ($_GET['page']) {
          case 'products':
             if(isset($_GET['idcatalog'])&&($_GET['idcatalog']>0)){
                $idcatalog=$_GET['idcatalog'];

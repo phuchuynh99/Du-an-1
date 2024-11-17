@@ -14,7 +14,9 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/products.css">
+    <link rel="stylesheet" href="public/css/product-detail.css">
     <link rel="stylesheet" href="font.css">
 
 </head>
