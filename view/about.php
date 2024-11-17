@@ -7,7 +7,7 @@
 </div>
 <div class="container">
   <div class="breadcrumb">
-    <a href="index.html">Trang chủ</a> >
+    <a href="index.php?page=home">Trang chủ</a> >
     <span class="current">Giới thiệu</span>
   </div>
   <div class="about-section">
@@ -25,7 +25,7 @@
     </div>
     <div class="about-image">
       <img
-        src="images/about.png"
+        src="public/images/about.png"
         alt="Chiến lược giá cạnh tranh" />
     </div>
   </div>
