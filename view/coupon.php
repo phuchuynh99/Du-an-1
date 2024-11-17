@@ -11,7 +11,7 @@
         <label for="code">Nhập mã giảm giá:</label>
         <input type="text" id="code" name="code" required>
         
-        <button type="submit" name="btnApplyCoupon">Áp Dụng</button>
+        <button type="submit" name="btnadd">Áp Dụng</button>
     </form>
 </body>
 </html>
