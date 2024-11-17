@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="public/css/products.css">
     <link rel="stylesheet" href="public/css/product-detail.css">
     <link rel="stylesheet" href="public/css/font.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -25,7 +28,7 @@
     <header class="bg-secondary py-3">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="logo">
-                <img src="1.png" alt="Nailuxe Logo" class="me-2" />
+                <img src="public/img/banner/logo.png" alt="Nailuxe Logo" class="me-2" />
             </div>
 
             <nav>
@@ -49,7 +52,7 @@
             </nav>
 
             <div class="icons d-flex gap-3">
-                <a href="cart.html" class="text-white">
+                <a href="index.php?page=cart" class="text-white">
                     <i class="fas fa-shopping-cart head-icon"></i>
                 </a>
                 <a href="index.php?page=login" class="text-white">

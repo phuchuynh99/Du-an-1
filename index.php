@@ -25,112 +25,115 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          $catalog_list = get_catalog();
          include_once "view/products.php";
          break;
-      // case 'productdetail':
-      //    if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
-      //       $idproduct = $_GET['idproduct'];
-      //       $idcatalog = get_idcatalog($idproduct);
+      case 'productDetail':
+         include_once "view/productDetail.php";
+         break;
+         // case 'productdetail':
+         //    if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
+         //       $idproduct = $_GET['idproduct'];
+         //       $idcatalog = get_idcatalog($idproduct);
 
-      //       $detail = get_product_detail($idproduct);
-      //       $related = get_related_product($idcatalog, $idproduct);
+         //       $detail = get_product_detail($idproduct);
+         //       $related = get_related_product($idcatalog, $idproduct);
 
-      //       include_once "view/productdetail.php";
-      //    }
+         //       include_once "view/productdetail.php";
+         //    }
 
-      //    break;
-      // case 'blog':
-      //    include_once "view/blog.php";
-      //    break;
-      // case 'delcart':
-      //    if (isset($_GET['ind']) && ($_GET['ind'] >= 0)) {
-      //       array_splice($_SESSION['giohang'], $_GET['ind'], 1);
-      //       header('location: index.php?pg=viewcart');
-      //    }
-      //    break;
-      // case 'viewcart':
-      //    include_once "view/viewcart.php";
-      //    break;
-      // case 'addcart':
-      //    if (isset($_POST['btnaddcart']) && ($_POST['btnaddcart'])) {
-      //       $id = $_POST['id'];
-      //       $name = $_POST['name'];
-      //       $img = $_POST['img'];
-      //       $soluong = $_POST['soluong'];
-      //       $price = $_POST['price'];
-      //       $sp = ["id" => $id, "img" => $img, "name" => $name, "price" => $price, "soluong" => $soluong];
-      //       $_SESSION['giohang'][] = $sp;
-      //       header('location: index.php?pg=viewcart');
-      //    }
-      //    break;
-      // case 'userlogin':
-      //    if (isset($_POST['btn_login'])) {
-      //       $username = $_POST['username'];
-      //       $password = $_POST['password'];
-      //       $user = new User();
-      //       $userinfo = $user->checkUser($username, $password);
-      //       if (is_array($userinfo)) {
-      //          $_SESSION['userinfo'] = $userinfo;
-      //          if (!empty($userinfo['name']) && !empty($userinfo['address']) && !empty($userinfo['phone'])) {
-      //             include './view/home.php';
-      //          } else {
-      //             header("Location: index.php?pg=userUpdateForm");
-      //          }
-      //       } else {
-      //          echo "<h4 style='color:red;'>Tài khoản không tồn tại</h4>";
-      //          include_once './view/login.php';
-      //       }
-      //    } else {
-      //       include_once "view/login.php";
-      //    }
-      //    break;
-      // case 'logout':
-      //    if (isset($_SESSION['userinfo'])) {
-      //       unset($_SESSION['userinfo']);
-      //    }
-      //    $newproduct = getproduct();
-      //    $saleproduct = getsaleproduct();
-      //    $featureproduct = getfeatureproduct();
-      //    $viewproduct = getviewproduct();
-      //    include_once './view/home.php';
-      //    break;
-      // case 'userUpdate':
-      //    if (isset($_POST['btn_update'])) {
-      //       $username = $_POST['username'];
-      //       $password = $_POST['password'];
-      //       $email = $_POST['email'];
-      //       $name = $_POST['name'];
-      //       $address = $_POST['address'];
-      //       $phone = $_POST['phone'];
-      //       $id = $_POST['id'];
-      //       $_SESSION['userinfo']['username'] = $username;
-      //       $_SESSION['userinfo']['password'] = $password;
-      //       $_SESSION['userinfo']['email'] = $email;
-      //       $_SESSION['userinfo']['name'] = $name;
-      //       $_SESSION['userinfo']['address'] = $address;
-      //       $_SESSION['userinfo']['phone'] = $phone;
+         //    break;
+         // case 'blog':
+         //    include_once "view/blog.php";
+         //    break;
+         // case 'delcart':
+         //    if (isset($_GET['ind']) && ($_GET['ind'] >= 0)) {
+         //       array_splice($_SESSION['giohang'], $_GET['ind'], 1);
+         //       header('location: index.php?pg=viewcart');
+         //    }
+         //    break;
+         // case 'viewcart':
+         //    include_once "view/viewcart.php";
+         //    break;
+         // case 'addcart':
+         //    if (isset($_POST['btnaddcart']) && ($_POST['btnaddcart'])) {
+         //       $id = $_POST['id'];
+         //       $name = $_POST['name'];
+         //       $img = $_POST['img'];
+         //       $soluong = $_POST['soluong'];
+         //       $price = $_POST['price'];
+         //       $sp = ["id" => $id, "img" => $img, "name" => $name, "price" => $price, "soluong" => $soluong];
+         //       $_SESSION['giohang'][] = $sp;
+         //       header('location: index.php?pg=viewcart');
+         //    }
+         //    break;
+         // case 'userlogin':
+         //    if (isset($_POST['btn_login'])) {
+         //       $username = $_POST['username'];
+         //       $password = $_POST['password'];
+         //       $user = new User();
+         //       $userinfo = $user->checkUser($username, $password);
+         //       if (is_array($userinfo)) {
+         //          $_SESSION['userinfo'] = $userinfo;
+         //          if (!empty($userinfo['name']) && !empty($userinfo['address']) && !empty($userinfo['phone'])) {
+         //             include './view/home.php';
+         //          } else {
+         //             header("Location: index.php?pg=userUpdateForm");
+         //          }
+         //       } else {
+         //          echo "<h4 style='color:red;'>Tài khoản không tồn tại</h4>";
+         //          include_once './view/login.php';
+         //       }
+         //    } else {
+         //       include_once "view/login.php";
+         //    }
+         //    break;
+         // case 'logout':
+         //    if (isset($_SESSION['userinfo'])) {
+         //       unset($_SESSION['userinfo']);
+         //    }
+         //    $newproduct = getproduct();
+         //    $saleproduct = getsaleproduct();
+         //    $featureproduct = getfeatureproduct();
+         //    $viewproduct = getviewproduct();
+         //    include_once './view/home.php';
+         //    break;
+         // case 'userUpdate':
+         //    if (isset($_POST['btn_update'])) {
+         //       $username = $_POST['username'];
+         //       $password = $_POST['password'];
+         //       $email = $_POST['email'];
+         //       $name = $_POST['name'];
+         //       $address = $_POST['address'];
+         //       $phone = $_POST['phone'];
+         //       $id = $_POST['id'];
+         //       $_SESSION['userinfo']['username'] = $username;
+         //       $_SESSION['userinfo']['password'] = $password;
+         //       $_SESSION['userinfo']['email'] = $email;
+         //       $_SESSION['userinfo']['name'] = $name;
+         //       $_SESSION['userinfo']['address'] = $address;
+         //       $_SESSION['userinfo']['phone'] = $phone;
 
-      //       $data = [
-      //          'username' => $username,
-      //          'password' => $password,
-      //          'email' => $email,
-      //          'name' => $name,
-      //          'address' => $address,
-      //          'phone' => $phone,
-      //          'id' => $id,
-      //       ];
+         //       $data = [
+         //          'username' => $username,
+         //          'password' => $password,
+         //          'email' => $email,
+         //          'name' => $name,
+         //          'address' => $address,
+         //          'phone' => $phone,
+         //          'id' => $id,
+         //       ];
 
-      //       $user = new User();
-      //       if ($user->UpdateUser($data)) {
-      //          echo "<h4 style='color:red;'>Failed to update user</h4>";
-      //       } else {
-      //          echo "<h4 style='color:green;'>User updated successfully</h4>";
-      //       }
-      //    }
-      //    $newproduct = getproduct();
-      //    $saleproduct = getsaleproduct();
-      //    $featureproduct = getfeatureproduct();
-      //    $viewproduct = getviewproduct();
-      //    include_once './view/home.php';
-      //    break;
+         //       $user = new User();
+         //       if ($user->UpdateUser($data)) {
+         //          echo "<h4 style='color:red;'>Failed to update user</h4>";
+         //       } else {
+         //          echo "<h4 style='color:green;'>User updated successfully</h4>";
+         //       }
+         //    }
+         //    $newproduct = getproduct();
+         //    $saleproduct = getsaleproduct();
+         //    $featureproduct = getfeatureproduct();
+         //    $viewproduct = getviewproduct();
+         //    include_once './view/home.php';
+         //    break;
       case 'userUpdateForm':
          include_once "view/userUpdateForm.php";
          break;
@@ -200,7 +203,9 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
       case 'about':
          include_once "view/about.php";
          break;
-
+      case 'cart':
+         include_once "view/cart.php";
+         break;
       default:
          // echo "Bạn đang vào trang chủ";
          // require home
