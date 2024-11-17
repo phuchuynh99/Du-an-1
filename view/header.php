@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>Trang chủ</title>
     <link
         href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
         rel="stylesheet" />
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/products.css">
     <link rel="stylesheet" href="public/css/product-detail.css">
-    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="public/css/font.css">
 
 </head>
 

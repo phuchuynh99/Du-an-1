@@ -14,14 +14,14 @@
    if(isset($_GET['page'])&&($_GET['page'] != "")){
       switch ($_GET['page']) {
          case 'products':
-            if(isset($_GET['idcatalog'])&&($_GET['idcatalog']>0)){
-               $idcatalog=$_GET['idcatalog'];
-            }else{
-               $idcatalog=0;
-            }
-            $productlist=getproduct($idcatalog);
-            $catalog_list=get_catalog();
-            include_once "view/product.php";
+            // if(isset($_GET['idcatalog'])&&($_GET['idcatalog']>0)){
+            //    $idcatalog=$_GET['idcatalog'];
+            // }else{
+            //    $idcatalog=0;
+            // }
+            // $productlist=getproduct($idcatalog);
+            // $catalog_list=get_catalog();
+            include_once "view/products.php";
             break;
          case 'productdetail':
             if(isset($_GET['idproduct'])&&($_GET['idproduct']>0)){
