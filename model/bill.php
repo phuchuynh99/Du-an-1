@@ -1,5 +1,5 @@
 <?php
-include_once "../model/connect.php";
+include_once "connect.php";
 
 function get_bill() {
     $db = new ConnectModel();

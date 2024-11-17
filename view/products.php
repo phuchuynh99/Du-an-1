@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>all-products</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/products.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-</head>
-<body>
-    <div class="container my-4">
+<div class="container my-4">
         <div class="row">
             <!-- Sidebar -->
             <aside class="col-md-3 mb-4">
@@ -31,7 +20,7 @@
 
                     <div class="col-md-3 col-sm-6">
                         <div class="p-card text-center shadow-sm p-3">
-                            <img src="public/img/mài 1.webp" class="p-img img-fluid" alt="">
+                            <img src="img/mài 1.webp" class="p-img img-fluid" alt="">
                             <h5 class="p-name mt-3">Dũa móng tay Halfmoon</h5>
                             <p class="orig-price text-muted"><del>300,000₫</del></p>
                             <p class="disc-price">270,000₫</p>
@@ -43,14 +32,7 @@
                             </div>
                         </div>
                     </div>
-
-                    
-
                 </div>
             </section>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>

@@ -170,7 +170,7 @@ if (isset($_GET['page'])) {
                 ];
 
                 // Thêm người dùng
-                $result = addUser($data);
+                $result = addAdmin($data);
 
                 if ($result) {
                     // Nếu thêm thành công, quay lại danh sách người dùng
