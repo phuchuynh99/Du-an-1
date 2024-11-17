@@ -12,7 +12,8 @@ body {
   margin: 0 auto;
 }
 header {
-  background-color: #7e796f;
+  background-color: #6f6a58;
+  line-height: 70px;
 }
 
 header .container {
@@ -490,4 +491,137 @@ nav a:hover {
   width: 100%;
   height: auto;
   border-radius: 10px;
+}
+
+
+/* Process order  */
+.order-box {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.info-order {
+  flex: 2;
+  margin-right: 30px;
+}
+
+.info-order input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #6f6a58;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.info-order textarea {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #6f6a58;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.summary-order {
+  flex: 1;
+  border: 1px solid #6f6a58;
+  padding: 16px 24px;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.order-detail {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.order-detail h3 {
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #000;
+}
+
+.order-detail .product-name,
+.order-detail .price {
+  display: inline-block;
+  text-align: left;
+}
+
+.order-detail .product-name {
+  width: 50%;
+}
+
+.order-detail .price {
+  width: 30%;
+  text-align: right;
+  color: red;
+  font-weight: bold;
+}
+
+.total {
+  margin-top: 15px;
+}
+
+.total p {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.total .price {
+  color: red;
+  font-weight: bold;
+}
+
+.voucher-oder {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.voucher-oder input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.order-btn {
+  padding: 8px 15px;
+  background-color: #6f6a58;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.payment-method {
+  margin-bottom: 20px;
+}
+
+.payment-method label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.payment-method input[type="radio"] {
+  margin-right: 10px;
+}
+
+.pay-btn {
+  padding: 10px 20px;
+  background-color: #6f6a58;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
 }
