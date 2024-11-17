@@ -200,6 +200,9 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
       case 'about':
          include_once "view/about.php";
          break;
+      case 'cart':
+         include_once "view/cart.php";
+         break;
       default:
          // echo "Bạn đang vào trang chủ";
          // require home

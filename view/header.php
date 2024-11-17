@@ -25,7 +25,7 @@
     <header class="bg-secondary py-3">
         <div class="container d-flex align-items-center justify-content-between">
             <div class="logo">
-                <img src="1.png" alt="Nailuxe Logo" class="me-2" />
+                <img src="public/img/banner/logo.png" alt="Nailuxe Logo" class="me-2" />
             </div>
 
             <nav>
@@ -49,7 +49,7 @@
             </nav>
 
             <div class="icons d-flex gap-3">
-                <a href="cart.html" class="text-white">
+                <a href="index.php?page=cart" class="text-white">
                     <i class="fas fa-shopping-cart head-icon"></i>
                 </a>
                 <a href="index.php?page=login">
