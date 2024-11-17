@@ -23,6 +23,7 @@
                 <button type="submit" name="btnlogin" class="btn w-100 login-btn">Đăng nhập</button>
             </div>
             <div class="text-center mt-3">
+                <a href="index.php?page=register" class="forget">Bạn chưa đăng ký</a> <br>
                 <a href="#" class="forget">Quên mật khẩu? Khôi phục mật khẩu</a>
             </div>
         </form>

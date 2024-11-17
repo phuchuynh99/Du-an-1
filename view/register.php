@@ -12,7 +12,7 @@
 
         <div class="text-center or">Hoặc</div>
 
-        <form action="index.php?page=addusers" id="form-login" class="mt-4 mx-auto" style="max-width: 400px">
+        <form action="index.php?page=addusers" method="POST" id="form-login" class="mt-4 mx-auto" style="max-width: 400px">
             <div class="mb-3 form-group">
                 <input type="text" class="form-control" name="username" placeholder="Tên tài khoản" required>
             </div>
