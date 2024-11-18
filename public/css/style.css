@@ -47,6 +47,7 @@ nav a:hover {
   display: flex;
   flex-direction: row;
   gap: 24px;
+  align-items: center;
 }
 .head-icon {
   color: #ffffff;
@@ -162,6 +163,148 @@ nav a:hover {
 .forget:hover {
   color: #c81d25;
   text-decoration: underline;
+}
+
+.ht-us-menu,
+.ht-cr-menu {
+  margin-right: 15px;
+}
+
+.ht-us-menu>li,
+.ht-cr-menu>li {
+  position: relative;
+  list-style: none; /* Xóa dấu chấm */
+}
+
+.ht-us-menu>li>a,
+.ht-cr-menu>li>a {
+  color: #f5f3ec;
+  display: block;
+  font-weight: normal;
+  position: relative;
+  text-transform: capitalize;
+  z-index: 10;
+  font-size: 12px;
+  line-height: 40px;
+}
+
+.ht-us-menu>li>a::after,
+.ht-cr-menu>li>a::after {
+  display: block;
+  content: "\f107";
+  font-family: FontAwesome;
+  font-size: 12px;
+  padding-left: 10px;
+  line-height: 40px;
+  float: right;
+}
+
+.ht-us-menu>li>a:hover,
+.ht-cr-menu>li>a:hover {
+  color: #d1c6b6;
+}
+
+.ht-us-menu>li>a i,
+.ht-cr-menu>li>a i {
+  font-size: 18px;
+  color: #f5f3ec;
+  padding-right: 8px;
+  vertical-align: middle;
+}
+
+.ht-us-menu>li:hover .ht-dropdown,
+.ht-cr-menu>li:hover .ht-dropdown {
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.ht-us-menu.color-white>li>a,
+.ht-cr-menu.color-white>li>a {
+  color: #d8d8d8;
+}
+
+.ht-us-menu.color-white>li>a i,
+.ht-cr-menu.color-white>li>a i {
+  color: #d8d8d8;
+}
+
+.ht-cr-menu {
+  margin-right: 0;
+}
+
+.ht-cr-menu li {
+  list-style: none; /* Xóa dấu chấm */
+  margin-right: 15px;
+}
+
+.ht-cr-menu li:last-child {
+  margin-right: 0;
+}
+
+.ht-cr-menu li a img {
+  margin-right: 5px;
+}
+
+.ht-cr-menu.color-white>li>a {
+  color: #d8d8d8;
+}
+
+.ht-cr-menu.color-white>li>a i {
+  color: #d8d8d8;
+}
+
+.ht-dropdown {
+  position: absolute;
+  top: 80%;
+  right: 0;
+  width: 155px;
+  background-color:  #7e796f;
+  padding: 0px 20px;
+  z-index: 101;
+  text-align: left;
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.ht-dropdown li{
+  list-style: none;
+}
+
+.ht-dropdown.width-20 {
+  width: auto;
+  padding: 0 15px;
+}
+
+.ht-dropdown.width-50 {
+  width: 120px;
+  padding: 0 15px;
+}
+
+.ht-dropdown li a {
+  text-decoration: none;
+  padding: 10px 0;
+  line-height: 24px;
+  display: block;
+  font-weight: normal;
+  border-bottom: 1px solid #e5e5e5;
+  border-top: none;
+  height: inherit;
+  border-radius: 0;
+  color: #555555;
+  text-transform: capitalize;
+  position: relative;
+  z-index: 10;
+  font-size: 15px;
+}
+
+.ht-dropdown li a:hover {
+  color: #d1c6b6;
 }
 
 
@@ -493,6 +636,7 @@ nav a:hover {
   border-radius: 10px;
 }
 
+<<<<<<< HEAD
 
 /* Process order  */
 .order-box {
@@ -684,3 +828,29 @@ nav a:hover {
 .password-button:hover {
   background-color: #5a544a;
 }
+=======
+ /* trang contact */
+ .hero {
+  position: relative;
+  text-align: center;
+}
+
+.hero-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.hero-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF4CC;
+  font-size: 2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+>>>>>>> Phuc
