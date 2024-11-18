@@ -1,6 +1,6 @@
 <footer>
       <div class="footer__logo">
-          <img src="1.png" alt="Logo">
+          <img src="public/img/banner/logo.png" alt="Logo">
       </div>
       <div class="container">
         <div class="footer__box">
