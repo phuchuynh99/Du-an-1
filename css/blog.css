@@ -1,48 +1,60 @@
+body {
+  background-color: #fef7f6;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
 
-    body {
-      background-color: #fef7f6;
-      color: #333;
-      font-family: Arial, sans-serif;
-    }
+/* Blog Header */
+.blog-header {
+  background-color: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
 
-    header {
-      background-color: #fff;
-      padding: 20px 0;
-      border-bottom: 1px solid #ddd;
-    }
+.blog-header-title {
+  font-size: 24px;
+  color: #a45e61;
+}
 
-    header h1 {
-      font-size: 24px;
-      color: #a45e61;
-    }
+.blog-header-description {
+  font-size: 14px;
+  color: #555;
+}
 
-    header p {
-      font-size: 14px;
-      color: #555;
-    }
+.blog-email-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
-    .button .btn .btn-primary  {
-      background-color: #6F6A58;
-      color: white;
-    }
+.blog-submit-btn {
+  background-color: #6F6A58;
+  color: white;
+}
 
-    button:hover {
-      background-color: #6F6A58;
-    }
+.blog-submit-btn:hover {
+  background-color: #5b5448;
+}
 
-    main {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin: 30px 0;
-      padding: 20px;
-    }
+/* Blog Main Section */
+.blog-main {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 30px 0;
+  padding: 20px;
+}
 
-    main h2 {
-      color: #a45e61;
-    }
+.blog-main-title {
+  color: #a45e61;
+}
 
-    .image-wrapper img {
-      border-radius: 8px;
-      width: 100%;
-    }
+.blog-main-content {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.blog-image-wrapper img {
+  border-radius: 8px;
+  width: 100%;
+}
