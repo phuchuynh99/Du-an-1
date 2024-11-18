@@ -1,14 +1,9 @@
 <?php
-// session_start();
-
-// // Kiểm tra quyền truy cập vào admin
-// if (isset($_SESSION['userinfo']) && $_SESSION['userinfo']['role'] === 'admin') {
-//     // Nếu là admin, hiển thị trang admin
-//     echo "Welcome to the Admin Dashboard!";
-// } else {
-//     header('Location: index.php');
-//     exit();
-// }
+session_start();
+if (!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['role'] !== 'admin') {
+    header('Location: index.php');
+    exit();
+}
 
 
 ob_start();
@@ -55,7 +50,7 @@ if (isset($_GET['page'])) {
             if (isset($_POST['btnupdate']) && ($_POST['btnupdate'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
-                $status = $_POST['status']; 
+                $status = $_POST['status'];
                 set_catalog($id, $name, $status);
                 $cataloglist = get_catalog();
                 require_once('public/catagories.php');
@@ -106,7 +101,7 @@ if (isset($_GET['page'])) {
                 $id_category = $_POST['idcatalog'];
                 $status = $_POST['status'];  // Lấy giá trị trạng thái từ form
                 $img = $_FILES['img']['name'];
-        
+
                 // Kiểm tra nếu có hình mới, upload hình mới và xóa hình cũ
                 if ($img != "") {
                     $target_file = "../" . PATH_IMG . basename($_FILES['img']['name']);
@@ -124,15 +119,15 @@ if (isset($_GET['page'])) {
                     // Nếu không có ảnh mới, giữ ảnh cũ
                     $img = $_POST['hinhcu'];
                 }
-        
+
                 // Cập nhật sản phẩm vào database, bao gồm trạng thái
                 update_product($id, $id_category, $img, $name, $price, $discount_price, $status);
-        
+
                 // Chuyển hướng về trang danh sách sản phẩm
                 header('Location: index.php?page=product');
                 exit(); // Đảm bảo dừng mã sau khi chuyển hướng
             }
-            break;                     
+            break;
         case 'addproduct':
             // Lấy dữ liệu từ form
             if (isset($_POST['btnadd'])) {
@@ -329,7 +324,7 @@ if (isset($_GET['page'])) {
                 ],
                 // Thêm các đơn hàng khác nếu cần
             ];
-        
+
             $billlist = get_bill();
             require_once('public/bill.php');
             break;
@@ -344,17 +339,26 @@ if (isset($_GET['page'])) {
             break;
         case 'updatebill':
             if (isset($_POST['btnupdate'])) {
-                $id = $_POST['id'];
-                $status = $_POST['status']; 
+                $id = $_POST['id']; // Lấy ID của đơn hàng
+                $status = $_POST['status']; // Trạng thái mới của đơn hàng
 
+                // Cập nhật trạng thái của đơn hàng trong cơ sở dữ liệu
                 updateBill($id, $status);
-        
-                header('Location: index.php?page=bill');
+
+                // Sau khi cập nhật, chuyển hướng về trang danh sách đơn hàng
+                header('location: index.php?page=bill');
                 exit();
             }
-            break;            
+            break;
         case 'logout':
+            // Hủy session  
+            session_unset(); // Xóa toàn bộ dữ liệu trong session
+            session_destroy(); // Hủy session
 
+            // Chuyển hướng về trang đăng nhập hoặc trang chủ
+            header('Location: ../index.php?page=login');
+            exit(); // Dừng thực thi mã sau khi chuyển hướng
+            break;
         default:
             require_once('public/404.php');
     }
