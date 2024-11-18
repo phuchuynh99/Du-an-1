@@ -89,10 +89,10 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
             if (isset($_SESSION['userinfo'])) {
                unset($_SESSION['userinfo']);
             }
-            $newproduct = getproduct();
-            $saleproduct = getsaleproduct();
-            $featureproduct = getfeatureproduct();
-            $viewproduct = getviewproduct();
+            // $newproduct = getproduct();
+            // $saleproduct = getsaleproduct();
+            // $featureproduct = getfeatureproduct();
+            // $viewproduct = getviewproduct();
             include_once './view/home.php';
             break;
          // case 'userUpdate':
