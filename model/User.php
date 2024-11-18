@@ -27,12 +27,25 @@ function checkUser($username, $password) {
 }
 
 // Tạo người dùng mới với mật khẩu mã hóa
-function addUser($data) {
+function addAdmin($data) {
     $db = new ConnectModel();
     $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT);
     $sql = "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)";
     return $db->insert($sql, [$data['username'], $data['email'], $hashedPassword, $data['role']]);
 }
+
+function addUser($data) {
+    $db = new ConnectModel();
+    $hashedPassword = password_hash($data['password'], PASSWORD_BCRYPT); // Mã hóa mật khẩu
+    $sql = "INSERT INTO users (username, phone, password, email) VALUES (?, ?, ?, ?)";
+    return $db->insert($sql, [
+        $data['username'], 
+        $data['phone'], 
+        $hashedPassword, 
+        $data['email']
+    ]);
+}
+
 
 // Cập nhật người dùng, bao gồm mã hóa lại mật khẩu nếu có thay đổi
 function updateUser($data) {

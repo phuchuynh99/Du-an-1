@@ -1,8 +1,14 @@
+# Chặn truy cập trực tiếp vào thư mục controller, model, view
+# RewriteCond %{REQUEST_URI} ^/(controller|model|view) [NC]
+# RewriteRule ^ - [F]
 
+
+# Chặn truy cập trực tiếp vào tất cả các thư mục
 RewriteEngine On
 RewriteRule ^controller/ - [F]
 RewriteRule ^model/ - [F]
 RewriteRule ^view/ - [F]
 
-RewriteRule ^(\w+)$ index.php?action=$1
-RewriteRule ^(\w+)/(\w+)$ index.php?action=$1&id=$2
+
+# RewriteRule ^(\w+)$ index.php?action=$1
+# RewriteRule ^(\w+)/(\w+)$ index.php?action=$1&id=$2
