@@ -56,6 +56,11 @@
                 <a href="index.php?page=cart" class="text-white">
                     <i class="fas fa-shopping-cart head-icon"></i>
                 </a>
+<<<<<<< HEAD
+                <a href="index.php?page=login" class="text-white">
+                    <i class="fas fa-user head-icon"></i>
+                </a>
+=======
                 <div class="ht-right d-flex justify-content-lg-end justify-content-center">
                     <ul class="ht-us-menu d-flex">
                         <li>
@@ -77,6 +82,7 @@
                         </li>
                     </ul>
                 </div>
+>>>>>>> Phuc
             </div>
 
 
