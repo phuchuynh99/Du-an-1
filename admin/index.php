@@ -1,4 +1,16 @@
 <?php
+// session_start();
+
+// // Kiểm tra quyền truy cập vào admin
+// if (isset($_SESSION['userinfo']) && $_SESSION['userinfo']['role'] === 'admin') {
+//     // Nếu là admin, hiển thị trang admin
+//     echo "Welcome to the Admin Dashboard!";
+// } else {
+//     header('Location: index.php');
+//     exit();
+// }
+
+
 ob_start();
 require_once('../view/global.php');
 require_once('../model/connect.php');

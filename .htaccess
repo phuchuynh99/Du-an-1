@@ -8,13 +8,18 @@ RewriteEngine On
 RewriteRule ^controller/ - [F]
 RewriteRule ^model/ - [F]
 RewriteRule ^view/ - [F]
-RewriteRule ^admin/ - [F]
+# RewriteRule ^admin/ - [F]
 
 
 RewriteCond %{REQUEST_URI} !^/index\.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?page=$1 [L]
+
+# Chỉ cho phép truy cập admin nếu người dùng đã đăng nhập với quyền admin
+# RewriteCond %{REQUEST_URI} ^/admin/
+# RewriteCond %{HTTP_COOKIE} userinfo=.+ # Kiểm tra cookie userinfo
+# RewriteRule ^admin/ - [L]
 
 
 # RewriteRule ^(\w+)$ index.php?page=$1
