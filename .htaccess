@@ -8,7 +8,14 @@ RewriteEngine On
 RewriteRule ^controller/ - [F]
 RewriteRule ^model/ - [F]
 RewriteRule ^view/ - [F]
+RewriteRule ^admin/ - [F]
 
 
-# RewriteRule ^(\w+)$ index.php?action=$1
+RewriteCond %{REQUEST_URI} !^/index\.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?page=$1 [L]
+
+
+# RewriteRule ^(\w+)$ index.php?page=$1
 # RewriteRule ^(\w+)/(\w+)$ index.php?action=$1&id=$2

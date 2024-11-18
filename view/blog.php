@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog</title>
-  <!-- Link Bootstrap CSS -->
-  <link rel="stylesheet" href="public/css/blog.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    
 <section>
     <header class="blog-header container text-center">
         <h1 class="blog-header-title">Bạn là người đầu tiên</h1>
@@ -34,8 +22,3 @@
         </div>
     </main>
 </section>
-
-<!-- Link Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
