@@ -9,6 +9,7 @@ $categories = [
 
 $products = [
     [
+        "id" => 1,
         "name" => "Dũa móng tay Halfmoon",
         "original_price" => "300,000₫",
         "discount_price" => "270,000₫",
@@ -16,6 +17,7 @@ $products = [
         "alt" => "Dũa móng tay Halfmoon"
     ],
     [
+        "id" => 2,
         "name" => "Sơn móng tay Classic Red",
         "original_price" => "150,000₫",
         "discount_price" => "120,000₫",
@@ -23,6 +25,7 @@ $products = [
         "alt" => "Sơn móng tay Classic Red"
     ],
     [
+        "id" => 3,
         "name" => "Máy hơ 001",
         "original_price" => "200,000₫",
         "discount_price" => "180,000₫",
@@ -30,6 +33,7 @@ $products = [
         "alt" => "Kềm cắt da Inox"
     ],
     [
+        "id" => 4,
         "name" => "Máy hơ 002",
         "original_price" => "400,000₫",
         "discount_price" => "350,000₫",
@@ -37,6 +41,7 @@ $products = [
         "alt" => "Bộ dụng cụ làm móng 5 món"
     ],
     [
+        "id" => 5,
         "name" => "Máy hơ 003",
         "original_price" => "400,000₫",
         "discount_price" => "350,000₫",
@@ -44,6 +49,7 @@ $products = [
         "alt" => "Bộ dụng cụ làm móng 5 món"
     ],
     [
+        "id" => 6,
         "name" => "Máy hơ 004",
         "original_price" => "400,000₫",
         "discount_price" => "350,000₫",
@@ -79,25 +85,28 @@ $products = [
 
             <!-- Products -->
             <section class="product-list col-md-9">
-                <div class="row g-4">
-                    <?php foreach ($products as $product): ?>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product-card text-center shadow-sm p-3">
-                                <img src="<?= htmlspecialchars($product['image']) ?>" class="product-img img-fluid" alt="<?= htmlspecialchars($product['alt']) ?>">
-                                <h5 class="product-name mt-3"><?= htmlspecialchars($product['name']) ?></h5>
-                                <p class="product-original-price text-muted"><del><?= htmlspecialchars($product['original_price']) ?></del></p>
-                                <p class="product-discount-price"><?= htmlspecialchars($product['discount_price']) ?></p>
-                                <div class="product-actions d-flex justify-content-center align-items-center gap-2 mt-3">
-                                    <button class="product-btn-cart d-flex align-items-center">
-                                        <i class="bi bi-cart"></i>
-                                    </button>
-                                    <button class="product-btn-buy">Mua ngay</button>
-                                </div>
-                            </div>
+    <div class="row g-4">
+        <?php foreach ($products as $index => $product): ?>
+            <div class="col-md-3 col-sm-6">
+                <a href="product-detail.php?id=<?= $index ?>" class="text-decoration-none text-dark">
+                    <div class="product-card text-center shadow-sm p-3">
+                        <img src="<?= htmlspecialchars($product['image']) ?>" class="product-img img-fluid" alt="<?= htmlspecialchars($product['alt']) ?>">
+                        <h5 class="product-name mt-3"><?= htmlspecialchars($product['name']) ?></h5>
+                        <p class="product-original-price text-muted"><del><?= htmlspecialchars($product['original_price']) ?></del></p>
+                        <p class="product-discount-price"><?= htmlspecialchars($product['discount_price']) ?></p>
+                        <div class="product-actions d-flex justify-content-center align-items-center gap-2 mt-3">
+                            <button class="product-btn-cart d-flex align-items-center">
+                                <i class="bi bi-cart"></i>
+                            </button>
+                            <button class="product-btn-buy">Mua ngay</button>
                         </div>
-                    <?php endforeach; ?>
-                </div>
-            </section>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+
         </div>
     </div>
 
