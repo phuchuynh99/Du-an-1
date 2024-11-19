@@ -15,14 +15,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="public/css/style.css"/>
+    <link rel="stylesheet" href="public/css/font.css">
   </head>
   <body>
     <header class="bg-secondary py-3">
       <div class="container d-flex align-items-center justify-content-between">
         <div class="logo">
-          <img src="1.png" alt="Nailuxe Logo" class="me-2" />
+          <img src="public/img/banner/logo.png" alt="Nailuxe Logo" class="me-2" />
         </div>
 
         <nav>
@@ -54,47 +54,85 @@
       </div>
     </header>
     <div class="container">
+      <div class="order-box">
+        <!-- Phần Thông Tin Đặt Hàng -->
+        <div class="info-order">
+          <h2>Thông Tin Đặt Hàng</h2>
+          <input type="text" placeholder="Họ và tên..." />
+          <input type="text" placeholder="Số điện thoại..." />
+          <input type="text" placeholder="Địa chỉ..." />
+          <textarea placeholder="Lưu ý đơn hàng..."></textarea>
+        </div>
+      
+        <!-- Phần Tóm Tắt Đơn Hàng -->
+        <div class="summary-order">
+          <h3>Tóm Tắt Đơn Hàng</h3>
+          <div class="order-detail">
+            <div class="product-name">Sơn móng x1</div>
+            <div class="price">450,000đ</div>
+            <div class="total">
+              <p>Tạm tính: <span class="price">450,000đ</span></p>
+              <p>Tổng cộng: <span class="price">450,000đ</span></p>
+            </div>
+          </div>
+          <div class="voucher-oder">
+            <input type="text" placeholder="Nhập mã giảm giá" />
+            <button class="order-btn">Áp dụng</button>
+          </div>
+          <div class="payment-method">
+            <label><input type="radio" name="payment" /> Thanh toán chuyển khoản</label>
+            <label><input type="radio" name="payment" /> Thanh toán khi nhận hàng</label>
+            <label><input type="radio" name="payment" checked /> Chuyển khoản MOMO</label>
+          </div>
+          <button class="pay-btn">Thanh toán</button>
+        </div>
+        
+      </div>
       
     </div>
     <footer>
       <div class="footer__logo">
-          <img src="1.png" alt="Logo">
+        <img src="1.png" alt="Logo" />
       </div>
       <div class="container">
         <div class="footer__box">
-            <div class="footer__box-child">
-                <h3>Thông tin liên hệ</h3>
-                <p><i class="fa fa-phone"></i> 0123456789</p>
-                <p><i class="fa fa-envelope"></i> abcdef@gmail.com</p>
-                <p><i class="fa fa-map-marker"></i> 123 quốc lộ 1A, Tân Thới Hiệp, Quận 12</p>
-            </div>
-            <div class="footer__box-child">
-                <h3>Điều khoản sử dụng</h3>
-                <p>Chính sách bảo mật</p>
-                <p>Chính sách giao hàng</p>
-                <p>Chính sách đền bù</p>
-            </div>
-    
-            <div class="footer__box-child">
-                <h3>Liên hệ với chúng tôi</h3>
-                <p>Hãy là người đầu tiên biết về các chương trình giảm giá độc quyền và sản phẩm mới.</p>
-                <input type="text" placeholder="Email của bạn">
-                <button class="footer_btn">Gửi</button>
-            </div>
+          <div class="footer__box-child">
+            <h3>Thông tin liên hệ</h3>
+            <p><i class="fa fa-phone"></i> 0123456789</p>
+            <p><i class="fa fa-envelope"></i> abcdef@gmail.com</p>
+            <p>
+              <i class="fa fa-map-marker"></i> 123 quốc lộ 1A, Tân Thới Hiệp,
+              Quận 12
+            </p>
+          </div>
+          <div class="footer__box-child">
+            <h3>Điều khoản sử dụng</h3>
+            <p>Chính sách bảo mật</p>
+            <p>Chính sách giao hàng</p>
+            <p>Chính sách đền bù</p>
+          </div>
+
+          <div class="footer__box-child">
+            <h3>Liên hệ với chúng tôi</h3>
+            <p>
+              Hãy là người đầu tiên biết về các chương trình giảm giá độc quyền
+              và sản phẩm mới.
+            </p>
+            <input type="text" placeholder="Email của bạn" />
+            <button class="footer_btn">Gửi</button>
+          </div>
         </div>
-    
+
         <div class="footer__icons">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-pinterest"></i></a>
-            <a href="#"><i class="fa fa-youtube"></i></a>
-            <a href="#"><i class="fa fa-tiktok"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-pinterest"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+          <a href="#"><i class="fa fa-tiktok"></i></a>
         </div>
       </div>
-  </footer>
-  
-
+    </footer>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   </body>
