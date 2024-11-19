@@ -5,8 +5,8 @@
 
         <div class="box-lg d-flex justify-content-center my-3">
             <button class="btn btn-google-login">
-                <img src="images/gg-logo.png" alt="Google logo" /> Đăng nhập với
-                Google
+                <a href="<?php echo $googleLoginUrl; ?>">
+                    <img src="images/gg-logo.png" alt="Google logo" /> Đăng nhập với Google</a>
             </button>
         </div>
 

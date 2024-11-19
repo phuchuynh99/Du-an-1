@@ -14,6 +14,13 @@ function getOneUserById($id) {
     return $db->get_one($sql, [$id]);
 }
 
+function getOneUserByEmail($email) {
+    $db = new ConnectModel();
+    $sql = "SELECT * FROM users WHERE email = ?";
+    return $db->get_one($sql, [$email]);
+}
+
+
 // Kiểm tra người dùng với mật khẩu đã mã hóa
 function checkUser($username, $password) {
     $db = new ConnectModel();
