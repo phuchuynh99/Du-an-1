@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="public/css/products.css">
     <link rel="stylesheet" href="public/css/product-detail.css">
     <link rel="stylesheet" href="public/css/font.css">
+    <link rel="stylesheet" href="public/css/blog.css">
+    <script src="https://kit.fontawesome.com/8c204d0fdf.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -55,9 +57,29 @@
                 <a href="index.php?page=cart" class="text-white">
                     <i class="fas fa-shopping-cart head-icon"></i>
                 </a>
-                <a href="index.php?page=login">
-                    <i class="fas fa-user head-icon"></i>
-                </a>
-            </div> 
+                <div class="ht-right d-flex justify-content-lg-end justify-content-center">
+                    <ul class="ht-us-menu d-flex">
+                        <li>
+                            <?php
+                            if (isset($_SESSION['userinfo']) && !empty($_SESSION['userinfo'])) {
+                                // Hiển thị tên người dùng và các tùy chọn
+                                echo '<a href="#"><i class="fa fa-user-circle-o"></i>' . $_SESSION['userinfo']['username'] . '</a>';
+                                echo '<ul class="ht-dropdown right">';
+                                echo '<li><a href="index.php?page=userUpdateForm">Edit Account</a></li>';
+                                echo '<li><a href="index.php?page=logout">Đăng xuất</a></li>';
+                                echo '</ul>';
+                            } else {
+                                // Hiển thị giao diện chưa đăng nhập
+                                echo '<a href="#"><i class="fa fa-user-circle-o"></i>Login</a>';
+                                echo '<ul class="ht-dropdown right">';
+                                echo '<li><a href="index.php?page=login">Đăng nhập</a></li>';
+                                echo '<li><a href="index.php?page=register">Đăng ký</a></li>';
+                                echo '</ul>';
+                            }
+                            ?>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </header>

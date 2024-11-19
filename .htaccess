@@ -1,8 +1,62 @@
-
+# Bật chế độ Rewrite
 RewriteEngine On
-RewriteRule ^controller/ - [F]
-RewriteRule ^model/ - [F]
-RewriteRule ^view/ - [F]
 
-RewriteRule ^(\w+)$ index.php?action=$1
-RewriteRule ^(\w+)/(\w+)$ index.php?action=$1&id=$2
+# Chặn truy cập trực tiếp vào các thư mục nhạy cảm
+RewriteRule ^(controller|model|view)/ - [F]
+
+# Chỉ cho phép truy cập admin nếu cookie hoặc session xác thực quyền admin
+RewriteCond %{REQUEST_URI} ^/admin/
+RewriteCond %{HTTP_COOKIE} userinfo=.*admin.* [NC] 
+RewriteRule ^admin/ - [L]
+
+# Nếu không có quyền, chuyển hướng về trang login
+RewriteCond %{REQUEST_URI} ^/admin/
+RewriteCond %{HTTP_COOKIE} !userinfo=.*admin.* [NC]
+RewriteRule ^admin/ /login.php [R,L]
+
+# Xử lý tất cả các truy cập còn lại qua index.php
+RewriteCond %{REQUEST_URI} !^/index\.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?page=$1 [L]
+
+
+
+
+
+
+
+
+
+
+
+# # Chặn truy cập trực tiếp vào thư mục controller, model, view
+# # RewriteCond %{REQUEST_URI} ^/(controller|model|view) [NC]
+# # RewriteRule ^ - [F]
+
+
+# # Chặn truy cập trực tiếp vào tất cả các thư mục
+# RewriteEngine On
+# RewriteRule ^controller/ - [F]
+# RewriteRule ^model/ - [F]
+# RewriteRule ^view/ - [F]
+# # RewriteRule ^admin/ - [F]
+
+
+# RewriteCond %{REQUEST_URI} !^/index\.php
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ index.php?page=$1 [L]
+
+# Chỉ cho phép truy cập admin nếu người dùng đã đăng nhập với quyền admin
+# RewriteCond %{REQUEST_URI} ^/admin/
+# RewriteCond %{HTTP_COOKIE} userinfo=.+ # Kiểm tra cookie userinfo
+# RewriteRule ^admin/ - [L]
+
+
+# RewriteRule ^(\w+)$ index.php?page=$1
+# RewriteRule ^(\w+)/(\w+)$ index.php?action=$1&id=$2
+
+
+
+
