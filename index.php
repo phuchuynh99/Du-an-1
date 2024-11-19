@@ -88,6 +88,7 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          case 'logout':
             if (isset($_SESSION['userinfo'])) {
                unset($_SESSION['userinfo']);
+               header ('Location: index.php');
             }
             // $newproduct = getproduct();
             // $saleproduct = getsaleproduct();
