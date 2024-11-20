@@ -1105,6 +1105,10 @@ body {
   border: none;
   padding: 10px 15px;
   color: #fff;
+<<<<<<< HEAD
+} 
+=======
+{
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
@@ -1232,4 +1236,8 @@ body {
   color: #666;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2fc387bde692b74c64166eb816d17e9f90394611
+>>>>>>> truc
