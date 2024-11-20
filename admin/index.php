@@ -1,12 +1,11 @@
 <?php
+ob_start();
 session_start();
 if (!isset($_SESSION['userinfo']) || $_SESSION['userinfo']['role'] !== 'admin') {
     header('Location: index.php');
     exit();
 }
 
-
-ob_start();
 require_once('../view/global.php');
 require_once('../model/connect.php');
 require_once('../model/catalog.php');

@@ -850,19 +850,6 @@ nav a:hover {
 
 /* Trang chủ*/
 
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #6F6A58;
-  background-color: #F9F6F0;
-}
-
-.containers-index {
-  margin: 0 auto;
-  width: 1200px;
-}
-
 .banner-index img{
   /* lam cho hinh fit vs chieu dai chieu rong */
   object-fit: cover;
@@ -870,12 +857,12 @@ body {
   height: 500px;
 }
 
-.carousel {
+.banner-index .carousel {
   position: relative;
   width: 100%;
 }
 
-.carousel-track {
+.banner-index .carousel .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
@@ -935,11 +922,15 @@ body {
 }
 
 /* sản phẩm mới */
-
+.title-products {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: #6F6A58;
+  line-height: 40px;
+}
 .newproduct-section, .hot-products, .sale-products, .related-products {
   padding: 10px;
   /* margin-left: 80px; */
-
 }
 
 .newproduct-section .products {
@@ -991,7 +982,7 @@ body {
   background-color: #6F6A58;
   color: white;
   border: none;
-  padding: 5px 20px;
+  padding: 10px 40px;
   font-size: 16px;
   border-radius: 20px;
   cursor: pointer;
@@ -1011,38 +1002,26 @@ body {
   overflow: hidden;
 }
 
+.sale-items {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
 .slider-track {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
 }
 
 .product-card {
-  min-width: 25%;
-  /* Hiển thị 4 sản phẩm/lượt */
-  box-sizing: border-box;
-  padding: 10px;
-  background-color: #fff;
+  min-width: 300px;
+  margin: 10px;
   text-align: center;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 5px;
+  padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.product-card img {
-  width: 100%;
-  height: 200px;
-  border-radius: 8px;
-}
-
-.product-card h3 {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.product-card p {
-  color: #e91e63;
-  font-weight: bold;
+  background: #fff;
 }
 
 .slider-btn {
@@ -1064,6 +1043,23 @@ body {
 .slider-btn.next {
   right: 10px;
 }
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product-card p {
+  color: #e91e63;
+  font-weight: bold;
+}
+
 
 .slider-btn:hover {
   background-color: rgba(0, 0, 0, 0.8);
@@ -1231,5 +1227,3 @@ body {
   font-size: 14px;
   color: #666;
 }
-
-
