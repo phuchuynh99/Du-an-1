@@ -1010,7 +1010,7 @@ nav a:hover {
 }
 
 .product-card {
-  min-width: 200px;
+  min-width: 300px;
   margin: 10px;
   text-align: center;
   border: 1px solid #ddd;
