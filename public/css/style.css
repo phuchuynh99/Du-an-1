@@ -846,9 +846,20 @@ nav a:hover {
   border-radius: 5px;
 }
 
-/* home */
-
 /* Trang chủ*/
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #6F6A58;
+  background-color: #F9F6F0;
+}
+
+.containers-index {
+  margin: 0 auto;
+  width: 1200px;
+}
 
 .banner-index img{
   /* lam cho hinh fit vs chieu dai chieu rong */
@@ -857,12 +868,12 @@ nav a:hover {
   height: 500px;
 }
 
-.banner-index .carousel {
+.carousel {
   position: relative;
   width: 100%;
 }
 
-.banner-index .carousel .carousel-track {
+.carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
 }
@@ -928,9 +939,11 @@ nav a:hover {
   color: #6F6A58;
   line-height: 40px;
 }
-.newproduct-section, .hot-products, .sale-products, .related-products {
+
+.newproduct-section, .hot-products, .sale-products {
   padding: 10px;
   /* margin-left: 80px; */
+
 }
 
 .newproduct-section .products {
@@ -952,8 +965,6 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 7px;
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 }
 .newproduct-section .products .product2 {
   position: relative;
@@ -965,8 +976,6 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 7px;
-  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* .newproduct-section .products .product .img1 {
@@ -994,109 +1003,69 @@ nav a:hover {
 }
 
 
-.product-slider {
-  position: relative;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
+.sale-products {
+  padding: 20px;
 }
 
-.sale-items {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
+.sale-products h2 {
+  font-size: 24px;
+  color: #4f4f4f;
 }
 
-.slider-track {
+.sale-products p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #7a7a7a;
+}
+
+.sale-products .sale-items {
   display: flex;
-  transition: transform 0.3s ease-in-out;
-  will-change: transform;
+  justify-content: center;
+  gap: 20px;
 }
 
-.product-card {
-  min-width: 300px;
-  margin: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
-  padding: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.sale-products .item {
   background: #fff;
-}
-
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.slider-btn.prev {
-  left: 10px;
-}
-
-.slider-btn.next {
-  right: 10px;
-}
-
-.product-card img {
-  width: 100%;
-  height: 200px;
+  border: 1px solid #f0e2d5;
   border-radius: 8px;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.product-card h3 {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.product-card p {
-  color: #e91e63;
-  font-weight: bold;
-}
-
-
-.slider-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.product-card .item img {
+.sale-products .item img {
   width: 100%;
   border-radius: 4px;
-
+ 
 }
 
-.product-card .item h3 {
+.sale-products .item h3 {
   font-size: 18px;
   margin: 10px 0;
   color: #333;
 }
 
-.product-card .item p {
+.sale-products .item p {
   margin: 5px 0;
 }
 
-.product-card .price {
+.sale-products .price {
   font-size: 16px;
 }
 
-.product-card .old-price {
+.sale-products .old-price {
   text-decoration: line-through;
   color: #888;
   margin-right: 5px;
 }
 
-.product-card .new-price {
+.sale-products .new-price {
   color: #e63946;
   font-weight: bold;
 }
 
-.product-card button {
+.sale-products button {
   background-color: #6F6A58;
   border: none;
   padding: 10px 15px;
@@ -1106,7 +1075,7 @@ nav a:hover {
   margin-top: 10px;
 }
 
-.product-card button:hover {
+.sale-products button:hover {
   background-color: #6F6A58;
 }
 
@@ -1147,15 +1116,13 @@ nav a:hover {
   border: 1px solid #f0e2d5;
   border-radius: 8px;
   text-align: center;
-  width: 200px;
+  width: 180px;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .related-products .product-item img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
   border-radius: 4px;
 }
 
@@ -1196,9 +1163,6 @@ nav a:hover {
 }
 
 /* Section mẹo */
-#tip-section {
-  margin-bottom: 80px;
-}
 .tip-section {
   display: flex;
   align-items: center;
