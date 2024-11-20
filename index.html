@@ -45,10 +45,15 @@
   </header>
 
   <div class="banner-index">
-    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600" alt="" class="carousel-img">
-    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600" alt="" class="carousel-img">
-    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600" alt="" class="carousel-img">
-    
+    <div class="carousel">
+      <div class="carousel-track">
+        <img src="./public/img/banner/banner1.1.png" alt="Banner 1" class="carousel-img">
+        <img src="./public/img/banner/banner1.png" alt="Banner 2" class="carousel-img">
+        <img src="./public/img/banner/banner2.png" alt="Banner 3" class="carousel-img">
+      </div>
+      <button class="carousel-btn prev">❮</button>
+      <button class="carousel-btn next">❯</button>
+    </div>
   </div>
   <!-- sản phẩm mới -->
   <div class="containers-index">
@@ -246,6 +251,35 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // script.js
+    const track = document.querySelector('.carousel-track');
+    const images = document.querySelectorAll('.carousel-img');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+
+    let currentIndex = 0;
+
+    // Chuyển slide
+    function updateSlide(index) {
+      const slideWidth = images[0].clientWidth;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    // Sự kiện nút "Next"
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateSlide(currentIndex);
+    });
+
+    // Sự kiện nút "Prev"
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateSlide(currentIndex);
+    });
+
+  </script>
 </body>
 
 </html>
