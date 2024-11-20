@@ -16,12 +16,12 @@ include_once "view/header.php";
 if (isset($_GET['page']) && ($_GET['page'] != "")) {
    switch ($_GET['page']) {
       case 'products':
-         // if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
-         //    $id_category = $_GET['id_category'];
-         // } else {
-         //    $id_category = 0;
-         // }
-         $productlist = getproduct();
+         if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
+            $id_category = $_GET['id_category'];
+         } else {
+            $id_category = 0;
+         }
+         $productlist = getproduct($id_category);
          $catalog_list = get_catalog();
          include_once "view/products.php";
          break;
