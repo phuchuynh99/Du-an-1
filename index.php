@@ -238,13 +238,17 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          include_once "view/blog.php";
          break;
       default:
-         // echo "Bạn đang vào trang chủ";
-         // require home
+         if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
+            $id_category = $_GET['id_category'];
+         } else {
+            $id_category = 0;
+         }
+         $productlist = getproduct($id_category);
+         $catalog_list = get_catalog();
          // $newproduct = getproduct();
          // $saleproduct = getsaleproduct();
          // $featureproduct = getfeatureproduct();
          // $viewproduct = getviewproduct();
-         //   echo var_dump($newproduct);
          include_once "view/home.php";
          break;
    }
