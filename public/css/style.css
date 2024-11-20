@@ -922,7 +922,12 @@ nav a:hover {
 }
 
 /* sản phẩm mới */
-
+.title-products {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: #6F6A58;
+  line-height: 40px;
+}
 .newproduct-section, .hot-products, .sale-products, .related-products {
   padding: 10px;
   /* margin-left: 80px; */
@@ -977,7 +982,7 @@ nav a:hover {
   background-color: #6F6A58;
   color: white;
   border: none;
-  padding: 5px 20px;
+  padding: 10px 40px;
   font-size: 16px;
   border-radius: 20px;
   cursor: pointer;
@@ -1096,10 +1101,6 @@ nav a:hover {
   border: none;
   padding: 10px 15px;
   color: #fff;
-<<<<<<< HEAD
-} 
-=======
-{
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
@@ -1226,9 +1227,3 @@ nav a:hover {
   font-size: 14px;
   color: #666;
 }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2fc387bde692b74c64166eb816d17e9f90394611
->>>>>>> truc
