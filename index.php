@@ -16,12 +16,12 @@ include_once "view/header.php";
 if (isset($_GET['page']) && ($_GET['page'] != "")) {
    switch ($_GET['page']) {
       case 'products':
-         if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
-            $id_category = $_GET['id_category'];
-         } else {
-            $id_category = 0;
-         }
-         $productlist = getproduct($id_category);
+         // if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
+         //    $id_category = $_GET['id_category'];
+         // } else {
+         //    $id_category = 0;
+         // }
+         $productlist = getproduct();
          $catalog_list = get_catalog();
          include_once "view/products.php";
          break;
@@ -209,10 +209,10 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
       default:
          // echo "Bạn đang vào trang chủ";
          // require home
-         $newproduct = getproduct();
-         $saleproduct = getsaleproduct();
-         $featureproduct = getfeatureproduct();
-         $viewproduct = getviewproduct();
+         // $newproduct = getproduct();
+         // $saleproduct = getsaleproduct();
+         // $featureproduct = getfeatureproduct();
+         // $viewproduct = getviewproduct();
          //   echo var_dump($newproduct);
          include_once "view/home.php";
          break;
@@ -221,10 +221,10 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
    // echo "Bạn đang vào trang chủ";
    // require home
 
-   $newproduct = getproduct();
-   $saleproduct = getsaleproduct();
-   $featureproduct = getfeatureproduct();
-   $viewproduct = getviewproduct();
+   // $newproduct = getproduct();
+   // $saleproduct = getsaleproduct();
+   // $featureproduct = getfeatureproduct();
+   // $viewproduct = getviewproduct();
    // echo var_dump($newproduct);
    include_once "view/home.php";
 }
