@@ -85,17 +85,17 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          //       include_once "view/login.php";
          //    }
          //    break;
-         case 'logout':
-            if (isset($_SESSION['userinfo'])) {
-               unset($_SESSION['userinfo']);
-               header ('Location: index.php');
-            }
-            // $newproduct = getproduct();
-            // $saleproduct = getsaleproduct();
-            // $featureproduct = getfeatureproduct();
-            // $viewproduct = getviewproduct();
-            include_once './view/home.php';
-            break;
+      case 'logout':
+         if (isset($_SESSION['userinfo'])) {
+            unset($_SESSION['userinfo']);
+            header('Location: index.php');
+         }
+         // $newproduct = getproduct();
+         // $saleproduct = getsaleproduct();
+         // $featureproduct = getfeatureproduct();
+         // $viewproduct = getviewproduct();
+         include_once './view/home.php';
+         break;
          // case 'userUpdate':
          //    if (isset($_POST['btn_update'])) {
          //       $username = $_POST['username'];
@@ -208,6 +208,21 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
             }
          } else {
             include_once "view/login.php";
+         }
+         break;
+      case 'forgot_password_form':
+         include_once "view/forgot_password_form.php";
+         break;
+      case 'forgot_password':
+         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'];
+            $message = forgotPassword($email);
+
+            // Hiển thị thông báo cho người dùng
+            echo $message;
+         } else {
+            // Hiển thị form quên mật khẩu
+            include 'view/reset_password.php';
          }
          break;
       case 'contact':
