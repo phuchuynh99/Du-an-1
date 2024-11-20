@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trang chủ</title>
   <link rel="stylesheet" href="./public/css/style.css">
+  <link rel="stylesheet" href="./public/css/font.css">
 </head>
 
 <body>
@@ -59,11 +60,11 @@
   <div class="container">
     <nav class="navbar-products">
       <ul>
-        <li><a href="#">Sơn móng</a></li>
-        <li><a href="#">Dụng cụ làm móng</a></li>
-        <li><a href="#">Thiết bị làm móng</a></li>
-        <li><a href="#">Trang trí móng</a></li>
-        <li><a href="#">Móng giả</a></li>
+        <li><button class="active">Sơn móng</button></li>
+        <li><button>Dụng cụ làm móng</button></li>
+        <li><button>Thiết bị làm móng</button></li>
+        <li><button>Trang trí móng</button></li>
+        <li><button>Móng giả</button></li>
       </ul>
     </nav>
     <section class="newproduct-section">
@@ -388,6 +389,14 @@
       updateSlide(currentIndex);
     });
 
+    // danh mục
+    document.querySelectorAll("button").forEach((items) => {
+      items.addEventListener('click', () => {
+        document.querySelectorAll("button").forEach ((category) => 
+        category.classList.remove('active'))
+        items.classList.add('active')
+      }) 
+    }) 
 
     // lướt sản phẩm sale vs sp liên quan
     // script.js

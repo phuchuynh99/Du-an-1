@@ -425,15 +425,6 @@ nav a:hover {
   margin: 0 10px;
 }
 
-.active {
-  background-color: #6f6a58;
-  color: white;
-}
-
-.line.active {
-  background-color: #6f6a58;
-}
-
 .cart-wrapper {
   margin-top: 24px;
   display: flex;
@@ -910,11 +901,19 @@ nav a:hover {
   margin: 0 40px;
 }
 
-.navbar-products a {
+.navbar-products button {
   font-size: 20px;
   text-decoration: none;
   color: #4f4f4f;
-  font-weight: bold;
+  font-weight: 400;
+  border: none;
+  /* ăn theo màu backgroup bao nó */
+  background-color: transparent;
+}
+
+.navbar-products .active {
+  border-bottom: 1px solid #4f4f4f;
+  padding-bottom: 7px;
 }
 
 .navbar-products a:hover {
