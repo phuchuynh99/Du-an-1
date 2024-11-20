@@ -225,10 +225,10 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
       default:
          // echo "Bạn đang vào trang chủ";
          // require home
-         $newproduct = getproduct();
-         $saleproduct = getsaleproduct();
-         $featureproduct = getfeatureproduct();
-         $viewproduct = getviewproduct();
+         // $newproduct = getproduct();
+         // $saleproduct = getsaleproduct();
+         // $featureproduct = getfeatureproduct();
+         // $viewproduct = getviewproduct();
          //   echo var_dump($newproduct);
          include_once "view/home.php";
          break;
@@ -237,10 +237,10 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
    // echo "Bạn đang vào trang chủ";
    // require home
 
-   $newproduct = getproduct();
-   $saleproduct = getsaleproduct();
-   $featureproduct = getfeatureproduct();
-   $viewproduct = getviewproduct();
+   // $newproduct = getproduct();
+   // $saleproduct = getsaleproduct();
+   // $featureproduct = getfeatureproduct();
+   // $viewproduct = getviewproduct();
    // echo var_dump($newproduct);
    include_once "view/home.php";
 }
