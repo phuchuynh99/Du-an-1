@@ -51,9 +51,15 @@ foreach ($catalog_list as $category) {
                                 </div>';
                     }
                 ?>
+
             </div>
         </div>
     </div>
 </section>
+
+
+
+        </div>
+    </div>
 
 

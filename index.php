@@ -85,16 +85,17 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          //       include_once "view/login.php";
          //    }
          //    break;
-         // case 'logout':
-         //    if (isset($_SESSION['userinfo'])) {
-         //       unset($_SESSION['userinfo']);
-         //    }
-         //    $newproduct = getproduct();
-         //    $saleproduct = getsaleproduct();
-         //    $featureproduct = getfeatureproduct();
-         //    $viewproduct = getviewproduct();
-         //    include_once './view/home.php';
-         //    break;
+         case 'logout':
+            if (isset($_SESSION['userinfo'])) {
+               unset($_SESSION['userinfo']);
+               header ('Location: index.php');
+            }
+            // $newproduct = getproduct();
+            // $saleproduct = getsaleproduct();
+            // $featureproduct = getfeatureproduct();
+            // $viewproduct = getviewproduct();
+            include_once './view/home.php';
+            break;
          // case 'userUpdate':
          //    if (isset($_POST['btn_update'])) {
          //       $username = $_POST['username'];
@@ -181,6 +182,14 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
             $user = checkUser($username, $password);
 
             if ($user) {
+               // Lưu thông tin user vào session
+               $_SESSION['userinfo'] = [
+                  'username' => $user['username'],
+                  'role' => $user['role'],
+                  'name' => $user['name'] ?? '',
+                  'email' => $user['email'] ?? ''
+               ];
+
                // Kiểm tra vai trò của người dùng
                $role = checkUserRole($username, $password);
 
@@ -194,9 +203,13 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
                   exit();
                }
             } else {
-               echo "Sai tên đăng nhập hoặc mật khẩu.";
+               echo "<h4 style='color:red;'>Sai tên đăng nhập hoặc mật khẩu.</h4>";
+               include_once './view/login.php';
             }
+         } else {
+            include_once "view/login.php";
          }
+         break;
       case 'contact':
          include_once "view/contact.php";
          break;
@@ -205,6 +218,9 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          break;
       case 'cart':
          include_once "view/cart.php";
+         break;
+      case 'blog':
+         include_once "view/blog.php";
          break;
       default:
          // echo "Bạn đang vào trang chủ";
