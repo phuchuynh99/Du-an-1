@@ -923,7 +923,7 @@ nav a:hover {
 
 /* sản phẩm mới */
 
-.newproduct-section, .hot-products, .sale-products {
+.newproduct-section, .hot-products, .sale-products, .related-products {
   padding: 10px;
   /* margin-left: 80px; */
 }
@@ -1142,13 +1142,15 @@ nav a:hover {
   border: 1px solid #f0e2d5;
   border-radius: 8px;
   text-align: center;
-  width: 180px;
+  width: 200px;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .related-products .product-item img {
   width: 100%;
+  height: 150px;
+  object-fit: cover;
   border-radius: 4px;
 }
 
@@ -1189,6 +1191,9 @@ nav a:hover {
 }
 
 /* Section mẹo */
+#tip-section {
+  margin-bottom: 80px;
+}
 .tip-section {
   display: flex;
   align-items: center;
