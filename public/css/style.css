@@ -841,11 +841,8 @@ nav a:hover {
 
 /* Trang chủ*/
 
-.banner-index img{
-  /* lam cho hinh fit vs chieu dai chieu rong */
-  object-fit: cover;
-  width: 100%;
-  height: 500px;
+.banner-index {
+  overflow: hidden;
 }
 
 .banner-index .carousel {
@@ -939,6 +936,10 @@ nav a:hover {
   /* chia khoang cach giua cac phan tu */
   gap: 24px;
   margin-bottom: 24px;
+  display: none;
+}
+
+.hidden {
   display: none;
 }
 

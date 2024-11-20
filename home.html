@@ -12,7 +12,7 @@
 <body>
   <header class="bg-secondary py-3">
     <div class="container d-flex align-items-center justify-content-between">
-      <div class="logo"> 
+      <div class="logo">
         <img src="public/img/banner/logo.png" alt="Nailuxe Logo" class="me-2" />
       </div>
 
@@ -73,7 +73,7 @@
         <h2>Sản phẩm mới</h2>
         <p>Trải nghiệm các sản phẩm làm móng hoàn toàn mới.</p>
       </div>
-     
+
       <div class="products">
         <div class="product1">
           <img class="img1"
@@ -88,7 +88,7 @@
           <button class="buy-now">Mua ngay</button>
         </div>
       </div>
-     
+
       <div class="products">
         <div class="product1">
           <img class="img1"
@@ -103,7 +103,7 @@
           <button class="buy-now">Mua ngay</button>
         </div>
       </div>
-     
+
       <div class="products">
         <div class="product1">
           <img class="img1"
@@ -155,7 +155,7 @@
         <h2>Sản phẩm hot🔥</h2>
         <p>Nail đẹp - Giá hời, nhanh tay kẻo lỡ!</p>
       </div>
-      
+
       <div class="hotproducts">
         <div class="hotproduct1">
           <img class="img1"
@@ -192,7 +192,7 @@
         <h2>Sản phẩm sale</h2>
         <p>Ưu đãi tháng này - Đẹp lung linh chỉ với giá ưu đãi!</p>
       </div>
-     
+
       <div class="sale-items">
         <button class="slider-btn prev">❮</button>
         <div class="slider-track">
@@ -206,7 +206,7 @@
             </p>
             <button>Mua ngay</button>
           </div>
-          
+
           <div class="product-card">
             <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
               alt="SM180S">
@@ -451,16 +451,22 @@
     });
 
     // danh mục click vô danh mục ra ảnh
-    const contents = document.querySelectorAll("products")
-    document.querySelectorAll("button").forEach((items, index) => {
-      items.addEventListener('click', () => {
-        const content = contents[index]
-        document.querySelectorAll("button").forEach ((category) => 
-        category.classList.remove('active'))
-        items.classList.add('active')
-      }) 
-    }) 
-    
+    const buttons = document.querySelectorAll(" button");
+    const contents = document.querySelectorAll(".products > div");
+
+    buttons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        contents.forEach((content) => content.classList.add("hidden"));
+
+        if (contents[index]) {
+          contents[index].classList.remove("hidden");
+        }
+      });
+    });
+
 
     // lướt sản phẩm sale vs sp liên quan
     // script.js
