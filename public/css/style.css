@@ -933,18 +933,20 @@ nav a:hover {
 }
 
 .newproduct-section .products {
-  display: flex;
+  /* display: flex; */
   justify-content: flex-start;
   align-items: start;
   /* chia khoang cach giua cac phan tu */
   gap: 24px;
   margin-bottom: 24px;
+  display: none;
 }
 
 .newproduct-section .products .product1 {
   position: relative;
   width: 70%;
   height: 300px;
+  display: none;
 }
 
 .newproduct-section .products .product1 img {
@@ -988,8 +990,79 @@ nav a:hover {
   transition: background-color 0.3s ease;
 }
 
-.newproduct-section .products .product .buy-now:hover {
-  background-color: #595547;
+.newproduct-section .products .product1 .buy-now:hover,
+.newproduct-section .products .product2 .buy-now:hover {
+  background-color: transparent;
+  color: #6F6A58;
+  font-weight: 500;
+  border: 2px solid #6F6A58;
+}
+
+/* hot */
+
+.hotproduct-section .hotproducts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  /* chia khoang cach giua cac phan tu */
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.hotproduct-section .hotproducts .hotproduct1 {
+  display: flex;
+  position: relative;
+  width: 70%;
+  height: 300px;
+}
+
+.hotproduct-section .hotproducts .hotproduct1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+}
+.hotproduct-section .hotproducts .hotproduct2 {
+  position: relative;
+  width: 30%;
+  height: 300px;
+}
+
+.hotproduct-section .hotproducts .hotproduct2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* .newproduct-section .products .product .img1 {
+  width: 800px;
+  margin-right: 60px;
+} */
+.hotproduct-section .hotproducts .hotproduct1 .buy-now,
+.hotproduct-section .hotproducts .hotproduct2 .buy-now {
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+  transform: translateX(-50%);
+  background-color: #6F6A58;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hotproduct-section .hotproducts .hotproduct1 .buy-now:hover,
+.hotproduct-section .hotproducts .hotproduct2 .buy-now:hover {
+  background-color: transparent;
+  color: #6F6A58;
+  font-weight: 500;
+  border: 2px solid #6F6A58;
 }
 
 
