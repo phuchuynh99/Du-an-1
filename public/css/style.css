@@ -814,19 +814,19 @@ nav a:hover {
   background-color: #5a544a;
 }
 /* trang contact */
-.hero {
+.header-contact .hero {
   position: relative;
   text-align: center;
 }
 
-.hero-image {
+.header-contact .hero-image {
   width: 100%;
   height: 300px;
   object-fit: cover;
   filter: brightness(50%);
 }
 
-.hero-title {
+.header-contact .hero-title {
   position: absolute;
   top: 50%;
   left: 50%;
