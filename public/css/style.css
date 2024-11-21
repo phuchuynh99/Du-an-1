@@ -971,11 +971,6 @@ nav a:hover {
   border-radius: 7px;
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 }
-
-/* .newproduct-section .products .product .img1 {
-  width: 800px;
-  margin-right: 60px;
-} */
 .newproduct-section .products .product1 .buy-now,
 .newproduct-section .products .product2 .buy-now {
   position: absolute;
