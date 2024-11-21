@@ -23,5 +23,6 @@ require_once('model/bill.php');
 require_once('view/global.php');
 require_once './vendor/autoload.php';
 
+
 // require_once './vendor/autoload.php';
 ?>
