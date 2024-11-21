@@ -32,31 +32,29 @@ foreach ($catalog_list as $category) {
                 <?php 
                     foreach ($productlist as $product) {
                         extract($product);
-                        // $linkdetai = 'index.php?page=product&id_category= '.$id_category;
-                        if ($img != "") {
-                            $img = './' . PATH_IMG . './' . $img;
-                        }
+                        $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'default_image.jpg'; 
                         echo '
-                                <div class="col-md-3 col-sm-6 col-12 product-card text-center shadow-sm p-3">
-                                    <a href="" class="text-decoration-none text-dark">
-                                        <img src="' . $img . '" class="product-img img-fluid" alt="' . $name . '">
-                                    </a>
-                                    <h5 class="product-name mt-3">' . $name . '</h5>
-                                    <p class="product-original-price text-muted"><del>' . $discount_price . '</del></p>
-                                    <p class="product-discount-price text-danger fw-bold">' . $price . '</p>
-                                    <div class="product-actions d-flex justify-content-center align-items-center gap-2 mt-3">
-                                        <button class="product-btn-cart d-flex align-items-center">
-                                            <i class="fa-regular fa-cart-plus"></i>
-                                        </button>
-                                        <button class="product-btn-buy">Mua ngay</button>
-                                    </div>
-                                </div>';
+                            <div class="col-md-3 product-card text-center shadow-sm p-3 border rounded">
+                                <a href="" class="text-decoration-none text-dark">
+                                    <img src="' . $imgPath . '" class="product-img img-fluid mb-2" alt="' . $name . '">
+                                </a>
+                                <h5 class="product-name">' . $name . '</h5>
+                                <p class="product-original-price text-muted mb-1"><del>' . $discount_price . 'đ</del></p>
+                                <p class="product-discount-price text-danger fw-bold">' . $price . 'đ</p>
+                                <div class="product-actions d-flex justify-content-center align-items-center gap-2 mt-3">
+                                    <button class="product-btn-cart px-3 py-2 d-flex align-items-center">
+                                        <i class="fa fa-cart-plus me-2"></i> Giỏ hàng
+                                    </button>
+                                    <button class="product-btn-buy px-3 py-2">Mua ngay</button>
+                                </div>
+                            </div>';
                     }
                 ?>
             </div>
         </div>
     </div>
 </section>
+
 
 
 
