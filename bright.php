@@ -21,9 +21,7 @@ require_once('model/bill.php');
 
 //view
 require_once('view/global.php');
-<<<<<<< Updated upstream
 require_once './vendor/autoload.php';
-=======
+
 // require_once './vendor/autoload.php';
 ?>
->>>>>>> Stashed changes
