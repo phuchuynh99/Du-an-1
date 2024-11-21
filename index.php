@@ -1,8 +1,9 @@
 <?php
 ob_start();
 session_start();
-require_once ('bright.php');
-//connectdb();
+require_once('bright.php');
+require_once('model/mailer_helper.php');
+sendMail('huynvps39718@gmail.com', 'testmail', 'Chào huy');
 // require header
 include_once "view/header.php";
 
