@@ -22,3 +22,4 @@ require_once('model/jwt.php');
 //view
 require_once('view/global.php');
 require_once './vendor/autoload.php';
+?>
