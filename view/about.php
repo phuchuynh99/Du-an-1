@@ -1,9 +1,9 @@
 <div class="banner">
   <div class="slider-banner">
-    <img src="img/banner/Nail_Gels-Fleurwee_Gels.webp" alt="" />
+    <img src="public/img/banner/Nail_Gels-Fleurwee_Gels.webp" alt=""/>
   </div>
-  <div id="prev" class="control"><i class="fa fa-chevron-left"></i></div>
-  <div id="next" class="control"><i class="fa fa-chevron-right"></i></div>
+  <!-- <div id="prev" class="control"><i class="fa fa-chevron-left"></i></div>
+  <div id="next" class="control"><i class="fa fa-chevron-right"></i></div> -->
 </div>
 <div class="container">
   <div class="breadcrumb">

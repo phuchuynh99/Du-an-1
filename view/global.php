@@ -1,3 +1,3 @@
 <?php
-    define("PATH_IMG","public/image");
+    define("PATH_IMG","public/img");
 ?>

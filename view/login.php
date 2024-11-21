@@ -5,8 +5,8 @@
 
         <div class="box-lg d-flex justify-content-center my-3">
             <button class="btn btn-google-login">
-                <img src="images/gg-logo.png" alt="Google logo" /> Đăng nhập với
-                Google
+                <a href="<?php echo $googleLoginUrl; ?>">
+                    <img src="images/gg-logo.png" alt="Google logo" /> Đăng nhập với Google</a>
             </button>
         </div>
 
@@ -24,7 +24,7 @@
             </div>
             <div class="text-center mt-3">
                 <a href="index.php?page=register" class="forget">Bạn chưa đăng ký</a> <br>
-                <a href="#" class="forget">Quên mật khẩu? Khôi phục mật khẩu</a>
+                <a href="index.php?page=forgot_password_form" class="forget">Quên mật khẩu? Khôi phục mật khẩu</a>
             </div>
         </form>
 
