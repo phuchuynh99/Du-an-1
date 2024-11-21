@@ -5,16 +5,16 @@ foreach ($catalog_list as $category) {
     $linkproduct = 'index.php?page=product&id_category='.$id;
     $cataloglist .= '<li>
                         <label class="d-flex align-items-center">
-                           
                             <a href="'.$linkproduct.'" class="text-decoration-none text-dark">'.$name.'</a>
                         </label>
                      </li>';
 }
 ?>
+<div class="container-products">
 
-<section class="products" id="products">
+
+<section class="product-sidebar-section" id="product-sidebar">
     <div class="row">
-        <!-- Sidebar -->
         <div class="product-col4 col-md-3">
             <aside class="product-sidebar">
                 <div class="product-category bg-white p-3 rounded shadow-sm">
@@ -25,14 +25,17 @@ foreach ($catalog_list as $category) {
                 </div>
             </aside>
         </div>
+    </div>
+</section>
 
-        <!-- Product -->
+<section class="products-section" id="products">
+    <div class="row">
         <div class="product-col6 col-md-9">
             <div class="row g-4">
                 <?php 
                     foreach ($productlist as $product) {
                         extract($product);
-                        $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'default_image.jpg'; 
+                        $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'default_image.jpg';
                         echo '
                             <div class="col-md-3 product-card text-center shadow-sm p-3 border rounded">
                                 <a href="" class="text-decoration-none text-dark">
@@ -54,11 +57,4 @@ foreach ($catalog_list as $category) {
         </div>
     </div>
 </section>
-
-
-
-
-        </div>
-    </div>
-
-
+</div>
