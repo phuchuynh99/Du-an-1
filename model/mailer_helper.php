@@ -3,8 +3,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once './vendor/autoload.php';
-
 function sendMail($to, $subject, $body)
 {
     $mail = new PHPMailer(true);
@@ -17,10 +15,10 @@ function sendMail($to, $subject, $body)
         $mail->Username   = 'ngocphuc.huynh0501@gmail.com'; // Email cá nhân
         $mail->Password   = 'vokgpsfqhqklhbmi'; // Mật khẩu email
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 8080;
+        $mail->Port       = 465;
 
         // Người gửi và người nhận
-        $mail->setFrom('ngocphuc.huynh0501@gmail.com', 'Webmaster');
+        $mail->setFrom('ngocphuc.huynh0501@gmail.com', 'Nailuxe');
         $mail->addAddress($to);
 
         // Nội dung email
@@ -30,7 +28,7 @@ function sendMail($to, $subject, $body)
 
         // Gửi email
         $mail->send();
-        return true;
+        echo 'Đã gửi';
     } catch (Exception $e) {
         return "Lỗi gửi email: {$mail->ErrorInfo}";
     }
