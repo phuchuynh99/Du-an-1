@@ -1183,7 +1183,8 @@ nav a:hover {
 }
 
 .product-card button:hover {
-  background-color: #6F6A58;
+  background-color: #3e3c33;
+
 }
 
 /* banner con */
@@ -1268,7 +1269,7 @@ nav a:hover {
 }
 
 .related-products button:hover {
-  background-color: #6F6A58;
+  background-color: #3e3c33;
 }
 
 /* Section mẹo */
