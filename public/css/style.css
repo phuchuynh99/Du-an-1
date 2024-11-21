@@ -926,6 +926,7 @@ nav a:hover {
 }
 .newproduct-section, .hot-products, .sale-products, .related-products {
   padding: 10px;
+   
   /* margin-left: 80px; */
 }
 
@@ -1038,15 +1039,12 @@ nav a:hover {
   box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* .newproduct-section .products .product .img1 {
-  width: 800px;
-  margin-right: 60px;
-} */
+
 .hotproduct-section .hotproducts .hotproduct1 .buy-now,
 .hotproduct-section .hotproducts .hotproduct2 .buy-now {
   position: absolute;
   bottom: 20px;
-  left: 30%;
+  left: 50%;
   transform: translateX(-50%);
   background-color: #6F6A58;
   color: white;
@@ -1056,6 +1054,10 @@ nav a:hover {
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.hotproduct-section .hotproducts .hotproduct1 .buy-now {
+  left: 250px;
 }
 
 .hotproduct-section .hotproducts .hotproduct1 .buy-now:hover,
@@ -1070,7 +1072,7 @@ nav a:hover {
 .product-slider {
   position: relative;
   width: 90%;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -1085,11 +1087,12 @@ nav a:hover {
   display: flex;
   transition: transform 0.3s ease-in-out;
   will-change: transform;
+  gap: 16px;
 }
 
 .product-card {
-  min-width: 300px;
-  margin: 10px;
+  height: 400px;
+  min-width: 25%;
   text-align: center;
   border: 1px solid #ddd;
   padding: 10px;
@@ -1119,7 +1122,7 @@ nav a:hover {
 
 .product-card img {
   width: 100%;
-  height: 200px;
+  height: 250px;
   border-radius: 8px;
 }
 
@@ -1172,9 +1175,9 @@ nav a:hover {
 .product-card button {
   background-color: #6F6A58;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 24px;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
   margin-top: 10px;
 }
@@ -1187,7 +1190,7 @@ nav a:hover {
 .banner-con img {
   margin-top: 60px;
   /* margin-left: 100px; */
-  width: 1200px;
+  width: 100%;
   height: 300px;
   object-fit: cover;
 }
@@ -1210,9 +1213,9 @@ nav a:hover {
 
 .related-products .product-list {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
 }
 
 .related-products .product-item {
@@ -1220,7 +1223,7 @@ nav a:hover {
   border: 1px solid #f0e2d5;
   border-radius: 8px;
   text-align: center;
-  width: 200px;
+  width: calc(20% - 16px);
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -1257,9 +1260,9 @@ nav a:hover {
 .related-products button {
   background-color: #6F6A58;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 24px;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
   margin-top: 10px;
 }
