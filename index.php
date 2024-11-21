@@ -1,14 +1,7 @@
 <?php
-session_start();
 ob_start();
-require_once('view/global.php');
-require_once('model/connect.php');
-require_once('model/catalog.php');
-require_once('model/product.php');
-require_once('model/coupon.php');
-require_once('model/user.php');
-require_once('model/bill.php');
-
+session_start();
+require_once ('bright.php');
 //connectdb();
 // require header
 include_once "view/header.php";
@@ -224,6 +217,9 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
             // Hiển thị form quên mật khẩu
             include 'view/reset_password.php';
          }
+         break;
+      case 'reset_password':
+         include_once '';
          break;
       case 'contact':
          include_once "view/contact.php";

@@ -14,13 +14,13 @@ function sendMail($to, $subject, $body)
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'phuchnps39812@gmail.com'; // Email cá nhân
-        $mail->Password   = 'ngocphuc0501.'; // Mật khẩu email
+        $mail->Username   = 'ngocphuc.huynh0501@gmail.com'; // Email cá nhân
+        $mail->Password   = 'vokgpsfqhqklhbmi'; // Mật khẩu email
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 8080;
 
         // Người gửi và người nhận
-        $mail->setFrom('phuchnps39812@gmail.com', 'Webmaster');
+        $mail->setFrom('ngocphuc.huynh0501@gmail.com', 'Webmaster');
         $mail->addAddress($to);
 
         // Nội dung email
