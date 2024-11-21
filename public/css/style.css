@@ -425,15 +425,6 @@ nav a:hover {
   margin: 0 10px;
 }
 
-.active {
-  background-color: #6f6a58;
-  color: white;
-}
-
-.line.active {
-  background-color: #6f6a58;
-}
-
 .cart-wrapper {
   margin-top: 24px;
   display: flex;
@@ -850,11 +841,8 @@ nav a:hover {
 
 /* Trang chủ*/
 
-.banner-index img{
-  /* lam cho hinh fit vs chieu dai chieu rong */
-  object-fit: cover;
-  width: 100%;
-  height: 500px;
+.banner-index {
+  overflow: hidden;
 }
 
 .banner-index .carousel {
@@ -910,11 +898,19 @@ nav a:hover {
   margin: 0 40px;
 }
 
-.navbar-products a {
+.navbar-products button {
   font-size: 20px;
   text-decoration: none;
   color: #4f4f4f;
-  font-weight: bold;
+  font-weight: 400;
+  border: none;
+  /* ăn theo màu backgroup bao nó */
+  background-color: transparent;
+}
+
+.navbar-products .active {
+  border-bottom: 1px solid #4f4f4f;
+  padding-bottom: 7px;
 }
 
 .navbar-products a:hover {
@@ -934,18 +930,24 @@ nav a:hover {
 }
 
 .newproduct-section .products {
-  display: flex;
+  /* display: flex; */
   justify-content: flex-start;
   align-items: start;
   /* chia khoang cach giua cac phan tu */
   gap: 24px;
   margin-bottom: 24px;
+  display: none;
+}
+
+.hidden {
+  display: none;
 }
 
 .newproduct-section .products .product1 {
   position: relative;
   width: 70%;
   height: 300px;
+  display: none;
 }
 
 .newproduct-section .products .product1 img {
@@ -989,8 +991,79 @@ nav a:hover {
   transition: background-color 0.3s ease;
 }
 
-.newproduct-section .products .product .buy-now:hover {
-  background-color: #595547;
+.newproduct-section .products .product1 .buy-now:hover,
+.newproduct-section .products .product2 .buy-now:hover {
+  background-color: transparent;
+  color: #6F6A58;
+  font-weight: 500;
+  border: 2px solid #6F6A58;
+}
+
+/* hot */
+
+.hotproduct-section .hotproducts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  /* chia khoang cach giua cac phan tu */
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.hotproduct-section .hotproducts .hotproduct1 {
+  display: flex;
+  position: relative;
+  width: 70%;
+  height: 300px;
+}
+
+.hotproduct-section .hotproducts .hotproduct1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+}
+.hotproduct-section .hotproducts .hotproduct2 {
+  position: relative;
+  width: 30%;
+  height: 300px;
+}
+
+.hotproduct-section .hotproducts .hotproduct2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* .newproduct-section .products .product .img1 {
+  width: 800px;
+  margin-right: 60px;
+} */
+.hotproduct-section .hotproducts .hotproduct1 .buy-now,
+.hotproduct-section .hotproducts .hotproduct2 .buy-now {
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+  transform: translateX(-50%);
+  background-color: #6F6A58;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hotproduct-section .hotproducts .hotproduct1 .buy-now:hover,
+.hotproduct-section .hotproducts .hotproduct2 .buy-now:hover {
+  background-color: transparent;
+  color: #6F6A58;
+  font-weight: 500;
+  border: 2px solid #6F6A58;
 }
 
 
