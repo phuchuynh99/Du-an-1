@@ -1267,6 +1267,8 @@ nav a:hover {
 
 .related-products button:hover {
   background-color: #3e3c33;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 /* Section mẹo */
