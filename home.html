@@ -82,11 +82,11 @@
     <div class="container">
       <nav class="navbar-products">
         <ul>
-          <li><button class="active">Sơn móng</button></li>
-          <li><button>Dụng cụ làm móng</button></li>
-          <li><button>Thiết bị làm móng</button></li>
-          <li><button>Trang trí móng</button></li>
-          <li><button>Móng giả</button></li>
+          <li><button class="category-home-list active">Sơn móng</button></li>
+          <li><button class="category-home-list">Dụng cụ làm móng</button></li>
+          <li><button class="category-home-list">Thiết bị làm móng</button></li>
+          <li><button class="category-home-list">Trang trí móng</button></li>
+          <li><button class="category-home-list">Móng giả</button></li>
         </ul>
       </nav>
       <section class="newproduct-section">
@@ -112,7 +112,7 @@
             />
             <div>
               <i class="fa-solid fa-cart-shopping"></i>
-              <button>Mua ngay</button>
+              <button class="buy-now">Mua ngay</button>
             </div>
           </div>
         </div>
@@ -121,7 +121,7 @@
           <div class="product1">
             <img
               class="img1"
-              src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+              src="public/imageAdobeColor-web nail.jpeg"
               alt="Sơn móng"
             />
             <button class="buy-now">Mua ngay</button>
@@ -134,7 +134,7 @@
             />
             <div>
               <i class="fa-solid fa-cart-shopping"></i>
-              <button>Mua ngay</button>
+              <button class="buy-now">Mua ngay</button>
             </div>
           </div>
         </div>
@@ -242,7 +242,7 @@
       <!-- sản phẩm sale -->
       <section class="sale-products">
         <div class="title-products">
-          <hr>
+          <hr />
           <h2>Sản phẩm sale</h2>
           <p>Ưu đãi tháng này - Đẹp lung linh chỉ với giá ưu đãi!</p>
         </div>
@@ -549,18 +549,20 @@
       });
 
       // danh mục click vô danh mục ra ảnh
-      const buttons = document.querySelectorAll(" button");
-      const contents = document.querySelectorAll(".products > div");
+      const categoryBtn = document.querySelectorAll(".category-home-list");
+      const contents = document.querySelectorAll(".products");
 
-      buttons.forEach((button, index) => {
-        button.addEventListener("click", () => {
-          buttons.forEach((btn) => btn.classList.remove("active"));
-          button.classList.add("active");
+      contents[0].style.display = "flex";
 
-          contents.forEach((content) => content.classList.add("hidden"));
+      categoryBtn.forEach((cate, index) => {
+        cate.addEventListener("click", () => {
+          categoryBtn.forEach((btn) => btn.classList.remove("active"));
+          cate.classList.add("active");
+
+          contents.forEach((content) => (content.style.display = "none"));
 
           if (contents[index]) {
-            contents[index].classList.remove("hidden");
+            contents[index].style.display = "flex";
           }
         });
       });

@@ -834,7 +834,7 @@ footer ul li a:hover {
 }
 
 .newproduct-section .products {
-  /* display: flex; */
+  display: flex;
   justify-content: flex-start;
   align-items: start;
   /* chia khoang cach giua cac phan tu */
@@ -843,15 +843,10 @@ footer ul li a:hover {
   display: none;
 }
 
-.hidden {
-  display: none;
-}
-
 .newproduct-section .products .product1 {
   position: relative;
   width: 70%;
   height: 300px;
-  display: none;
 }
 
 .newproduct-section .products .product1 img {
