@@ -5,7 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trang chủ</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+        <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -13,92 +18,97 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="public/css/style.css">
+    <!-- <link rel="stylesheet" href="public/css/products.css"> -->
+    <link rel="stylesheet" href="public/css/product-detail.css">
+    <link rel="stylesheet" href="public/css/font.css">
+    <link rel="stylesheet" href="public/css/blog.css">
     <script src="https://kit.fontawesome.com/8c204d0fdf.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js"></script> 
+
+
 </head>
 
 <body>
-    <header class="bg-secondary py-3">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
-                <!-- Logo -->
-                <a href="index.php" class="d-flex align-items-center text-white text-decoration-none">
-                    <img src="public/img/banner/logo.png" alt="Nailuxe Logo" class="me-2" style="height: 50px;" />
+<header>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <!-- Logo -->
+            <a class="logo navbar-brand" href="#">
+              <img src="assets/images/1.png" alt="" />
+            </a>
+            <!-- Toggle menu cho mobile -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menu chính -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php?page=home">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php?page=products">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php?page=about">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php?page=contact">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php?page=blog">Blog</a>
+                </li>
+              </ul>
+              <div class="d-flex align-items-center head-icon">
+                <a href="index.php?page=cart" class="nav-link">
+                  <i class="fas fa-shopping-cart"></i>
                 </a>
 
-                <!-- Navigation -->
-                <nav class="d-none d-lg-block">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a href="index.php" class="nav-link text-white">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?page=products" class="nav-link text-white">Sản phẩm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?page=about" class="nav-link text-white">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?page=contact" class="nav-link text-white">Liên hệ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?page=blog" class="nav-link text-white">Blog</a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- Icons -->
-                <div class="d-flex align-items-center gap-3">
-                    <!-- Cart -->
-                    <a href="index.php?page=cart" class="text-white">
-                        <i class="fas fa-shopping-cart fs-4"></i>
-                    </a>
-
-                    <!-- User Dropdown -->
-                    <div class="dropdown">
-                        <a href="#" class="text-white dropdown-toggle" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-user-circle-o fs-4"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                            <?php
+                <div class="ht-right">
+                  <ul class="ht-us-menu d-flex">
+                    <!-- User menu -->
+                    <li>
+                      <?php
                             if (isset($_SESSION['userinfo']) && !empty($_SESSION['userinfo'])) {
-                                echo '<li><a class="dropdown-item" href="index.php?page=userUpdateForm">Edit Account</a></li>';
-                                echo '<li><a class="dropdown-item" href="index.php?page=logout">Đăng xuất</a></li>';
+                            echo '<a href="#">' . $_SESSION['userinfo']['username'] . '<i class="fa fa-angle-down"></i></a>
+                                  <ul class="ht-dropdown">
+                                    <li><a href="index.php?page=userUpdateForm">Chỉnh sửa tài khoản</a></li>
+                                    <li><a href="index.php?page=logout">Đăng xuất</a></li>
+                                  </ul>';
                             } else {
-                                echo '<li><a class="dropdown-item" href="index.php?page=login">Đăng nhập</a></li>';
-                                echo '<li><a class="dropdown-item" href="index.php?page=register">Đăng ký</a></li>';
-                            }
-                            ?>
-                        </ul>
-                    </div>
+                            echo '<a href="#">Login<i class="fa fa-angle-down"></i></a>
+                                  <ul class="ht-dropdown">
+                                    <li><a href="index.php?page=login">Đăng nhập</a></li>
+                                    <li><a href="index.php?page=register">Đăng ký</a></li>
+                                  </ul>';
+                            } ?>
+                    </li>
+                    <!-- Auth menu -->
+                    <!-- <li>
+                      <a href="#">Login<i class="fa fa-angle-down"></i></a>
+                      <ul class="ht-dropdown">
+                        <li><a href="index.php?page=login">Đăng nhập</a></li>
+                        <li><a href="index.php?page=register">Đăng ký</a></li>
+                      </ul>
+                    </li> -->
+                  </ul>
                 </div>
+              </div>
             </div>
-
-            <!-- Mobile Navigation -->
-            <div class="d-lg-none mt-3">
-                <nav>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="index.php" class="nav-link text-white">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?page=products" class="nav-link text-white">Sản phẩm</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?page=about" class="nav-link text-white">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?page=contact" class="nav-link text-white">Liên hệ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?page=blog" class="nav-link text-white">Blog</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+          </div>
+        </nav>
+      </div>
     </header>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
