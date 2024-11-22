@@ -12,7 +12,6 @@ foreach ($catalog_list as $category) {
 ?>
 <div class="container-products">
 
-
     <section class="product-sidebar-section" id="product-sidebar">
         <div class="row">
             <div class="product-col4 col-md-3">
