@@ -31,7 +31,7 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          //   }
 
          //    break;
-      case 'productdetail':
+      case 'productDetail':
          if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
             $idproduct = $_GET['idproduct'];
             $idcatalog = get_idcatalog($idproduct);

@@ -11,7 +11,9 @@
 
             <div class="product-price">
                 <span class="price-current"><?= number_format($product['price'], 0, ',', '.') ?>đ</span>
-                <span class="price-old">300.000đ</span>
+                <?php if ($product['discount_price'] > 0): ?>
+                    <span class="price-old"><?= number_format($product['discount_price'], 0, ',', '.') ?>đ</span>
+                <?php endif; ?>
             </div>
 
             <div class="product-rating">
