@@ -22,11 +22,7 @@ require_once('model/bill.php');
 //view
 require_once('view/global.php');
 require_once './vendor/autoload.php';
-<<<<<<< HEAD
-?>
-=======
 
 
 // require_once './vendor/autoload.php';
-?>
->>>>>>> trucs
+
