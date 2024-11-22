@@ -2,17 +2,15 @@
     <div class="product-container row">
         <!-- Cột trái: Hình ảnh sản phẩm -->
         <div class="col-md-6">
-            <img src="public/img/mài 1.webp" alt="Sơn móng tay Fleurwee" class="img-fluid">
+            <img src="public/img/<?= $product['img'] ?>" alt="<?= $product['name'] ?>" class="img-fluid">
         </div>
 
         <!-- Cột phải: Thông tin sản phẩm -->
         <div class="col-md-6">
-            <h1 class="product-title">
-                Sơn móng tay dạng gel Fleurwee từ thực vật 0,5 fl oz/15ml - P13 Nude Pink Carnation
-            </h1>
+            <h1 class="product-title"><?= $product['name'] ?></h1>
 
             <div class="product-price">
-                <span class="price-current">250.000đ</span>
+                <span class="price-current"><?= number_format($product['price'], 0, ',', '.') ?>đ</span>
                 <span class="price-old">300.000đ</span>
             </div>
 

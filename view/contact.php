@@ -39,26 +39,29 @@
     </div>
 
     <div class="right">
-      <form class="contact-form" action="index.php?page=contact_form" method="POST">
-        <div class="mb-3">
-          <label for="name" class="form-label">Họ và tên</label>
-          <input type="text" id="name" name="name" class="form-control" placeholder="Họ và tên" required>
+      <form class="contact-form" action="index.php?page=addContact" method="POST">
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+          <label for="name">Họ tên</label>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" name="email" class="form-control" placeholder="Địa chỉ email" required>
-        </div>
-        <div class="mb-3">
-          <label for="phone" class="form-label">Số điện thoại</label>
-          <input type="tel" id="phone" name="phone" class="form-control" placeholder="Số điện thoại" required>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Tin nhắn</label>
-          <textarea id="message" name="message" rows="5" class="form-control" placeholder="Nội dung tin nhắn" required></textarea>
-        </div>
-        <button type="submit" name="btnadd" class="btn btn-primary">Gửi</button>
-      </form>
 
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Địa chỉ email" required>
+          <label for="email">Email</label>
+        </div>
+
+        <div class="form-group">
+          <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
+          <label for="phone">SĐT</label>
+        </div>
+
+        <div class="form-group">
+          <textarea id="message" rows="5" name="message" placeholder="" required></textarea>
+          <label for="message">Tin nhắn</label>
+        </div>
+
+        <button type="submit" name="btnadd">Gửi</button>
+      </form>
     </div>
   </div>
 </div>

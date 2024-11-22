@@ -19,21 +19,30 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          $catalog_list = get_catalog();
          include_once "view/products.php";
          break;
-      case 'productDetail':
-         include_once "view/productDetail.php";
-         break;
-         // case 'productdetail':
-         //    if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
-         //       $idproduct = $_GET['idproduct'];
-         //       $idcatalog = get_idcatalog($idproduct);
-
-         //       $detail = get_product_detail($idproduct);
-         //       $related = get_related_product($idcatalog, $idproduct);
-
-         //       include_once "view/productdetail.php";
-         //    }
+         // case 'product-detail':
+         //    if ($page == 'product-detail') {
+         //       $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+         //       if ($id > 0) {
+         //           $product = get_product_detail($id);
+         //           include_once 'view/product-detail.php';
+         //       } else {
+         //           header('Location: index.php?page=product');
+         //       }
+         //   }
 
          //    break;
+      case 'productdetail':
+         if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
+            $idproduct = $_GET['idproduct'];
+            $idcatalog = get_idcatalog($idproduct);
+
+            $detail = get_product_detail($idproduct);
+            $related = get_related_product($idcatalog, $idproduct);
+
+            include_once "view/productdetail.php";
+         }
+
+         break;
          // case 'blog':
          //    include_once "view/blog.php";
          //    break;
