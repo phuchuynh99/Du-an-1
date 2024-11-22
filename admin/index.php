@@ -13,6 +13,7 @@ require_once('../model/product.php');
 require_once('../model/coupon.php');
 require_once('../model/user.php');
 require_once('../model/bill.php');
+require_once('../model/contact.php');
 require_once('public/head.php');
 require_once('public/nav.php');
 
@@ -165,7 +166,7 @@ if (isset($_GET['page'])) {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $email = $_POST['email'];
-                $role = $_POST['role']; // Có thể là 'admin' hoặc 'user', tùy thuộc vào form
+                $role = $_POST['role'];
 
                 // Dữ liệu cho thêm user
                 $data = [

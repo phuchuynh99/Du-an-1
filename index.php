@@ -2,7 +2,6 @@
 ob_start();
 session_start();
 require_once('bright.php');
-require_once('model/mailer_helper.php');
 
 // sendMail('huynvps39718@gmail.com', 'testmail', 'Chào huy');
 // require header
@@ -226,20 +225,18 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
       case 'contact':
          include_once "view/contact.php";
          break;
-      case 'contactForm':
+      case 'addContact':
          if (isset($_POST['btnadd'])) {
-            $name = $_POST['name'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $message = $_POST['message'];
+            $name = $_POST['name'];
 
-            // Kiểm tra nếu người dùng đã đăng nhập
-            $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
-
-            addContact($name, $email, $phone, $message, $user_id);
+            addContact($name, $email, $phone, $message);
          } else {
             require_once('public/404.php');
          }
+         header('location: index.php?page=contact');
          break;
 
       case 'about':
