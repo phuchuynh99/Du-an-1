@@ -822,10 +822,17 @@ footer ul li a:hover {
 
 /* sản phẩm mới */
 .title-products {
-  margin-top: 40px;
+  margin-top: 80px;
   margin-bottom: 30px;
   color: #6F6A58;
   line-height: 40px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.title-products h2 {
+  font-size: 26px;
+  font-weight: 500;
 }
 .newproduct-section, .hot-products, .sale-products, .related-products {
   padding: 10px;
@@ -841,6 +848,13 @@ footer ul li a:hover {
   gap: 24px;
   margin-bottom: 24px;
   display: none;
+}
+
+.newproduct-section .title-newpro {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: #6F6A58;
+  line-height: 40px;
 }
 
 .newproduct-section .products .product1 {
@@ -984,13 +998,14 @@ footer ul li a:hover {
 }
 
 .product-card {
-  height: 400px;
+  height: 450px;
   min-width: 25%;
   text-align: center;
   border: 1px solid #ddd;
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background: #fff;
+  margin-bottom: 40px;
 }
 
 .slider-btn {
@@ -1025,6 +1040,7 @@ footer ul li a:hover {
 }
 
 .product-card p {
+  margin: 10px 0;
   color: #e91e63;
   font-weight: bold;
 }
@@ -1035,6 +1051,7 @@ footer ul li a:hover {
 }
 
 .product-card .item img {
+  margin-top: 20px;
   width: 100%;
   border-radius: 4px;
 
@@ -1084,10 +1101,10 @@ footer ul li a:hover {
 
 /* banner con */
 .banner-con img {
-  margin-top: 60px;
+  margin: 80px 0;
   /* margin-left: 100px; */
   width: 100%;
-  height: 300px;
+  height: 330px;
   object-fit: cover;
 }
 .related-products {
@@ -1095,9 +1112,11 @@ footer ul li a:hover {
 }
 
 .related-products h2 {
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: 500;
   color: #4f4f4f;
   text-align: center;
+  line-height: 50px;
 }
 
 .related-products p {
@@ -1107,68 +1126,64 @@ footer ul li a:hover {
   color: #7a7a7a;
 }
 
-.related-products .product-list {
+.related-products .review-container {
   display: flex;
-  /* justify-content: space-around; */
-  flex-wrap: wrap;
-  gap: 16px;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Đảm bảo không bị lỗi nếu kích thước màn hình nhỏ */
+  gap: 16px; /* Khoảng cách giữa các box */
+  max-width: 1280px;
+  margin: 60px auto;
+  padding: 0 16px; /* Thêm padding cho nội dung không sát cạnh màn hình */
 }
 
-.related-products .product-item {
-  background: #fff;
-  border: 1px solid #f0e2d5;
+.related-products .review-box {
+  background-color: #f9f8f6;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  text-align: center;
-  width: calc(20% - 16px);
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  flex: 1 1 calc(50% - 16px); /* Chia đều mỗi box chiếm 50% không gian, trừ khoảng cách */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
 }
 
-.related-products .product-item img {
-  width: 100%;
-  height: 150px;
+.related-products .review-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
   object-fit: cover;
-  border-radius: 4px;
+  margin-right: 16px;
 }
 
-.related-products .product-item h3 {
-  font-size: 16px;
+.related-products .review-content {
+  flex: 1;
+}
+
+.related-products .review-title {
+  font-size: 1.2em;
   color: #333;
-  margin: 10px 0;
+  margin-bottom: 8px;
 }
 
-.related-products .price {
-  font-size: 16px;
-  margin: 5px 0;
+.related-products .stars span {
+  color: #FFD700;
+  font-size: 1.2em;
+  margin-right: 4px;
 }
 
-.related-products .old-price {
-  text-decoration: line-through;
-  color: #888;
-  margin-right: 5px;
+.related-products .review-text {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 8px;
 }
 
-.related-products .new-price {
-  color: #e63946;
-  font-weight: bold;
+/* Đảm bảo responsive trên màn hình nhỏ */
+@media (max-width: 768px) {
+  .related-products .review-box {
+    flex: 1 1 100%; /* Box chiếm toàn bộ hàng khi màn hình nhỏ */
+  }
 }
-
-.related-products button {
-  background-color: #6F6A58;
-  border: none;
-  padding: 10px 24px;
-  color: #fff;
-  border-radius: 30px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.related-products button:hover {
-  background-color: #3e3c33;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transform: scale(1.05);
-}
-
 /* Section mẹo */
 #tip-section {
   margin-bottom: 80px;
