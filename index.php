@@ -19,30 +19,32 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          $catalog_list = get_catalog();
          include_once "view/products.php";
          break;
-         // case 'product-detail':
-         //    if ($page == 'product-detail') {
-         //       $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-         //       if ($id > 0) {
-         //           $product = get_product_detail($id);
-         //           include_once 'view/product-detail.php';
-         //       } else {
-         //           header('Location: index.php?page=product');
-         //       }
-         //   }
-
-         //    break;
       case 'productDetail':
          if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
             $idproduct = $_GET['idproduct'];
-            $idcatalog = get_idcatalog($idproduct);
 
-            $detail = get_product_detail($idproduct);
-            $related = get_related_product($idcatalog, $idproduct);
+            // Lấy chi tiết sản phẩm
+            $product = get_product_detail($idproduct);
 
-            include_once "view/productdetail.php";
+            if ($product) {
+               // Lấy id_category từ sản phẩm để lọc sản phẩm liên quan
+               $id_category = $product['id_category'];
+
+               // Lấy danh sách sản phẩm liên quan
+               $related_products = get_related_product($id_category, $idproduct);
+
+               include_once "view/product-detail.php";
+            } else {
+               // Nếu sản phẩm không tồn tại
+               header("Location: index.php?page=products");
+               exit();
+            }
+         } else {
+            header("Location: index.php?page=products");
+            exit();
          }
-
          break;
+
          // case 'blog':
          //    include_once "view/blog.php";
          //    break;
