@@ -1049,6 +1049,12 @@ nav a:hover {
   color: #6F6A58;
   line-height: 40px;
   text-align: center;
+  line-height: 50px;
+}
+
+.title-products h2 {
+  font-size: 26px;
+  font-weight: 500;
 }
 .newproduct-section, .hot-products, .sale-products, .related-products {
   padding: 10px;
@@ -1219,13 +1225,14 @@ nav a:hover {
 }
 
 .product-card {
-  height: 400px;
+  height: 450px;
   min-width: 25%;
   text-align: center;
   border: 1px solid #ddd;
   padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background: #fff;
+  margin-bottom: 40px;
 }
 
 .slider-btn {
@@ -1260,6 +1267,7 @@ nav a:hover {
 }
 
 .product-card p {
+  margin: 10px 0;
   color: #e91e63;
   font-weight: bold;
 }
@@ -1270,6 +1278,7 @@ nav a:hover {
 }
 
 .product-card .item img {
+  margin-top: 20px;
   width: 100%;
   border-radius: 4px;
 
@@ -1319,7 +1328,7 @@ nav a:hover {
 
 /* banner con */
 .banner-con img {
-  margin-top: 60px;
+  margin: 80px 0;
   /* margin-left: 100px; */
   width: 100%;
   height: 300px;
@@ -1330,9 +1339,11 @@ nav a:hover {
 }
 
 .related-products h2 {
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: 500;
   color: #4f4f4f;
   text-align: center;
+  line-height: 50px;
 }
 
 .related-products p {
@@ -1343,6 +1354,7 @@ nav a:hover {
 }
 
 .related-products .product-list {
+  margin-top: 50px;
   display: flex;
   /* justify-content: space-around; */
   flex-wrap: wrap;
