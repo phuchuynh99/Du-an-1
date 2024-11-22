@@ -33,61 +33,35 @@
 </head>
 
 <body>
-<header>
-      <div class="container">
-        <nav class="navbar navbar-expand-lg">
-          <div class="container-fluid">
-            <!-- Logo -->
-            <a class="logo navbar-brand" href="#">
-              <img src="./public/img/1.png" alt="" />
-            </a>
-            <!-- Toggle menu cho mobile -->
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
+    <header class="bg-secondary py-3">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <img src="public/img/banner/logo.png" alt="Nailuxe Logo" class="me-2" />
+            </div>
 
-            <!-- Menu chính -->
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Trang chủ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="index.php?page=products">Sản phẩm</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Giới thiệu</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Liên hệ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Blog</a>
-                </li>
-                <li class="nav-item d-block d-md-none d-lg-none">
-                  <a class="nav-link" href="#">Giỏ hàng</a>
-                </li>
-                <hr class="my-2 d-block d-md-none d-lg-none text-white">
-                
-                <li class="nav-item d-block d-md-none d-lg-none">
-                  <a class="nav-link" href="#">Đăng nhập</a>
-                </li>
-                <li class="nav-item d-block d-md-none d-lg-none">
-                  <a class="nav-link" href="#">Đăng ký</a>
-                </li>
-                
-              </ul>
-              <div class="d-flex align-items-center head-icon">
-                <a href="cart.html" class="nav-link">
-                  <i class="fas fa-shopping-cart d-none d-md-block"></i>
+            <nav>
+                <ul class="d-flex list-unstyled mb-0">
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link text-white">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.php?page=products" class="nav-link text-white">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.php?page=about" class="nav-link text-white">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.php?page=contact" class="nav-link text-white">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.php?page=blog" class="nav-link text-white">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="icons d-flex gap-3">
+                <a href="index.php?page=cart" class="text-white">
+                    <i class="fas fa-shopping-cart head-icon"></i>
                 </a>
 
                 <div class="ht-right">
@@ -96,30 +70,23 @@
                     <li>
                       <?php
                             if (isset($_SESSION['userinfo']) && !empty($_SESSION['userinfo'])) {
-                            echo '<a href="#" class="d-none d-md-block">' . $_SESSION['userinfo']['username'] . '<i class="fa fa-angle-down"></i></a>
-                                  <ul class="ht-dropdown">
-                                    <li><a href="index.php?page=userUpdateForm">Chỉnh sửa tài khoản</a></li>
-                                    <li><a href="index.php?page=logout">Đăng xuất</a></li>
-                                  </ul>';
+                                // Hiển thị tên người dùng và các tùy chọn
+                                echo '<a href="#"><i class="fa fa-user-circle-o"></i>' . $_SESSION['userinfo']['username'] . '</a>';
+                                echo '<ul class="ht-dropdown right">';
+                                echo '<li><a href="index.php?page=userUpdateForm">Edit Account</a></li>';
+                                echo '<li><a href="index.php?page=logout">Đăng xuất</a></li>';
+                                echo '</ul>';
                             } else {
-                            echo '<a href="#" class="d-none d-md-block">Login<i class="fa fa-angle-down"></i></a>
-                                  <ul class="ht-dropdown">
-                                    <li><a href="index.php?page=login">Đăng nhập</a></li>
-                                    <li><a href="index.php?page=register">Đăng ký</a></li>
-                                  </ul>';
-                            } ?>
-                    </li> 
-                    <!-- Auth menu -->
-                    <!-- <li>
-                      <a href="#" class="d-none d-md-block"
-                        >Login<i class="fa fa-angle-down"></i
-                      ></a>
-                      <ul class="ht-dropdown">
-                        <li><a href="index.php?page=login">Đăng nhập</a></li>
-                        <li><a href="index.php?page=register">Đăng ký</a></li>
-                      </ul>
-                    </li> -->
-                  </ul>
+                                // Hiển thị giao diện chưa đăng nhập
+                                echo '<a href="#"><i class="fa fa-user-circle-o"></i>Login</a>';
+                                echo '<ul class="ht-dropdown right">';
+                                echo '<li><a href="index.php?page=login">Đăng nhập</a></li>';
+                                echo '<li><a href="index.php?page=register">Đăng ký</a></li>';
+                                echo '</ul>';
+                            }
+                            ?>
+                        </li>
+                    </ul>
                 </div>
               </div>
             </div>
