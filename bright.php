@@ -6,6 +6,7 @@ require_once('model/product.php');
 require_once('model/coupon.php');
 require_once('model/user.php');
 require_once('model/bill.php');
+require_once('model/contact.php');
 // require_once('model/jwt.php');
 // require_once('model/mailer_helper.php');
 
@@ -25,4 +26,3 @@ require_once './vendor/autoload.php';
 
 
 // require_once './vendor/autoload.php';
-?>

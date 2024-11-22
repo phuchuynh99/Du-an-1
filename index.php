@@ -3,7 +3,8 @@ ob_start();
 session_start();
 require_once('bright.php');
 require_once('model/mailer_helper.php');
-sendMail('huynvps39718@gmail.com', 'testmail', 'Chào huy');
+
+// sendMail('huynvps39718@gmail.com', 'testmail', 'Chào huy');
 // require header
 include_once "view/header.php";
 
@@ -224,6 +225,17 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          break;
       case 'contact':
          include_once "view/contact.php";
+         break;
+      case 'contact_form':
+         if (isset($_POST['btnadd'])) {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $message = $_POST['message'];
+            add_contact($name, $email, $phone, $message);
+         } else {
+            require_once('public/404.php');
+         }
          break;
       case 'about':
          include_once "view/about.php";
