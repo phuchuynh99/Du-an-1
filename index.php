@@ -226,17 +226,22 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
       case 'contact':
          include_once "view/contact.php";
          break;
-      case 'contact_form':
+      case 'contactForm':
          if (isset($_POST['btnadd'])) {
             $name = $_POST['name'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $message = $_POST['message'];
-            add_contact($name, $email, $phone, $message);
+
+            // Kiểm tra nếu người dùng đã đăng nhập
+            $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+            addContact($name, $email, $phone, $message, $user_id);
          } else {
             require_once('public/404.php');
          }
          break;
+
       case 'about':
          include_once "view/about.php";
          break;
