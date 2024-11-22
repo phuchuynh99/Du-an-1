@@ -1418,7 +1418,7 @@ nav a:hover {
 
 /* Section mẹo */
 #tip-section {
-  margin-bottom: 80px;
+  margin: 80px 0;
 }
 .tip-section {
   display: flex;
