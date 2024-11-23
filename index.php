@@ -169,7 +169,7 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
                exit();
             } else {
                // Hiển thị lỗi nếu không thêm được người dùng
-               echo "Đã xảy ra lỗi khi thêm người dùng. Vui lòng thử lại.";
+               echo "Đã xảy ra lỗi khi tạo tài khoản. Vui lòng thử lại.";
             }
          } else {
             require_once('public/404.php');
@@ -180,8 +180,8 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          break;
       case 'checkUserRole':
          if (isset($_POST['btnlogin'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
 
             // Kiểm tra đăng nhập
             $user = checkUser($username, $password);
@@ -220,7 +220,7 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          break;
       case 'forgot_password':
          if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
+            $email = trim($_POST['email']);
             $message = forgotPassword($email);
 
             // Hiển thị thông báo cho người dùng
@@ -234,12 +234,12 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          include_once '';
          break;
       case 'contact':
-         include_once "view/contact.php";
+         include_once "controller/contact.php";
          break;
       case 'addContact':
          if (isset($_POST['btnadd'])) {
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
+            $email = trim($_POST['email']);
+            $phone = trim($_POST['phone']);
             $message = $_POST['message'];
             $name = $_POST['name'];
 
@@ -260,12 +260,11 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          include_once "view/blog.php";
          break;
       default:
-         if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
-            $id_category = $_GET['id_category'];
-         } else {
-            $id_category = 0;
-         }
-         $productlist = getproduct($id_category);
+         // if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
+         //    $id_category = $_GET['id_category'];
+         // } else {
+         //    $id_category = 0;
+         // }
          $catalog_list = get_catalog();
          // $newproduct = getproduct();
          // $saleproduct = getsaleproduct();
