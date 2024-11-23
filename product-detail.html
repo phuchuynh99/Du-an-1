@@ -2,18 +2,18 @@
     <div class="product-container row">
         <!-- Cột trái: Hình ảnh sản phẩm -->
         <div class="col-md-6">
-            <img src="public/img/<?= $product['img'] ?>" alt="<?= $product['name'] ?>" class="img-fluid">
+            <img src="public/img/mài 1.webp" alt="Sơn móng tay Fleurwee" class="img-fluid">
         </div>
 
         <!-- Cột phải: Thông tin sản phẩm -->
         <div class="col-md-6">
-            <h1 class="product-title"><?= $product['name'] ?></h1>
+            <h1 class="product-title">
+                Sơn móng tay dạng gel Fleurwee từ thực vật 0,5 fl oz/15ml - P13 Nude Pink Carnation
+            </h1>
 
             <div class="product-price">
-                <span class="price-current"><?= number_format($product['price'], 0, ',', '.') ?>đ</span>
-                <?php if ($product['discount_price'] > 0): ?>
-                    <span class="price-old"><?= number_format($product['discount_price'], 0, ',', '.') ?>đ</span>
-                <?php endif; ?>
+                <span class="price-current">250.000đ</span>
+                <span class="price-old">300.000đ</span>
             </div>
 
             <div class="product-rating">
@@ -117,31 +117,46 @@
     <section class="my-4">
         <h4 class="sptt">Sản phẩm tương tự</h4>
         <div class="row">
-            <?php if (!empty($related_products)): ?>
-                <?php foreach ($related_products as $related): ?>
-                    <div class="col-6 col-md-6 col-lg-3 mb-4">
-                        <div class="product-card">
-                            <?php if ($related['discount_price'] > 0): ?>
-                                <div class="discount-tag">-<?= round((1 - $related['discount_price'] / $related['price']) * 100) ?>%</div>
-                            <?php endif; ?>
-                            <img src="public/img/<?= $related['img'] ?>" alt="<?= $related['name'] ?>" class="product-image">
-                            <p class="product-title-similar"><?= $related['name'] ?></p>
-                            <p>
-                                <?php if ($related['discount_price'] > 0): ?>
-                                    <span class="product-price-old-similar"><?= number_format($related['price'], 0, ',', '.') ?>đ</span>
-                                    <span class="product-price-similar"><?= number_format($related['discount_price'], 0, ',', '.') ?>đ</span>
-                                <?php else: ?>
-                                    <span class="product-price-similar"><?= number_format($related['price'], 0, ',', '.') ?>đ</span>
-                                <?php endif; ?>
-                            </p>
-                            <button class="btn-buy">Mua ngay</button>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>Không có sản phẩm liên quan nào.</p>
-            <?php endif; ?>
+            <!-- Product Card 1 -->
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="product-card">
+                    <div class="discount-tag">-30%</div>
+                    <img src="public/img/mài 1.webp" alt="7 in 1 Clear Builder Gel" class="product-image">
+                    <p class="product-title-similar">7 in 1 Clear Builder Gel 15ml</p>
+                    <p><span class="product-price-old-similar">300.000đ</span><span class="product-price-similar">270.000đ</span></p>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="product-card">
+                    <div class="discount-tag">-30%</div>
+                    <img src="public/img/mài 1.webp" alt="7 in 1 Clear Builder Gel" class="product-image">
+                    <p class="product-title-similar">7 in 1 Clear Builder Gel 15ml</p>
+                    <p><span class="product-price-old-similar">300.000đ</span><span class="product-price-similar">270.000đ</span></p>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="product-card">
+                    <div class="discount-tag">-30%</div>
+                    <img src="public/img/mài 1.webp" alt="7 in 1 Clear Builder Gel" class="product-image">
+                    <p class="product-title-similar">7 in 1 Clear Builder Gel 15ml</p>
+                    <p><span class="product-price-old-similar">300.000đ</span><span class="product-price-similar">270.000đ</span></p>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3 mb-4">
+                <div class="product-card">
+                    <div class="discount-tag">-30%</div>
+                    <img src="public/img/mài 1.webp" alt="7 in 1 Clear Builder Gel" class="product-image">
+                    <p class="product-title-similar">7 in 1 Clear Builder Gel 15ml</p>
+                    <p><span class="product-price-old-similar">300.000đ</span><span class="product-price-similar">270.000đ</span></p>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+            </div>
         </div>
     </section>
-
 </div>

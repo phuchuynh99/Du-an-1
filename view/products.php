@@ -1,186 +1,60 @@
-<div class="product-page container my-5">
-    <div class="row">
-        <!-- Sidebar -->
-        <div class="col-md-2 product-page__sidebar">
-            <h5 class="product-page__title">DANH MỤC</h5>
-            <ul class="product-page__list">
-                <li class="product-page__item">
-                    <input type="checkbox" checked /> Sơn móng
-                </li>
-                <li class="product-page__item">
-                    <input type="checkbox" checked /> Dụng cụ làm móng
-                </li>
-                <li class="product-page__item">
-                    <input type="checkbox" checked /> Thiết bị làm móng
-                </li>
-                <li class="product-page__item">
-                    <input type="checkbox" checked /> Sản phẩm trang trí móng
-                </li>
-                <li class="product-page__item">
-                    <input type="checkbox" checked /> Móng giả
-                </li>
-            </ul>
-        </div>
+<?php
+$cataloglist = '';
+foreach ($catalog_list as $category) {
+    extract($category);
+    $linkproduct = 'index.php?page=product&id_category=' . $id;
+    $cataloglist .= '<li>
+                        <label class="d-flex align-items-center">
+                            <a href="' . $linkproduct . '" class="text-decoration-none text-dark">' . $name . '</a>
+                        </label>
+                     </li>';
+}
+?>
+<div class="container-products">
 
-        <!-- Product List -->
-        <div class="col-md-10 product-page__products">
-            <div class="row g-3">
-                <!-- Product Item -->
-                <div class="col-sm-5 col-md-3">
-                    <div class="product-card">
-                        <img
-                            src="assets/images/image.png"
-                            class="product-card__img"
-                            alt="Product 1" />
-                        <div class="product-card__body">
-                            <h6 class="product-card__title">PM170F</h6>
-                            <p class="product-card__description">
-                                Máy mài móng tay PM170F
-                            </p>
-                            <p class="product-card__old-price">300,000đ</p>
-                            <p class="product-card__price">270,000đ</p>
-                            <div class="product-card__actions">
-                                <button class="product-card__cart-btn">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                                <button class="product-card__buy-btn">Mua ngay</button>
-                            </div>
-                        </div>
+    <section class="product-sidebar-section" id="product-sidebar">
+        <div class="row">
+            <div class="product-col4 col-md-3">
+                <aside class="product-sidebar">
+                    <div class="product-category bg-white p-3 rounded shadow-sm">
+                        <h4 class="product-category-title fw-bold">DANH MỤC</h4>
+                        <ul class="product-category-list list-unstyled mt-3">
+                            <?= $cataloglist ?>
+                        </ul>
                     </div>
-                </div>
-                <div class="col-sm-5 col-md-3">
-                    <div class="product-card">
-                        <img
-                            src="assets/images/image.png"
-                            class="product-card__img"
-                            alt="Product 1" />
-                        <div class="product-card__body">
-                            <h6 class="product-card__title">PM170F</h6>
-                            <p class="product-card__description">
-                                Máy mài móng tay PM170F
-                            </p>
-                            <p class="product-card__old-price">300,000đ</p>
-                            <p class="product-card__price">270,000đ</p>
-                            <div class="product-card__actions">
-                                <button class="product-card__cart-btn">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                                <button class="product-card__buy-btn">Mua ngay</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-5 col-md-3">
-                    <div class="product-card">
-                        <img
-                            src="assets/images/image.png"
-                            class="product-card__img"
-                            alt="Product 1" />
-                        <div class="product-card__body">
-                            <h6 class="product-card__title">PM170F</h6>
-                            <p class="product-card__description">
-                                Máy mài móng tay PM170F
-                            </p>
-                            <p class="product-card__old-price">300,000đ</p>
-                            <p class="product-card__price">270,000đ</p>
-                            <div class="product-card__actions">
-                                <button class="product-card__cart-btn">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                                <button class="product-card__buy-btn">Mua ngay</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-5 col-md-3">
-                    <div class="product-card">
-                        <img
-                            src="assets/images/image.png"
-                            class="product-card__img"
-                            alt="Product 1" />
-                        <div class="product-card__body">
-                            <h6 class="product-card__title">PM170F</h6>
-                            <p class="product-card__description">
-                                Máy mài móng tay PM170F
-                            </p>
-                            <p class="product-card__old-price">300,000đ</p>
-                            <p class="product-card__price">270,000đ</p>
-                            <div class="product-card__actions">
-                                <button class="product-card__cart-btn">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                                <button class="product-card__buy-btn">Mua ngay</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-5 col-md-3">
-                    <div class="product-card">
-                        <img
-                            src="assets/images/image.png"
-                            class="product-card__img"
-                            alt="Product 1" />
-                        <div class="product-card__body">
-                            <h6 class="product-card__title">PM170F</h6>
-                            <p class="product-card__description">
-                                Máy mài móng tay PM170F
-                            </p>
-                            <p class="product-card__old-price">300,000đ</p>
-                            <p class="product-card__price">270,000đ</p>
-                            <div class="product-card__actions">
-                                <button class="product-card__cart-btn">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                                <button class="product-card__buy-btn">Mua ngay</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-5 col-md-3">
-                    <div class="product-card">
-                        <img
-                            src="assets/images/image.png"
-                            class="product-card__img"
-                            alt="Product 1" />
-                        <div class="product-card__body">
-                            <h6 class="product-card__title">PM170F</h6>
-                            <p class="product-card__description">
-                                Máy mài móng tay PM170F
-                            </p>
-                            <p class="product-card__old-price">300,000đ</p>
-                            <p class="product-card__price">270,000đ</p>
-                            <div class="product-card__actions">
-                                <button class="product-card__cart-btn">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                                <button class="product-card__buy-btn">Mua ngay</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-5 col-md-3">
-                    <div class="product-card">
-                        <img
-                            src="assets/images/image.png"
-                            class="product-card__img"
-                            alt="Product 1" />
-                        <div class="product-card__body">
-                            <h6 class="product-card__title">PM170F</h6>
-                            <p class="product-card__description">
-                                Máy mài móng tay PM170F
-                            </p>
-                            <p class="product-card__old-price">300,000đ</p>
-                            <p class="product-card__price">270,000đ</p>
-                            <div class="product-card__actions">
-                                <button class="product-card__cart-btn">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </button>
-                                <button class="product-card__buy-btn">Mua ngay</button>
-                            </div>
-                        </div>
-                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="row">
+            <div class="product-col6 col-md-9">
+                <div class="row g-4">
+                    <?php
+                    foreach ($productlist as $product) {
+                        extract($product);
+                        $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'default_image.jpg';
+                        $linkDetail = 'index.php?page=productDetail&idproduct=' . $id;
+                        echo '
+                            <div class="col-md-3 product-card text-center shadow-sm p-3 border rounded">
+                                <a href="' . $linkDetail . '" class="text-decoration-none text-dark">
+                                    <img src="' . $imgPath . '" class="product-img img-fluid mb-2" alt="' . $name . '">
+                                </a>
+                                <h5 class="product-name">' . $name . '</h5>
+                                <p class="product-original-price text-muted mb-1"><del>' . $discount_price . 'đ</del></p>
+                                <p class="product-discount-price text-danger fw-bold">' . $price . 'đ</p>
+                                <div class="product-actions d-flex justify-content-center align-items-center gap-2 mt-3">
+                                    <button class="product-btn-cart px-3 py-2 d-flex align-items-center">
+                                        <i class="fa fa-cart-plus me-2"></i> Giỏ hàng
+                                    </button>
+                                    <button class="product-btn-buy px-3 py-2">Mua ngay</button>
+                                </div>
+                            </div>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>

@@ -2,8 +2,8 @@
 ob_start();
 session_start();
 require_once('bright.php');
-require_once('model/mailer_helper.php');
-sendMail('huynvps39718@gmail.com', 'testmail', 'Chào huy');
+
+// sendMail('huynvps39718@gmail.com', 'testmail', 'Chào huy');
 // require header
 include_once "view/header.php";
 
@@ -20,20 +20,31 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          include_once "view/products.php";
          break;
       case 'productDetail':
-         include_once "view/productDetail.php";
+         if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
+            $idproduct = $_GET['idproduct'];
+
+            // Lấy chi tiết sản phẩm
+            $product = get_product_detail($idproduct);
+
+            if ($product) {
+               // Lấy id_category từ sản phẩm để lọc sản phẩm liên quan
+               $id_category = $product['id_category'];
+
+               // Lấy danh sách sản phẩm liên quan
+               $related_products = get_related_product($id_category, $idproduct);
+
+               include_once "view/product-detail.php";
+            } else {
+               // Nếu sản phẩm không tồn tại
+               header("Location: index.php?page=products");
+               exit();
+            }
+         } else {
+            header("Location: index.php?page=products");
+            exit();
+         }
          break;
-         // case 'productdetail':
-         //    if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
-         //       $idproduct = $_GET['idproduct'];
-         //       $idcatalog = get_idcatalog($idproduct);
 
-         //       $detail = get_product_detail($idproduct);
-         //       $related = get_related_product($idcatalog, $idproduct);
-
-         //       include_once "view/productdetail.php";
-         //    }
-
-         //    break;
          // case 'blog':
          //    include_once "view/blog.php";
          //    break;
@@ -225,6 +236,20 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
       case 'contact':
          include_once "view/contact.php";
          break;
+      case 'addContact':
+         if (isset($_POST['btnadd'])) {
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $message = $_POST['message'];
+            $name = $_POST['name'];
+
+            addContact($name, $email, $phone, $message);
+         } else {
+            require_once('public/404.php');
+         }
+         header('location: index.php?page=contact');
+         break;
+
       case 'about':
          include_once "view/about.php";
          break;
