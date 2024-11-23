@@ -1,8 +1,9 @@
 <?php
-// $cataloglist = '';
-// foreach ($catalog_list as $category) {
-//     $cataloglist .= '<li><a href="index.php?page=product&id_category=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
-// }
+$cataloglist = '';
+foreach ($catalog_list as $category) {
+    extract($category);
+    $cataloglist .= '<li><a href="index.php?page=products&id_category=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
+}
 ?>
 
 
