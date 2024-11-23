@@ -148,10 +148,10 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          break;
       case 'addusers':
          if (isset($_POST['btnadd'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
+            $email = trim($_POST['email']);
+            $phone = trim($_POST['phone']);
             // Dữ liệu cho thêm user
             $data = [
                'username' => $username,
