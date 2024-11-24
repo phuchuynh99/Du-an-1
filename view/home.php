@@ -28,13 +28,13 @@ foreach ($catalog_list as $category) {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./public/img/banner" class="d-block w-100" alt="..." />
+      <img src="./public/img/banner/banner1.1.png" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="assets/images/about.png" class="d-block w-100" alt="..." />
+      <img src="./public/img/banner/banner1.png" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
-      <img src="assets/images/about3.png" class="d-block w-100" alt="..." />
+      <img src="./public/img/banner/banner2.png" class="d-block w-100" alt="..." />
     </div>
   </div>
   <button
@@ -56,10 +56,12 @@ foreach ($catalog_list as $category) {
 </div>
 <div class="container py-3 nav-category-home">
   <ul class="nav justify-content-center border-bottom">
-    <li class="nav-item">
-      <a class="category-home-list nav-link active" href="#">Sơn móng</a>
+   <?php foreach($catalog_list as $category): ?>
+   <li class="nav-item">
+      <a class="category-home-list nav-link " href="#"><?=$category['name']?></a>
     </li>
-    <li class="nav-item">
+    <?php endforeach;?>
+     <!-- <li class="nav-item">
       <a class="category-home-list nav-link" href="#">Dụng cụ làm móng</a>
     </li>
     <li class="nav-item">
@@ -70,9 +72,10 @@ foreach ($catalog_list as $category) {
     </li>
     <li class="nav-item">
       <a class="category-home-list nav-link" href="#">Móng giả</a>
-    </li>
+    </li> -->
   </ul>
 </div>
+<!-- sản phẩm mới -->
 <div class="container py-5 new-product-page">
   <div class="mb-4">
     <h2 class="section-title">Sản phẩm mới</h2>

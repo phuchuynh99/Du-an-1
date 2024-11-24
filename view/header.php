@@ -34,7 +34,7 @@
         <div class="container-fluid">
           <!-- Logo -->
           <a class="logo navbar-brand" href="#">
-            <img src="assets/images/1.png" alt="" />
+            <img src="./public/img/banner/logo.png" alt="" />
           </a>
           <!-- Toggle menu cho mobile -->
           <button

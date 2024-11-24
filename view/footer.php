@@ -63,5 +63,33 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const categoryBtn = document.querySelectorAll(".category-home-list");
+      const contents = document.querySelectorAll(".new-product-home");
+
+      contents[0].style.display = "flex";
+
+      categoryBtn.forEach((cate, index) => {
+        cate.addEventListener("click", () => {
+          categoryBtn.forEach((btn) => btn.classList.remove("active"));
+          cate.classList.add("active");
+
+          contents.forEach((content) => (content.style.display = "none"));
+
+          if (contents[index]) {
+            contents[index].style.display = "flex";
+          }
+        });
+      });
+
+      
+
+    </script>
   </body>
 </html>
