@@ -6,7 +6,6 @@ use PHPMailer\PHPMailer\Exception;
 function sendMail($to, $subject, $body)
 {
     $mail = new PHPMailer(true);
-
     try {
         // Cấu hình SMTP
         $mail->isSMTP();

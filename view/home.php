@@ -1,448 +1,343 @@
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to="1"
-      aria-label="Slide 2"></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleIndicators"
-      data-bs-slide-to="2"
-      aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="assets/images/about1.png" class="d-block w-100" alt="..." />
+<?php
+$cataloglist = '';
+foreach ($catalog_list as $category) {
+    extract($category);
+    $cataloglist .= '<li><a href="index.php?page=products&id_category=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
+}
+?>
+
+
+<div class="banner-index">
+    <div class="carousel">
+        <div class="carousel-track">
+            <img src="./public/img/banner/banner1.1.png" alt="Banner 1" class="carousel-img">
+            <img src="./public/img/banner/banner1.png" alt="Banner 2" class="carousel-img">
+            <img src="./public/img/banner/banner2.png" alt="Banner 3" class="carousel-img">
+        </div>
+        <button class="carousel-btn prev">❮</button>
+        <button class="carousel-btn next">❯</button>
     </div>
-    <div class="carousel-item">
-      <img src="assets/images/about.png" class="d-block w-100" alt="..." />
-    </div>
-    <div class="carousel-item">
-      <img src="assets/images/about3.png" class="d-block w-100" alt="..." />
-    </div>
-  </div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselExampleIndicators"
-    data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselExampleIndicators"
-    data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
-<div class="container py-3 nav-category-home">
-  <ul class="nav justify-content-center border-bottom">
-    <li class="nav-item">
-      <a class="category-home-list nav-link active" href="#">Sơn móng</a>
-    </li>
-    <li class="nav-item">
-      <a class="category-home-list nav-link" href="#">Dụng cụ làm móng</a>
-    </li>
-    <li class="nav-item">
-      <a class="category-home-list nav-link" href="#">Thiết bị làm móng</a>
-    </li>
-    <li class="nav-item">
-      <a class="category-home-list nav-link" href="#">Sản phẩm trang trí móng</a>
-    </li>
-    <li class="nav-item">
-      <a class="category-home-list nav-link" href="#">Móng giả</a>
-    </li>
-  </ul>
-</div>
-<div class="container py-5 new-product-page">
-  <div class="mb-4">
-    <h2 class="section-title">Sản phẩm mới</h2>
-    <p class="section-subtitle">
-      Trải nghiệm các sản phẩm làm móng hoàn toàn mới.
-    </p>
-  </div>
-  <div class="row new-product-home">
-    <div class="col-md-8">
-      <div class="product-card">
-        <img
-          src="assets/images/about.png"
-          class="img-fluid"
-          alt="Sản phẩm 1" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="product-card mb-3" style="height: 100%;">
-        <img
-          src="assets/images/about1.png"
-          class="img-fluid"
-          alt="Sản phẩm 2"
-          style="height: 100%; object-fit: cover;" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-  </div>
-  <div class="row new-product-home">
-    <div class="col-md-8">
-      <div class="product-card">
-        <img
-          src="assets/images/about.png"
-          class="img-fluid"
-          alt="Sản phẩm 1" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="product-card mb-3" style="height: 100%;">
-        <img
-          src="assets/images/about1.png"
-          class="img-fluid"
-          alt="Sản phẩm 2"
-          style="height: 100%; object-fit: cover;" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-  </div>
-  <div class="row new-product-home">
-    <div class="col-md-8">
-      <div class="product-card">
-        <img
-          src="assets/images/about.png"
-          class="img-fluid"
-          alt="Sản phẩm 1" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="product-card mb-3" style="height: 100%;">
-        <img
-          src="assets/images/about1.png"
-          class="img-fluid"
-          alt="Sản phẩm 2"
-          style="height: 100%; object-fit: cover;" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-  </div>
-  <div class="row new-product-home">
-    <div class="col-md-8">
-      <div class="product-card">
-        <img
-          src="assets/images/about.png"
-          class="img-fluid"
-          alt="Sản phẩm 1" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="product-card mb-3" style="height: 100%;">
-        <img
-          src="assets/images/about1.png"
-          class="img-fluid"
-          alt="Sản phẩm 2"
-          style="height: 100%; object-fit: cover;" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-  </div>
-  <div class="row new-product-home">
-    <div class="col-md-8">
-      <div class="product-card">
-        <img
-          src="assets/images/about1.png"
-          class="img-fluid"
-          alt="Sản phẩm 1" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="product-card mb-3" style="height: 100%;">
-        <img
-          src="assets/images/about1.png"
-          class="img-fluid"
-          alt="Sản phẩm 2"
-          style="height: 100%; object-fit: cover;" />
-        <button class="btn btn-custom">Mua ngay</button>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- sản phẩm mới -->
+<div class="container">
+    <nav class="navbar-products">
+        <ul>
+            <?= $cataloglist ?>
+            <!-- <li><a href="#">Sơn móng</a></li>
+        <li><a href="#">Dụng cụ làm móng</a></li>
+        <li><a href="#">Thiết bị làm móng</a></li>
+        <li><a href="#">Trang trí móng</a></li>
+        <li><a href="#">Móng giả</a></li> -->
+        </ul>
+    </nav>
+    <section class="newproduct-section">
+        <div class="title-products">
+            <h2>Sản phẩm mới</h2>
+            <p>Trải nghiệm các sản phẩm làm móng hoàn toàn mới.</p>
+        </div>
 
+        <div class="products">
+            <div class="product1">
+                <img class="img1"
+                    src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Sơn móng">
+                <button class="buy-now">Mua ngay</button>
+            </div>
+            <div class="product2">
+                <img class="img2"
+                    src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Nước dưỡng móng">
+                <button class="buy-now">Mua ngay</button>
+            </div>
+        </div>
+    </section>
+    <!-- sản phẩm hot -->
+    <section class="newproduct-section">
+        <div class="title-products">
+            <h2>Sản phẩm hot🔥</h2>
+            <p>Nail đẹp - Giá hời, nhanh tay kẻo lỡ!</p>
+        </div>
 
-<!-- hot  -->
-<div class="product-hot-section container py-5">
-  <div class="text-center mb-4">
-    <h2 class="product-hot-title fw-bold">Sản phẩm hot🔥</h2>
-    <p class="product-hot-subtitle text-muted">
-      Trải nghiệm các sản phẩm làm móng hoàn toàn mới.
-    </p>
-  </div>
-  <!-- Product Section -->
-  <div class="row g-4 align-items-stretch">
-    <!-- Left Column -->
-    <div class="col-md-8 d-flex">
-      <div class="d-flex flex-column justify-content-between w-100">
-        <div class="position-relative mb-3" style="height: 100%;">
-          <img
-            src="assets/images/about1.png"
-            class="img-fluid rounded shadow"
-            alt="Sản phẩm 2"
-            style="height: 100%; object-fit: cover;" />
-          <button class="btn btn-custom">
-            Mua ngay
-          </button>
+        <div class="products">
+            <div class="product1">
+                <img class="img1"
+                    src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Sơn móng">
+                <button class="buy-now">Mua ngay</button>
+            </div>
+            <div class="product2">
+                <img class="img2"
+                    src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Nước dưỡng móng">
+                <button class="buy-now">Mua ngay</button>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Right Column -->
-    <div class="col-md-4 d-flex">
-      <div class="d-flex flex-column justify-content-between w-100">
-        <div class="position-relative mb-3" style="height: 100%;">
-          <img
-            src="assets/images/about1.png"
-            class="img-fluid rounded shadow"
-            alt="Sản phẩm 2"
-            style="height: 100%; object-fit: cover;" />
-          <button class="btn btn-custom">
-            Mua ngay
-          </button>
+        <div class="products">
+            <div class="product2">
+                <img class="img1"
+                    src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Sơn móng">
+                <button class="buy-now">Mua ngay</button>
+            </div>
+            <div class="product1">
+                <img class="img2"
+                    src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Nước dưỡng móng">
+                <button class="buy-now">Mua ngay</button>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- Right Column -->
-    <div class="col-md-4 d-flex">
-      <div class="d-flex flex-column justify-content-between w-100">
-        <div class="position-relative mb-3" style="height: 100%;">
-          <img
-            src="assets/images/about1.png"
-            class="img-fluid rounded shadow"
-            alt="Sản phẩm 2"
-            style="height: 100%; object-fit: cover;" />
-          <button class="btn btn-custom">
-            Mua ngay
-          </button>
+    </section>
+    <!-- sản phẩm sale -->
+    <section class="sale-products">
+        <div class="title-products">
+            <h2>Sản phẩm sale</h2>
+            <p>Ưu đãi tháng này - Đẹp lung linh chỉ với giá ưu đãi!</p>
         </div>
-      </div>
-    </div>
 
-    <div class="col-md-8 d-flex">
-      <div class="d-flex flex-column justify-content-between w-100">
-        <div class="position-relative mb-3" style="height: 100%;">
-          <img
-            src="assets/images/about1.png"
-            class="img-fluid rounded shadow"
-            alt="Sản phẩm 2"
-            style="height: 100%; object-fit: cover;" />
-          <button class="btn btn-custom">
-            Mua ngay
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="sale-items">
+            <button class="slider-btn prev">❮</button>
+            <div class="slider-track">
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
 
-</div>
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
 
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
 
-<!-- Sản phẩm sale  -->
-<div class="container custom-products my-4">
-  <h2 class="text-center mb-4">Sản phẩm sale</h2>
-  <p class="text-center">
-    Ưu đãi tháng này – Đẹp lung linh chỉ với giá ưu đãi!
-  </p>
-  <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4">
-    <!-- Product 1 -->
-    <div class="col">
-      <div class="card h-100 text-center">
-        <img
-          src="assets/images/image.png"
-          class="card-img-top"
-          alt="Product 1" />
-        <div class="card-body">
-          <h5 class="card-title">PC650E</h5>
-          <p class="card-text">Máy mài móng tay SM180F</p>
-          <p>
-            <span class="text-decoration-line-through text-muted">300,000đ</span>
-            <span class="text-danger fw-bold">270,000đ</span>
-          </p>
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                        alt="SM180S">
+                    <h3>Máy mài móng tay SM180S</h3>
+                    <p class="price">
+                        <span class="old-price">500,000đ</span>
+                        <span class="new-price">270,000đ</span>
+                    </p>
+                    <button>Mua ngay</button>
+                </div>
+            </div>
+            <button class="slider-btn next">❯</button>
         </div>
-        <div class="card-footer bg-white">
-          <button class="btn btn-outline-secondary w-100">Mua ngay</button>
+    </section>
+
+    <section class="banner-con">
+        <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600" alt="">
+    </section>
+    <section class="related-products">
+        <h2>Sản phẩm liên quan</h2>
+        <p>Ưu đãi tháng này - Đẹp lung linh chỉ với giá ưu đãi!</p>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Gold Foil Flakes">
+                <h3>12-Color Gold Foil Flakes</h3>
+                <p class="price">
+                    <span class="old-price">400,000đ</span>
+                    <span class="new-price">270,000đ</span>
+                </p>
+                <button>Mua ngay</button>
+            </div>
+            <div class="product-item">
+                <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Gold Foil Flakes">
+                <h3>12-Color Gold Foil Flakes</h3>
+                <p class="price">
+                    <span class="old-price">400,000đ</span>
+                    <span class="new-price">270,000đ</span>
+                </p>
+                <button>Mua ngay</button>
+            </div>
+            <div class="product-item">
+                <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Gold Foil Flakes">
+                <h3>12-Color Gold Foil Flakes</h3>
+                <p class="price">
+                    <span class="old-price">400,000đ</span>
+                    <span class="new-price">270,000đ</span>
+                </p>
+                <button>Mua ngay</button>
+            </div>
+            <div class="product-item">
+                <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Hộp hỗn hợp">
+                <h3>Vỏ hỗn hợp 12 màu</h3>
+                <p class="price">
+                    <span class="old-price">400,000đ</span>
+                    <span class="new-price">270,000đ</span>
+                </p>
+                <button>Mua ngay</button>
+            </div>
+            <div class="product-item">
+                <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                    alt="Đá móng tay">
+                <h3>120 chiếc đá móng tay</h3>
+                <p class="price">
+                    <span class="old-price">400,000đ</span>
+                    <span class="new-price">270,000đ</span>
+                </p>
+                <button>Mua ngay</button>
+            </div>
+            <!-- Lặp lại nếu cần -->
         </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 text-center">
-        <img
-          src="assets/images/image.png"
-          class="card-img-top"
-          alt="Product 1" />
-        <div class="card-body">
-          <h5 class="card-title">PC650E</h5>
-          <p class="card-text">Máy mài móng tay SM180F</p>
-          <p>
-            <span class="text-decoration-line-through text-muted">300,000đ</span>
-            <span class="text-danger fw-bold">270,000đ</span>
-          </p>
+    </section>
+    <section id="tip-section">
+        <div class="tip-section">
+            <img src="https://www.melodysusie.com/cdn/shop/files/Nail_Gels-Fleurwee_Gels.jpg?v=1721810627&width=1600"
+                alt="Tips" class="tip-image">
+            <div class="tip-content">
+                <h3>4 Mẹo Để Máy Khoan Móng Tay Được Lâu Dài</h3>
+                <p>
+                    Ngành công nghiệp làm móng đang có sự tăng trưởng nhanh chóng trong những năm gần đây. Để giữ máy khoan móng
+                    tay bền lâu, hãy tuân thủ các nguyên tắc đúng cách.
+                </p>
+            </div>
         </div>
-        <div class="card-footer bg-white">
-          <button class="btn btn-outline-secondary w-100">Mua ngay</button>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 text-center">
-        <img
-          src="assets/images/image.png"
-          class="card-img-top"
-          alt="Product 1" />
-        <div class="card-body">
-          <h5 class="card-title">PC650E</h5>
-          <p class="card-text">Máy mài móng tay SM180F</p>
-          <p>
-            <span class="text-decoration-line-through text-muted">300,000đ</span>
-            <span class="text-danger fw-bold">270,000đ</span>
-          </p>
-        </div>
-        <div class="card-footer bg-white">
-          <button class="btn btn-outline-secondary w-100">Mua ngay</button>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 text-center">
-        <img
-          src="assets/images/image.png"
-          class="card-img-top"
-          alt="Product 1" />
-        <div class="card-body">
-          <h5 class="card-title">PC650E</h5>
-          <p class="card-text">Máy mài móng tay SM180F</p>
-          <p>
-            <span class="text-decoration-line-through text-muted">300,000đ</span>
-            <span class="text-danger fw-bold">270,000đ</span>
-          </p>
-        </div>
-        <div class="card-footer bg-white">
-          <button class="btn btn-outline-secondary w-100">Mua ngay</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Banner  -->
-<div class="container my-4">
-  <div
-    class="banner-sale position-relative text-center text-md-start"
-    style="overflow: hidden">
-    <div class="row align-items-center g-0">
-      <div class="col-md-6 p-4">
-        <h1 class="display-4 text-dark fw-bold mb-3">
-          Halloween <span class="text-danger">SALE</span>
-        </h1>
-        <p class="text-dark fs-4">
-          UP TO <span class="text-danger fw-bold">50% OFF</span>
-        </p>
-        <a href="#" class="btn btn-danger px-4 py-2 fw-bold">SHOP NOW</a>
-      </div>
-      <div class="col-md-6">
-        <img
-          src="assets/images/image.png"
-          width="100%"
-          style="height: 200px"
-          class="img-fluid"
-          alt="Halloween Sale Banner" />
-      </div>
-    </div>
-  </div>
+    </section>
 </div>
 
-<div class="container my-5">
-  <h2 class="text-center mb-4">Đánh giá</h2>
-  <p class="text-center font-italic">
-    "Chăm chút từng chi tiết, xứng đáng 5 sao!"
-  </p>
-  <div class="row justify-content-center">
-    <div class="col-md-5 mb-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body text-center">
-          <img
-            src="image1.jpg"
-            alt="User 1"
-            class="rounded-circle mb-3"
-            style="width: 80px; height: 80px; object-fit: cover" />
-          <h5 class="card-title">Nguyễn Thanh Nhã</h5>
-          <p class="text-warning mb-1">★★★★★</p>
-          <p class="card-text">
-            Móng tay được làm rất tỉ mỉ, màu sắc nổi bật và cực kỳ bền. Dịch
-            vụ chăm sóc tận tình, xứng đáng thử ngay!
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-5 mb-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body text-center">
-          <img
-            src="image2.jpg"
-            alt="User 2"
-            class="rounded-circle mb-3"
-            style="width: 80px; height: 80px; object-fit: cover" />
-          <h5 class="card-title">Huỳnh Ngọc Phúc</h5>
-          <p class="text-warning mb-1">★★★★★</p>
-          <p class="card-text">
-            Thiết kế nail hiện đại, màu sắc hài hòa, phù hợp với mọi phong
-            cách. Hoàn toàn hài lòng!
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Blog short  -->
-<div class="container my-5">
-  <h2 class="text-center mb-4">Bài viết nổi bật</h2>
-  <p class="text-center font-italic">
-    Trải nghiệm các sản phẩm làm móng hoàn toàn mới.
-  </p>
-  <div class="row align-items-center g-4">
-    <!-- Image Section -->
-    <div class="col-md-6">
-      <img
-        src="assets/images/image.png"
-        alt="Product Image"
-        class="img-fluid rounded"
-        width="500px"
-        style="object-fit: cover; border-radius: 12px; height: 200px" />
-    </div>
-    <!-- Text Section -->
-    <div class="col-md-6">
-      <h4 class="fw-bold mb-3">4 Mẹo Để Máy Khoan Móng Tay Được Lâu Dài</h4>
-      <p class="mb-2">
-        Ngành công nghiệp làm móng đang có sự tăng trưởng nhanh chóng trong
-        những năm gần đây. Để giữ máy khoan móng tay bền lâu, hãy tuân thủ
-        các nguyên tắc đúng cách.
-      </p>
-      <a href="#" class="text-decoration-none text-primary fw-bold">
-        Xem thêm →
-      </a>
-    </div>
-  </div>
-</div>
+<script>
+    // script.js
+    const track = document.querySelector('.carousel-track');
+    const images = document.querySelectorAll('.carousel-img');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
 
-<div class="footer__logo">
-  <img src="assets/images/1.png" alt="" />
-</div>
+    let currentIndex = 0;
+
+    // Chuyển slide
+    function updateSlide(index) {
+        const slideWidth = images[0].clientWidth;
+        track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    // Sự kiện nút "Next"
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateSlide(currentIndex);
+    });
+
+    // Sự kiện nút "Prev"
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateSlide(currentIndex);
+    });
+
+
+    // lướt sản phẩm sale vs sp liên quan
+    // script.js
+    const track1 = document.querySelector('.slider-track');
+    const prevBtn1 = document.querySelector('.slider-btn.prev');
+    const nextBtn1 = document.querySelector('.slider-btn.next');
+
+    const cardWidth = document.querySelector('.product-card').clientWidth + 20; // Kích thước 1 card (bao gồm margin)
+    let currentOffset = 0;
+
+    // Chuyển sang sản phẩm tiếp theo
+    nextBtn1.addEventListener('click', () => {
+        const maxOffset = -(track1.scrollWidth - track1.clientWidth);
+        currentOffset = Math.max(currentOffset - cardWidth, maxOffset);
+        track1.style.transform = `translateX(${currentOffset}px)`;
+    });
+
+    // Quay lại sản phẩm trước
+    prevBtn.addEventListener('click', () => {
+        currentOffset = Math.min(currentOffset + cardWidth, 0);
+        track.style.transform = `translateX(${currentOffset}px)`;
+    });
+</script>
+</body>
+
+</html>

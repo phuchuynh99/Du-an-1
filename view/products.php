@@ -1,62 +1,60 @@
 <?php
-// Tạo danh mục sản phẩm
 $cataloglist = '';
 foreach ($catalog_list as $category) {
     extract($category);
-    $linkproducts = 'index.php?page=products&id_category='.$id;
-    $cataloglist .= '<li class="product-page__item">
-    <a href="'.$linkproducts.'">'.$name.'</a>
-     </li>';
-}
-
-// Tạo danh sách sản phẩm
-$productlistHTML = '';
-foreach ($productlist as $product) {
-    extract($product);
-    $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'public/img/default_image.jpg';
-    $linkDetail = 'index.php?page=productdetail&idproduct=' . $id;
-    $productlistHTML .= '
-    <div col-md-10 product-page__products>
-    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-3">
-            <div class="product-card col-6 col-sm-4 col-md-3 m-4">
-            <a href="' . $linkDetail .'">
-            <img src="' . $imgPath . '" class="product-card__img" alt="' . $name . '" /> 
-            </a>
-                <div class="product-card__body">
-                    <h6 class="product-card__title">' . $name . '</h6>
-                    <p class="product-card__description">' . $description . '</p>
-                    <p class="product-card__old-price">' . $price . 'đ</p>
-                    <p class="product-card__price">' . $discount_price . 'đ</p>
-                    <div class="product-card__actions">
-                        <button class="product-card__cart-btn">
-                            <i class="fas fa-shopping-cart"></i>
-                        </button>
-                        <button class="product-card__buy-btn">Mua ngay</button>
-                    </div>
-                </div>
-                </div>
-    </div>            
-            
-        </div>';
+    $linkproduct = 'index.php?page=product&id_category=' . $id;
+    $cataloglist .= '<li>
+                        <label class="d-flex align-items-center">
+                            <a href="' . $linkproduct . '" class="text-decoration-none text-dark">' . $name . '</a>
+                        </label>
+                     </li>';
 }
 ?>
-<div class="product-page container my-5">
-    <div class="row g-3">
-        <!-- Sidebar -->
-        <div class="col-md-2 product-page__sidebar">
-            <h5 class="product-page__title">DANH MỤC</h5>
-            <ul class="product-page__list">
-                <?= $cataloglist ?>
-            </ul>
-        </div>
+<div class="container-products">
 
-        <!-- Product List -->
-        <div class="col-md-10 product-page__products">
-            <div class="row row-cols-3 row-cols-sm-3 row-cols-md-4 g-3">
-                <?= $productlistHTML ?>
+    <section class="product-sidebar-section" id="product-sidebar">
+        <div class="row">
+            <div class="product-col4 col-md-3">
+                <aside class="product-sidebar">
+                    <div class="product-category bg-white p-3 rounded shadow-sm">
+                        <h4 class="product-category-title fw-bold">DANH MỤC</h4>
+                        <ul class="product-category-list list-unstyled mt-3">
+                            <?= $cataloglist ?>
+                        </ul>
+                    </div>
+                </aside>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="row">
+            <div class="product-col6 col-md-9">
+                <div class="row g-4">
+                    <?php
+                    foreach ($productlist as $product) {
+                        extract($product);
+                        $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'default_image.jpg';
+                        $linkDetail = 'index.php?page=productDetail&idproduct=' . $id;
+                        echo '
+                            <div class="col-md-3 product-card text-center shadow-sm p-3 border rounded">
+                                <a href="' . $linkDetail . '" class="text-decoration-none text-dark">
+                                    <img src="' . $imgPath . '" class="product-img img-fluid mb-2" alt="' . $name . '">
+                                </a>
+                                <h5 class="product-name">' . $name . '</h5>
+                                <p class="product-original-price text-muted mb-1"><del>' . $discount_price . 'đ</del></p>
+                                <p class="product-discount-price text-danger fw-bold">' . $price . 'đ</p>
+                                <div class="product-actions d-flex justify-content-center align-items-center gap-2 mt-3">
+                                    <button class="product-btn-cart px-3 py-2 d-flex align-items-center">
+                                        <i class="fa fa-cart-plus me-2"></i> Giỏ hàng
+                                    </button>
+                                    <button class="product-btn-buy px-3 py-2">Mua ngay</button>
+                                </div>
+                            </div>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
-
-

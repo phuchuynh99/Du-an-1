@@ -1,15 +1,9 @@
 <?php
-session_start();
 ob_start();
-require_once('view/global.php');
-require_once('model/connect.php');
-require_once('model/catalog.php');
-require_once('model/product.php');
-require_once('model/coupon.php');
-require_once('model/user.php');
-require_once('model/bill.php');
+session_start();
+require_once('bright.php');
 
-//connectdb();
+// sendMail('huynvps39718@gmail.com', 'testmail', 'Chào huy');
 // require header
 include_once "view/header.php";
 
@@ -23,33 +17,23 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          }
          $productlist = getproduct($id_category);
          $catalog_list = get_catalog();
-         
          include_once "view/products.php";
          break;
-      // case 'productDetail':
-      //    include_once "view/productdetail.php";
-      //    break;
-         case 'productdetail':
-            if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
-               $idproduct = $_GET['idproduct'];
-               $product = get_product_detail($idproduct);
-               // $idcatalog = get_idcatalog($id);
+      case 'productDetail':
+         if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
+            $idproduct = $_GET['idproduct'];
 
-               // $detail = get_product_detail($id);
-            //    // $productrelated = get_related_product( $id_category, $idproduct);
+            // Lấy chi tiết sản phẩm
+            $product = get_product_detail($idproduct);
 
-            //    include_once "view/productdetail.php";
-            // }
-
-            // break;
             if ($product) {
                // Lấy id_category từ sản phẩm để lọc sản phẩm liên quan
                $id_category = $product['id_category'];
 
                // Lấy danh sách sản phẩm liên quan
-               $productrelated = get_related_product( $id_category, $idproduct);
+               $related_products = get_related_product($id_category, $idproduct);
 
-               include_once "view/productdetail.php";
+               include_once "view/product-detail.php";
             } else {
                // Nếu sản phẩm không tồn tại
                header("Location: index.php?page=products");
@@ -60,6 +44,7 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
             exit();
          }
          break;
+
          // case 'blog':
          //    include_once "view/blog.php";
          //    break;
@@ -105,17 +90,17 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          //       include_once "view/login.php";
          //    }
          //    break;
-         case 'logout':
-            if (isset($_SESSION['userinfo'])) {
-               unset($_SESSION['userinfo']);
-               header ('Location: index.php');
-            }
-            // $newproduct = getproduct();
-            // $saleproduct = getsaleproduct();
-            // $featureproduct = getfeatureproduct();
-            // $viewproduct = getviewproduct();
-            include_once './view/home.php';
-            break;
+      case 'logout':
+         if (isset($_SESSION['userinfo'])) {
+            unset($_SESSION['userinfo']);
+            header('Location: index.php');
+         }
+         // $newproduct = getproduct();
+         // $saleproduct = getsaleproduct();
+         // $featureproduct = getfeatureproduct();
+         // $viewproduct = getviewproduct();
+         include_once './view/home.php';
+         break;
          // case 'userUpdate':
          //    if (isset($_POST['btn_update'])) {
          //       $username = $_POST['username'];
@@ -163,10 +148,10 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          break;
       case 'addusers':
          if (isset($_POST['btnadd'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
+            $email = trim($_POST['email']);
+            $phone = trim($_POST['phone']);
             // Dữ liệu cho thêm user
             $data = [
                'username' => $username,
@@ -184,7 +169,7 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
                exit();
             } else {
                // Hiển thị lỗi nếu không thêm được người dùng
-               echo "Đã xảy ra lỗi khi thêm người dùng. Vui lòng thử lại.";
+               echo "Đã xảy ra lỗi khi tạo tài khoản. Vui lòng thử lại.";
             }
          } else {
             require_once('public/404.php');
@@ -195,8 +180,8 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          break;
       case 'checkUserRole':
          if (isset($_POST['btnlogin'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
 
             // Kiểm tra đăng nhập
             $user = checkUser($username, $password);
@@ -230,9 +215,41 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
             include_once "view/login.php";
          }
          break;
-      case 'contact':
-         include_once "view/contact.php";
+      case 'forgot_password_form':
+         include_once "view/forgot_password_form.php";
          break;
+      case 'forgot_password':
+         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = trim($_POST['email']);
+            $message = forgotPassword($email);
+
+            // Hiển thị thông báo cho người dùng
+            echo $message;
+         } else {
+            // Hiển thị form quên mật khẩu
+            include 'view/reset_password.php';
+         }
+         break;
+      case 'reset_password':
+         include_once '';
+         break;
+      case 'contact':
+         include_once "controller/contact.php";
+         break;
+      case 'addContact':
+         if (isset($_POST['btnadd'])) {
+            $email = trim($_POST['email']);
+            $phone = trim($_POST['phone']);
+            $message = $_POST['message'];
+            $name = $_POST['name'];
+
+            addContact($name, $email, $phone, $message);
+         } else {
+            require_once('public/404.php');
+         }
+         header('location: index.php?page=contact');
+         break;
+
       case 'about':
          include_once "view/about.php";
          break;
@@ -243,13 +260,16 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          include_once "view/blog.php";
          break;
       default:
-         // echo "Bạn đang vào trang chủ";
-         // require home
+         // if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
+         //    $id_category = $_GET['id_category'];
+         // } else {
+         //    $id_category = 0;
+         // }
+         $catalog_list = get_catalog();
          // $newproduct = getproduct();
          // $saleproduct = getsaleproduct();
          // $featureproduct = getfeatureproduct();
          // $viewproduct = getviewproduct();
-         //   echo var_dump($newproduct);
          include_once "view/home.php";
          break;
    }
