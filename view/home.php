@@ -28,7 +28,7 @@ foreach ($catalog_list as $category) {
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="assets/images/about1.png" class="d-block w-100" alt="..." />
+      <img src="./public/img/banner" class="d-block w-100" alt="..." />
     </div>
     <div class="carousel-item">
       <img src="assets/images/about.png" class="d-block w-100" alt="..." />
