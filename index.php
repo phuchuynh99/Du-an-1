@@ -260,6 +260,7 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          include_once "view/blog.php";
          break;
       default:
+      
          // if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
          //    $id_category = $_GET['id_category'];
          // } else {
@@ -287,3 +288,5 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
 
 //require footer
 include_once "view/footer.php";
+
+
