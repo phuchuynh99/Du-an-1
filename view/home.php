@@ -1,8 +1,8 @@
 <?php
-$cataloglist = '';
-foreach ($catalog_list as $category) {
-    $cataloglist .= '<li><a href="index.php?page=product&id_category=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
-}
+// $cataloglist = '';
+// foreach ($catalog_list as $category) {
+//     $cataloglist .= '<li><a href="index.php?page=product&id_category=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
+// }
 ?>
 
 
@@ -56,12 +56,12 @@ foreach ($catalog_list as $category) {
 </div>
 <div class="container py-3 nav-category-home">
   <ul class="nav justify-content-center border-bottom">
-   <?php foreach($catalog_list as $category): ?>
-   <li class="nav-item">
-      <a class="category-home-list nav-link " href="#"><?=$category['name']?></a>
-    </li>
-    <?php endforeach;?>
-     <!-- <li class="nav-item">
+    <?php foreach ($catalog_list as $category): ?>
+      <li class="nav-item">
+        <a class="category-home-list nav-link " href="#"><?= $category['name'] ?></a>
+      </li>
+    <?php endforeach; ?>
+    <!-- <li class="nav-item">
       <a class="category-home-list nav-link" href="#">Dụng cụ làm móng</a>
     </li>
     <li class="nav-item">
@@ -276,6 +276,28 @@ foreach ($catalog_list as $category) {
   <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4">
     <!-- Product 1 -->
     <div class="col">
+      <? foreach ($saleproduct as $product): ?>
+        <div class="card h-100 text-center">
+          <img
+            src="<?= $product['img'] ?>"
+            class="card-img-top"
+            alt="Product 1" />
+          <div class="card-body">
+            <h5 class="card-title">PC650E</h5>
+            <p class="card-text">Máy mài móng tay SM180F</p>
+            <p>
+              <span class="text-decoration-line-through text-muted">300,000đ</span>
+              <span class="text-danger fw-bold">270,000đ</span>
+            </p>
+          </div>
+          <div class="card-footer bg-white">
+            <button class="btn btn-outline-secondary w-100">Mua ngay</button>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    </div>
+
+    <!-- <div class="col">
       <div class="card h-100 text-center">
         <img
           src="assets/images/image.png"
@@ -331,26 +353,7 @@ foreach ($catalog_list as $category) {
           <button class="btn btn-outline-secondary w-100">Mua ngay</button>
         </div>
       </div>
-    </div>
-    <div class="col">
-      <div class="card h-100 text-center">
-        <img
-          src="assets/images/image.png"
-          class="card-img-top"
-          alt="Product 1" />
-        <div class="card-body">
-          <h5 class="card-title">PC650E</h5>
-          <p class="card-text">Máy mài móng tay SM180F</p>
-          <p>
-            <span class="text-decoration-line-through text-muted">300,000đ</span>
-            <span class="text-danger fw-bold">270,000đ</span>
-          </p>
-        </div>
-        <div class="card-footer bg-white">
-          <button class="btn btn-outline-secondary w-100">Mua ngay</button>
-        </div>
-      </div>
-    </div>
+    </div> -->
   </div>
 </div>
 <!-- Banner  -->

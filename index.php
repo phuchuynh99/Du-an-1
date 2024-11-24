@@ -268,7 +268,8 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          // }
          $catalog_list = get_catalog();
          // $newproduct = getproduct();
-         // $saleproduct = getsaleproduct();
+         // $hotproduct = gethotproduct();
+         $saleproduct = getsaleproduct();
          // $featureproduct = getfeatureproduct();
          // $viewproduct = getviewproduct();
          include_once "view/home.php";
