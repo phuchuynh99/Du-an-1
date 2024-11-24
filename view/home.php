@@ -363,7 +363,7 @@
     <div class="row align-items-center g-0">
       <div class="col-md-6 p-4">
         <h1 class="display-4 text-dark fw-bold mb-3">
-          Halloween <span class="text-danger">SALE</span>
+          Xuân 2025 <span class="text-danger">SALE</span>
         </h1>
         <p class="text-dark fs-4">
           UP TO <span class="text-danger fw-bold">50% OFF</span>
@@ -372,7 +372,7 @@
       </div>
       <div class="col-md-6">
         <img
-          src="assets/images/image.png"
+          src="./public/img/banner/bannerphu1.png"
           width="100%"
           style="height: 200px"
           class="img-fluid"
@@ -435,7 +435,7 @@
     <!-- Image Section -->
     <div class="col-md-6">
       <img
-        src="assets/images/image.png"
+        src="./public/img/huong-dan-su-dung-anh-1.jpg"
         alt="Product Image"
         class="img-fluid rounded"
         width="500px"
@@ -457,5 +457,5 @@
 </div>
 
 <div class="footer__logo">
-  <img src="assets/images/1.png" alt="" />
+  <img src="./public/img/banner/logo.png" alt="" />
 </div>
