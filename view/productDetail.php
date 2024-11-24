@@ -160,37 +160,44 @@
     </div>
 
 <!-- Sản phẩm liên quan  -->
+ <?php
+$productlistHTML = '';
+foreach ( $productrelated as $related) {
+    extract($related);
+    $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'public/img/default_image.jpg';
+    $linkDetail = 'index.php?page=productdetail&idproduct=' . $id;
+    $productlistHTML .='<div class="col">
+    <div class="card h-100 text-center">
+    <a href="' . $linkDetail .'">
+        <img src="' . $imgPath . '" class="card-img-top" alt="' . $name . '" />
+    </a>
+        <div class="card-body">
+            <h5 class="card-title">' . $name . '</h5>
+            <p>
+                <span class="text-decoration-line-through text-muted">' . $price . '</span>
+                <span class="text-danger fw-bold">' . $discount_price . '</span>
+            </p>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-outline-secondary w-100">Mua ngay</button>
+        </div>
+    </div>
+</div>';
+
+}
+ ?>
+
 <div class="container custom-products my-4">
       <h2 class="mb-4">Sản phẩm tương tự</h2>
       <p class="">
         Ưu đãi tháng này – Đẹp lung linh chỉ với giá ưu đãi!
       </p>
-    <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-4">
+      <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-4">
+      <!-- <div class="col"> -->
         <!-- Product 1 -->
-        <div class="col">
-          <div class="card h-100 text-center">
-            <img
-              src="public/img/mai1.webp"
-              class="card-img-top"
-              alt="Product 1"
-            />
-            <div class="card-body">
-              <h5 class="card-title">PC650E</h5>
-              <p class="card-text">Máy mài móng tay SM180F</p>
-              <p>
-                <span class="text-decoration-line-through text-muted"
-                  >300,000đ</span
-                >
-                <span class="text-danger fw-bold">270,000đ</span>
-              </p>
-            </div>
-            <div class="card-footer">
-              <button class="btn btn-outline-secondary w-100">Mua ngay</button>
-            </div>
-          </div>
-        </div>
-
-    </div>
+         <?=$productlistHTML?>
+         <!-- </div> -->
+         </div>
 </div>
-
+        
 

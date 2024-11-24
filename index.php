@@ -36,12 +36,30 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
                // $idcatalog = get_idcatalog($id);
 
                // $detail = get_product_detail($id);
-               // $related = get_related_product($idcatalog, $id);
+            //    // $productrelated = get_related_product( $id_category, $idproduct);
+
+            //    include_once "view/productdetail.php";
+            // }
+
+            // break;
+            if ($product) {
+               // Lấy id_category từ sản phẩm để lọc sản phẩm liên quan
+               $id_category = $product['id_category'];
+
+               // Lấy danh sách sản phẩm liên quan
+               $productrelated = get_related_product( $id_category, $idproduct);
 
                include_once "view/productdetail.php";
+            } else {
+               // Nếu sản phẩm không tồn tại
+               header("Location: index.php?page=products");
+               exit();
             }
-
-            break;
+         } else {
+            header("Location: index.php?page=products");
+            exit();
+         }
+         break;
          // case 'blog':
          //    include_once "view/blog.php";
          //    break;
