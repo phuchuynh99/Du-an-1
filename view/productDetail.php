@@ -1,162 +1,196 @@
-<div class="container">
-    <div class="product-container row">
-        <!-- Cột trái: Hình ảnh sản phẩm -->
-        <div class="col-md-6">
-            <img src="public/img/mài 1.webp" alt="Sơn móng tay Fleurwee" class="img-fluid">
-        </div>
 
-        <!-- Cột phải: Thông tin sản phẩm -->
-        <div class="col-md-6">
-            <h1 class="product-title">
-                Sơn móng tay dạng gel Fleurwee từ thực vật 0,5 fl oz/15ml - P13 Nude Pink Carnation
-            </h1>
-
-            <div class="product-price">
-                <span class="price-current">250.000đ</span>
-                <span class="price-old">300.000đ</span>
-            </div>
-
-            <div class="product-rating">
-                <span class="rating-stars">★★★★★</span>
-                <span class="rating-score">5.0</span>
-            </div>
-
-            <!-- Màu sắc -->
-            <h4>Màu sắc</h4>
-            <div class="product-colors d-flex flex-wrap">
-                <div class="color-sample">
-                    <img src="public/img/dũa móng.webp" alt="Màu sắc 1" class="img-fluid">
-                </div>
-                <div class="color-sample">
-                    <img src="public/img/mài 1.webp" alt="Màu sắc 2" class="img-fluid">
-                </div>
-                <div class="color-sample">
-                    <img src="public/img/mài 3.webp" alt="Màu sắc 3" class="img-fluid">
-                </div>
-                <div class="color-sample">
-                    <img src="public/img/mài 3.webp" alt="Màu sắc 3" class="img-fluid">
-                </div>
-                <div class="color-sample">
-                    <img src="public/img/mài 3.webp" alt="Màu sắc 3" class="img-fluid">
-                </div>
-            </div>
-            <!-- Số lượng -->
-            <div class="product-quantity mt-3">
-                <h4>Số lượng</h4>
-                <div class="input-group mb-3" style="width: 100px;">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="button">-</button>
+<div class="product-detail container mt-4">
+     <div class="row g-0 flex-column flex-lg-row">
+      <!-- Cột ảnh -->
+          <div class="col-12 col-lg-5 text-center">
+               <div class="row">
+        <!-- Cột ảnh nhỏ -->
+        <div class="col-2 d-none d-lg-flex flex-column align-items-center">
+              <!-- Ảnh nhỏ -->
+                    <img
+                        src="public/img/<?= $product['img'] ?>"
+                        width="64px"
+                        class="img-thumbnail mb-2"
+                        alt="<?= $product['name'] ?>"
+                        />
+                        <img
+                        src="public/img/<?= $product['img'] ?>"
+                        width="64px"
+                        class="img-thumbnail mb-2"
+                        alt="<?= $product['name'] ?>"
+                        />
+                        <img
+                        src="public/img/<?= $product['img'] ?>"
+                        width="64px"
+                        class="img-thumbnail mb-2"
+                        alt="<?= $product['name'] ?>"
+                        />
+                        <img
+                        src="public/img/<?= $product['img'] ?>"
+                        width="64px"
+                        class="img-thumbnail mb-2"
+                        alt="<?= $product['name'] ?>"
+                        />
+                  </div>
+        <!-- Ảnh chính -->
+                    <div class="col-10">
+                      <img 
+                        src="public/img/<?= $product['img'] ?>" 
+                        class="img-fluid mx-auto d-block main-image" 
+                        alt="<?= $product['name'] ?>" />
                     </div>
-                    <input type="text" class="form-control text-center" value="1">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">+</button>
-                    </div>
-                </div>
+                  </div>
             </div>
 
-            <!-- Nút Thêm vào giỏ hàng và Mua ngay -->
-            <div class="d-flex">
-                <button class="btn btn-secondary mr-2">Thêm vào giỏ hàng</button>
-                <button class="btn btn-primary">Mua ngay</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Phần Mô tả và Đánh giá -->
-    <div class="description-section mt-4">
-        <div class="description-tabs d-flex">
-            <div class="tab active">Mô tả</div>
-            <div class="tab">Đánh giá</div>
-        </div>
-        <div class="description-content">
-            <p><strong>Sản Phẩm:</strong> Bộ Sơn Gel Nail Màu Pastel</p>
-            <p>Bộ sơn gel này là lựa chọn hoàn hảo cho những ai yêu thích sự nhẹ nhàng, thanh lịch nhưng vẫn muốn thể hiện phong cách riêng...</p>
-            <ul>
-                <li><strong>Bền màu:</strong> Độ bền vượt trội, chống xước.</li>
-                <li><strong>An toàn:</strong> Không chứa hóa chất độc hại.</li>
-            </ul>
-        </div>
-    </div>
-    <!-- comment -->
-    <section>
-        <div class="comment-section">
-            <div class="comment">
-                <img src="user1.jpg" alt="User Avatar">
-                <div class="comment-content">
-                    <div class="username">Nhà khùng <span class="date">02/11/2024</span></div>
-                    <div class="message">Sản phẩm rất tốt, dễ sử dụng và bền. Tôi rất hài lòng!</div>
-                </div>
-            </div>
-
-            <div class="comment">
-                <img src="admin.jpg" alt="Admin Avatar">
-                <div class="comment-content">
-                    <div class="username">Admin <span class="date">02/11/2024</span></div>
-                    <div class="message">Shop cảm ơn chị Nhà khùng</div>
-                </div>
-            </div>
-
-            <div class="comment">
-                <img src="user2.jpg" alt="User Avatar">
-                <div class="comment-content">
-                    <div class="username">A phúc cute <span class="date">02/11/2024</span></div>
-                    <div class="message">Này sơn móng tay mèo được không shop</div>
-                </div>
-            </div>
-
-            <div class="comment">
-                <img src="admin.jpg" alt="Admin Avatar">
-                <div class="comment-content">
-                    <div class="username">Admin <span class="date">02/11/2024</span></div>
-                    <div class="message">Dạ anh Jack cũng sử dụng đó ạ</div>
-                </div>
-            </div>
-    </section>
-
-    <!-- Phần Sản phẩm tương tự -->
-    <section class="my-4">
-        <h4 class="sptt">Sản phẩm tương tự</h4>
+    <!-- Cột thông tin sản phẩm -->
+    <div class="col-12 col-lg-7 ps-lg-4 mt-4 mt-lg-0">
+          <h1 class="product-title"><?= $product['name'] ?></h1>
+          <p class="product-price text-danger">
+          <?= number_format($product['price'], 0, ',', '.') ?>đ
+          <?php if ($product['discount_price'] > 0): ?>
+          <span class="text-muted text-decoration-line-through">
+          <?= number_format($product['discount_price'], 0, ',', '.') ?>đ
+        </span>
+        <?php endif; ?>
+        </p>
+      <!-- Đánh giá -->
+      <div class="product-rating">
+        <span class="text-warning">★★★★★</span>
+        <span>5.0</span>
+      </div>
+      <!-- Màu sắc -->
+      <div class="product-variants">
+        <h6>Màu sắc</h6>
         <div class="row">
-            <!-- Product Card 1 -->
-            <div class="col-6 col-md-6 col-lg-3 mb-4">
-                <div class="product-card">
-                    <div class="discount-tag">-30%</div>
-                    <img src="public/img/mài 1.webp" alt="7 in 1 Clear Builder Gel" class="product-image">
-                    <p class="product-title-similar">7 in 1 Clear Builder Gel 15ml</p>
-                    <p><span class="product-price-old-similar">300.000đ</span><span class="product-price-similar">270.000đ</span></p>
-                    <button class="btn-buy">Mua ngay</button>
-                </div>
+              <div class="col-2">
+                <img
+                  src="public/img/<?= $product['img'] ?>"
+                  class="img-thumbnail"
+                  alt="<?= $product['name'] ?>"
+                />
+              </div>
+      </div>
+      <div class="product-quantity mt-3 col-2">
+            <h6>Số lượng</h6>
+            <div class="input-group">
+              <button class="btn btn-outline-secondary" type="button">-</button>
+              <input
+                type="number"
+                class="form-control text-center"
+                value="1"
+                min="1"
+              />
+              <button class="btn btn-outline-secondary" type="button">+</button>
             </div>
-
-            <div class="col-6 col-md-6 col-lg-3 mb-4">
-                <div class="product-card">
-                    <div class="discount-tag">-30%</div>
-                    <img src="public/img/mài 1.webp" alt="7 in 1 Clear Builder Gel" class="product-image">
-                    <p class="product-title-similar">7 in 1 Clear Builder Gel 15ml</p>
-                    <p><span class="product-price-old-similar">300.000đ</span><span class="product-price-similar">270.000đ</span></p>
-                    <button class="btn-buy">Mua ngay</button>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-6 col-lg-3 mb-4">
-                <div class="product-card">
-                    <div class="discount-tag">-30%</div>
-                    <img src="public/img/mài 1.webp" alt="7 in 1 Clear Builder Gel" class="product-image">
-                    <p class="product-title-similar">7 in 1 Clear Builder Gel 15ml</p>
-                    <p><span class="product-price-old-similar">300.000đ</span><span class="product-price-similar">270.000đ</span></p>
-                    <button class="btn-buy">Mua ngay</button>
-                </div>
-            </div>
-
-            <div class="col-6 col-md-6 col-lg-3 mb-4">
-                <div class="product-card">
-                    <div class="discount-tag">-30%</div>
-                    <img src="public/img/mài 1.webp" alt="7 in 1 Clear Builder Gel" class="product-image">
-                    <p class="product-title-similar">7 in 1 Clear Builder Gel 15ml</p>
-                    <p><span class="product-price-old-similar">300.000đ</span><span class="product-price-similar">270.000đ</span></p>
-                    <button class="btn-buy">Mua ngay</button>
-                </div>
-            </div>
-        </div>
-    </section>
+          </div>
+      <div class="product-actions mt-4">
+            <button class="btn btn-primary me-2 btn-add-cart-detail">
+              Thêm vào giỏ hàng
+            </button>
+            <button class="btn btn-success btn-buy-now-detail">Mua ngay</button>
+          </div>
+    </div>
+  </div>
 </div>
+
+
+<div class="container mt-4">
+      <!-- Tab Navigation -->
+      <ul class="nav nav-tabs" id="productTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="description-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#description"
+            type="button"
+            role="tab"
+            aria-controls="description"
+            aria-selected="true"
+          >
+            Mô tả
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="reviews-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#reviews"
+            type="button"
+            role="tab"
+            aria-controls="reviews"
+            aria-selected="false"
+          >
+            Đánh giá
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div class="tab-content mt-3" id="productTabContent">
+        <!-- Mô tả -->
+        <div
+          class="tab-pane fade show active"
+          id="description"
+          role="tabpanel"
+          aria-labelledby="description-tab"
+        >
+          <h4>Sản Phẩm: Bộ Sơn Gel Nail Màu Pastel</h4>
+          <p>
+            Bộ Sơn Gel Nail Màu Pastel là lựa chọn hoàn hảo cho những ai yêu
+            thích sự nhẹ nhàng, thanh lịch nhưng vẫn muốn thể hiện phong cách
+            riêng...
+          </p>
+        </div>
+
+        <!-- Đánh giá -->
+        <div
+          class="tab-pane fade"
+          id="reviews"
+          role="tabpanel"
+          aria-labelledby="reviews-tab"
+        >
+          <h4>Đánh giá sản phẩm</h4>
+          <p>
+            Chưa có đánh giá nào. Hãy là người đầu tiên đánh giá sản phẩm này!
+          </p>
+        </div>
+      </div>
+    </div>
+
+<!-- Sản phẩm liên quan  -->
+<div class="container custom-products my-4">
+      <h2 class="mb-4">Sản phẩm tương tự</h2>
+      <p class="">
+        Ưu đãi tháng này – Đẹp lung linh chỉ với giá ưu đãi!
+      </p>
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-4">
+        <!-- Product 1 -->
+        <div class="col">
+          <div class="card h-100 text-center">
+            <img
+              src="public/img/mai1.webp"
+              class="card-img-top"
+              alt="Product 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">PC650E</h5>
+              <p class="card-text">Máy mài móng tay SM180F</p>
+              <p>
+                <span class="text-decoration-line-through text-muted"
+                  >300,000đ</span
+                >
+                <span class="text-danger fw-bold">270,000đ</span>
+              </p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline-secondary w-100">Mua ngay</button>
+            </div>
+          </div>
+        </div>
+
+    </div>
+</div>
+
+
