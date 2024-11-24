@@ -1,9 +1,15 @@
 <?php
-ob_start();
 session_start();
-require_once('bright.php');
-require_once('model/mailer_helper.php');
-sendMail('huynvps39718@gmail.com', 'testmail', 'Chào huy');
+ob_start();
+require_once('view/global.php');
+require_once('model/connect.php');
+require_once('model/catalog.php');
+require_once('model/product.php');
+require_once('model/coupon.php');
+require_once('model/user.php');
+require_once('model/bill.php');
+
+//connectdb();
 // require header
 include_once "view/header.php";
 
@@ -17,23 +23,25 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          }
          $productlist = getproduct($id_category);
          $catalog_list = get_catalog();
+         
          include_once "view/products.php";
          break;
-      case 'productDetail':
-         include_once "view/productDetail.php";
-         break;
-         // case 'productdetail':
-         //    if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
-         //       $idproduct = $_GET['idproduct'];
-         //       $idcatalog = get_idcatalog($idproduct);
+      // case 'productDetail':
+      //    include_once "view/productdetail.php";
+      //    break;
+         case 'productdetail':
+            if (isset($_GET['idproduct']) && ($_GET['idproduct'] > 0)) {
+               $idproduct = $_GET['idproduct'];
+               $product = get_product_detail($idproduct);
+               // $idcatalog = get_idcatalog($id);
 
-         //       $detail = get_product_detail($idproduct);
-         //       $related = get_related_product($idcatalog, $idproduct);
+               // $detail = get_product_detail($id);
+               // $related = get_related_product($idcatalog, $id);
 
-         //       include_once "view/productdetail.php";
-         //    }
+               include_once "view/productdetail.php";
+            }
 
-         //    break;
+            break;
          // case 'blog':
          //    include_once "view/blog.php";
          //    break;
@@ -79,17 +87,17 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          //       include_once "view/login.php";
          //    }
          //    break;
-      case 'logout':
-         if (isset($_SESSION['userinfo'])) {
-            unset($_SESSION['userinfo']);
-            header('Location: index.php');
-         }
-         // $newproduct = getproduct();
-         // $saleproduct = getsaleproduct();
-         // $featureproduct = getfeatureproduct();
-         // $viewproduct = getviewproduct();
-         include_once './view/home.php';
-         break;
+         case 'logout':
+            if (isset($_SESSION['userinfo'])) {
+               unset($_SESSION['userinfo']);
+               header ('Location: index.php');
+            }
+            // $newproduct = getproduct();
+            // $saleproduct = getsaleproduct();
+            // $featureproduct = getfeatureproduct();
+            // $viewproduct = getviewproduct();
+            include_once './view/home.php';
+            break;
          // case 'userUpdate':
          //    if (isset($_POST['btn_update'])) {
          //       $username = $_POST['username'];
@@ -204,24 +212,6 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
             include_once "view/login.php";
          }
          break;
-      case 'forgot_password_form':
-         include_once "view/forgot_password_form.php";
-         break;
-      case 'forgot_password':
-         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $message = forgotPassword($email);
-
-            // Hiển thị thông báo cho người dùng
-            echo $message;
-         } else {
-            // Hiển thị form quên mật khẩu
-            include 'view/reset_password.php';
-         }
-         break;
-      case 'reset_password':
-         include_once '';
-         break;
       case 'contact':
          include_once "view/contact.php";
          break;
@@ -235,17 +225,13 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          include_once "view/blog.php";
          break;
       default:
-         if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
-            $id_category = $_GET['id_category'];
-         } else {
-            $id_category = 0;
-         }
-         $productlist = getproduct($id_category);
-         $catalog_list = get_catalog();
+         // echo "Bạn đang vào trang chủ";
+         // require home
          // $newproduct = getproduct();
          // $saleproduct = getsaleproduct();
          // $featureproduct = getfeatureproduct();
          // $viewproduct = getviewproduct();
+         //   echo var_dump($newproduct);
          include_once "view/home.php";
          break;
    }
