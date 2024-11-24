@@ -275,27 +275,26 @@
   </p>
   <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4">
     <!-- Product 1 -->
+    <?php foreach ($saleproduct as $product): ?>
     <div class="col">
-      <? foreach ($saleproduct as $product): ?>
         <div class="card h-100 text-center">
           <img
             src="<?= $product['img'] ?>"
             class="card-img-top"
             alt="Product 1" />
           <div class="card-body">
-            <h5 class="card-title">PC650E</h5>
-            <p class="card-text">Máy mài móng tay SM180F</p>
+            <p class="card-text"><?= $product['name'] ?></p>
             <p>
-              <span class="text-decoration-line-through text-muted">300,000đ</span>
-              <span class="text-danger fw-bold">270,000đ</span>
+              <span class="text-decoration-line-through text-muted"><?= $product['price'] ?></span>
+              <span class="text-danger fw-bold"><?= $product['discount_price'] ?></span>
             </p>
           </div>
           <div class="card-footer bg-white">
             <button class="btn btn-outline-secondary w-100">Mua ngay</button>
           </div>
         </div>
-      <?php endforeach; ?>
     </div>
+    <?php endforeach; ?>
 
     <!-- <div class="col">
       <div class="card h-100 text-center">
