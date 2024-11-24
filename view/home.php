@@ -1,9 +1,8 @@
 <?php
-$cataloglist = '';
-foreach ($catalog_list as $category) {
-    extract($category);
-    $cataloglist .= '<li><a href="index.php?page=products&id_category=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
-}
+// $cataloglist = '';
+// foreach ($catalog_list as $category) {
+//     $cataloglist .= '<li><a href="index.php?page=product&id_category=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
+// }
 ?>
 
 
@@ -32,13 +31,13 @@ foreach ($catalog_list as $category) {
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="./public/img/banner/banner1.1.png" class="d-block w-100" alt="..." />
+          <img src="./layout/assets/images/about1.png" class="d-block w-100" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="./public/img/banner/banner1.png" class="d-block w-100" alt="..." />
+          <img src="./layout/assets/images/about.png" class="d-block w-100" alt="..." />
         </div>
         <div class="carousel-item">
-          <img src="./public/img/banner/banner2.png" class="d-block w-100" alt="..." />
+          <img src="./layout/assets/images/about3.png" class="d-block w-100" alt="..." />
         </div>
       </div>
       <button
@@ -90,7 +89,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-8">
           <div class="product-card">
             <img
-              src="./public/img/san-pham-moi/son-mong.webp"
+              src="./layout/assets/images/about.png"
               class="img-fluid"
               alt="Sản phẩm 1"
             />
@@ -100,7 +99,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-4">
           <div class="product-card mb-3" style="height: 100%;">
             <img
-              src="./public/img/san-pham-moi/son-mong-1.webp"
+              src="./layout/assets/images/about1.png"
               class="img-fluid"
               alt="Sản phẩm 2"
               style="height: 100%; object-fit: cover;"
@@ -113,7 +112,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-8">
           <div class="product-card">
             <img
-              src="./public/img/san-pham-moi/dung-cu-lam-mong.webp"
+              src="./layout/assets/images/about.png"
               class="img-fluid"
               alt="Sản phẩm 1"
             />
@@ -123,7 +122,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-4">
           <div class="product-card mb-3" style="height: 100%;">
             <img
-              src="./public/img/san-pham-moi/dung-cu-1.webp"
+              src="./layout/assets/images/about1.png"
               class="img-fluid"
               alt="Sản phẩm 2"
               style="height: 100%; object-fit: cover;"
@@ -136,7 +135,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-8">
           <div class="product-card">
             <img
-              src="./public/img/san-pham-moi/thiet-bi-1.webp"
+              src="./layout/assets/images/about.png"
               class="img-fluid"
               alt="Sản phẩm 1"
             />
@@ -146,7 +145,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-4">
           <div class="product-card mb-3" style="height: 100%;">
             <img
-              src="./public/img/san-pham-moi/thiet-bi-lm-mong.webp"
+              src="./layout/assets/images/about1.png"
               class="img-fluid"
               alt="Sản phẩm 2"
               style="height: 100%; object-fit: cover;"
@@ -159,7 +158,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-8">
           <div class="product-card">
             <img
-              src="./public/img/trang-tri-mong/trang-tri-mong-200-vien-da.webp"
+              src="./layout/assets/images/about.png"
               class="img-fluid"
               alt="Sản phẩm 1"
             />
@@ -169,7 +168,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-4">
           <div class="product-card mb-3" style="height: 100%;">
             <img
-              src="./public/img/trang-tri-mong/trang-tri-mong-200-vien-da.webp"
+              src="./layout/assets/images/about1.png"
               class="img-fluid"
               alt="Sản phẩm 2"
               style="height: 100%; object-fit: cover;"
@@ -182,7 +181,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-8">
           <div class="product-card">
             <img
-              src="./public/img/san-pham-moi/mong-gia.webp"
+              src="./layout/assets/images/about1.png"
               class="img-fluid"
               alt="Sản phẩm 1"
             />
@@ -192,7 +191,7 @@ foreach ($catalog_list as $category) {
         <div class="col-md-4">
           <div class="product-card mb-3" style="height: 100%;">
             <img
-              src="./public/img/san-pham-moi/mong-gia-1.webp"
+              src="./layout/assets/images/about1.png"
               class="img-fluid"
               alt="Sản phẩm 2"
               style="height: 100%; object-fit: cover;"
@@ -219,7 +218,7 @@ foreach ($catalog_list as $category) {
           <div class="d-flex flex-column justify-content-between w-100">
             <div class="position-relative mb-3" style="height: 100%;">
               <img
-                src="./public/img/son-mong/son-mong-mau-tron.webp"
+                src="./layout/assets/images/about1.png"
                 class="img-fluid rounded shadow"
                 alt="Sản phẩm 2"
                 style="height: 100%; object-fit: cover;"
@@ -236,7 +235,7 @@ foreach ($catalog_list as $category) {
           <div class="d-flex flex-column justify-content-between w-100">
             <div class="position-relative mb-3" style="height: 100%;">
               <img
-                src="./public/img/thiet-bi-lam-mong/may-mai-sac-lai.webp"
+                src="./layout/assets/images/about1.png"
                 class="img-fluid rounded shadow"
                 alt="Sản phẩm 2"
                 style="height: 100%; object-fit: cover;"
@@ -252,7 +251,7 @@ foreach ($catalog_list as $category) {
           <div class="d-flex flex-column justify-content-between w-100">
             <div class="position-relative mb-3" style="height: 100%;">
               <img
-                src="./public/img/dung-cu-lam-mong/tui-dung-dung-cu-lam-mong.webp"
+                src="./layout/assets/images/about1.png"
                 class="img-fluid rounded shadow"
                 alt="Sản phẩm 2"
                 style="height: 100%; object-fit: cover;"
@@ -268,7 +267,7 @@ foreach ($catalog_list as $category) {
           <div class="d-flex flex-column justify-content-between w-100">
             <div class="position-relative mb-3" style="height: 100%;">
               <img
-                src="./public/img/dung-cu-lam-mong/do-dua-mong.webp"
+                src="./layout/assets/images/about1.png"
                 class="img-fluid rounded shadow"
                 alt="Sản phẩm 2"
                 style="height: 100%; object-fit: cover;"
@@ -295,7 +294,7 @@ foreach ($catalog_list as $category) {
         <div class="col">
           <div class="card h-100 text-center">
             <img
-              src="./public/img/dung-cu-lam-mong/gia-de-mong-gia.webp"
+              src="./layout/assets/images/image.png"
               class="card-img-top"
               alt="Product 1"
             />
@@ -317,7 +316,7 @@ foreach ($catalog_list as $category) {
         <div class="col">
           <div class="card h-100 text-center">
             <img
-              src="./public/img/dung-cu-lam-mong/gang-tay-chong-tia-uv.webp"
+              src="./layout/assets/images/image.png"
               class="card-img-top"
               alt="Product 1"
             />
@@ -339,7 +338,7 @@ foreach ($catalog_list as $category) {
         <div class="col">
           <div class="card h-100 text-center">
             <img
-              src="./public/img/mong-gia/mong-gia-basic.webp"
+              src="./layout/assets/images/image.png"
               class="card-img-top"
               alt="Product 1"
             />
@@ -361,7 +360,7 @@ foreach ($catalog_list as $category) {
         <div class="col">
           <div class="card h-100 text-center">
             <img
-              src="./public/img/trang-tri-mong/trang-tri-mong-200-vien-da.webp"
+              src="./layout/assets/images/image.png"
               class="card-img-top"
               alt="Product 1"
             />
@@ -400,7 +399,7 @@ foreach ($catalog_list as $category) {
           </div>
           <div class="col-md-6">
             <img
-              src="./public/img/banner/bannerphu2.webp"
+              src="./layout/assets/images/image.png"
               width="100%"
               style="height: 200px"
               class="img-fluid"
@@ -421,7 +420,7 @@ foreach ($catalog_list as $category) {
           <div class="card shadow-sm border-0">
             <div class="card-body text-center">
               <img
-                src="./public/img/user/khach-hang-nha.jpg"
+                src="image1.jpg"
                 alt="User 1"
                 class="rounded-circle mb-3"
                 style="width: 80px; height: 80px; object-fit: cover"
@@ -439,7 +438,7 @@ foreach ($catalog_list as $category) {
           <div class="card shadow-sm border-0">
             <div class="card-body text-center">
               <img
-                src="./public/img/user/khach-hang-phuc.jpg"
+                src="image2.jpg"
                 alt="User 2"
                 class="rounded-circle mb-3"
                 style="width: 80px; height: 80px; object-fit: cover"
@@ -466,7 +465,7 @@ foreach ($catalog_list as $category) {
         <!-- Image Section -->
         <div class="col-md-6">
           <img
-            src="./public/img/huong-dan-su-dung-anh-1.jpg"
+            src="./layout/assets/images/image.png"
             alt="Product Image"
             class="img-fluid rounded"
             width="500px"
@@ -486,8 +485,4 @@ foreach ($catalog_list as $category) {
           </a>
         </div>
       </div>
-    </div>
-
-    <div class="footer__logo">
-      <img src="assets/images/1.png" alt="" />
     </div>
