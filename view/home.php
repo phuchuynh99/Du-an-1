@@ -1,7 +1,7 @@
 <?php
 // $cataloglist = '';
 // foreach ($catalog_list as $category) {
-//     $cataloglist .= '<li><a href="index.php?page=product&id_category=' . $category['id'] . '">' . htmlspecialchars($category['name']) . '</a></li>';
+//     $cataloglist .= '<li><a href="index.php?page=product&id_category=' . $category['id'] . '">' . $category['name']) . '</a></li>';
 // }
 ?>
 
@@ -275,26 +275,38 @@
   </p>
   <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-4">
     <!-- Product 1 -->
-    <?php foreach ($saleproduct as $product): ?>
-    <div class="col">
-        <div class="card h-100 text-center">
-          <img
-            src="<?= $product['img'] ?>"
-            class="card-img-top"
-            alt="Product 1" />
-          <div class="card-body">
-            <p class="card-text"><?= $product['name'] ?></p>
-            <p>
-              <span class="text-decoration-line-through text-muted"><?= $product['price'] ?></span>
-              <span class="text-danger fw-bold"><?= $product['discount_price'] ?></span>
-            </p>
-          </div>
-          <div class="card-footer bg-white">
-            <button class="btn btn-outline-secondary w-100">Mua ngay</button>
+    <?php if (!empty($saleproduct)): ?>
+      <?php foreach ($saleproduct as $product): ?>
+        <div class="col">
+          <div class="card h-100 text-center">
+            <!-- Hình ảnh sản phẩm dẫn đến trang chi tiết -->
+            <a href="productDetail.php?id=<?= urlencode($product['id']) ?>">
+              <img
+                src="<?= $product['img'] ?>"
+                class="card-img-top"
+                alt="<?= $product['name'] ?>" />
+            </a>
+
+            <!-- Thông tin sản phẩm -->
+            <div class="card-body">
+              <p class="card-text fw-bold"><?= $product['name'] ?></p>
+              <p>
+                <span class="text-decoration-line-through text-muted"><?= $product['price']?>đ</span>
+                <span class="text-danger fw-bold"<?= $product['discount_price'] ?></span>
+              </p>
+            </div>
+
+            <!-- Nút mua ngay -->
+            <div class="card-footer bg-white">
+              <button class="btn btn-outline-secondary w-100">Mua ngay</button>
+            </div>
           </div>
         </div>
-    </div>
-    <?php endforeach; ?>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p class="text-center text-muted">Không có sản phẩm nào đang giảm giá.</p>
+    <?php endif; ?>
+
 
     <!-- <div class="col">
       <div class="card h-100 text-center">
