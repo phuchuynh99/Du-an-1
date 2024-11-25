@@ -441,7 +441,7 @@ footer ul li a:hover {
 }
 
 .product-page__sidebar {
-  background-color: #fffaf2;
+  background-color:#f9f6ef;
   border-radius: 8px;
 }
 
@@ -455,7 +455,12 @@ footer ul li a:hover {
 .product-page__list {
   list-style: none;
   padding: 0;
+  
 }
+.product-page__list li:hover {
+text-decoration: underline;
+}
+
 
 .product-page__item {
   margin-bottom: 10px;
@@ -475,7 +480,7 @@ footer ul li a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  justify-content: space-between;
+  justify-content: left;
 }
 
 .product-page__products .product-card {
@@ -485,7 +490,7 @@ footer ul li a:hover {
   padding: 15px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; 
 }
 
 .product-page__products .product-card:hover {
