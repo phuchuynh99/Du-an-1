@@ -1,3 +1,6 @@
+<div class="footer__logo">
+  <img src="public/img/banner/logo.png" alt="" />
+</div>
 <footer class="bg-light text-dark py-4">
   <div class="container">
     <div class="row py-3 text-center">
