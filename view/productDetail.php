@@ -186,7 +186,7 @@ foreach ( $productrelated as $related) {
 
 }
  ?>
-
+<div></div>
 <div class="container custom-products my-4">
       <h2 class="mb-4">Sản phẩm tương tự</h2>
       <p class="">
