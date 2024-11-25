@@ -1,3 +1,25 @@
+
+<?php
+$cataloglist = '';
+foreach ($catalog_list as $category) {
+    extract($category);
+    $linkproducts = 'index.php?page=home&id_category='.$id;
+    $cataloglist .= '<li class="nav-item">
+      <a class="category-home-list nav-link active" href="'.$linkproducts.'">'.$name.'</a>
+    </li>';
+}
+
+$productlistHTML = '';
+foreach ($productlist as $product) {
+    extract($product);
+    $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'public/img/default_image.jpg';
+    $linkDetail = 'index.php?page=productdetail&idproduct=' . $id;
+    $productlistHTML .= '
+    ';
+}
+
+?>
+
 <div id="carouselExampleIndicators" class="carousel slide">
   <div class="carousel-indicators">
     <button
@@ -46,9 +68,11 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
 <div class="container py-3 nav-category-home">
   <ul class="nav justify-content-center border-bottom">
-    <li class="nav-item">
+    <?=$cataloglist?>
+    <!-- <li class="nav-item">
       <a class="category-home-list nav-link active" href="#">Sơn móng</a>
     </li>
     <li class="nav-item">
@@ -62,7 +86,7 @@
     </li>
     <li class="nav-item">
       <a class="category-home-list nav-link" href="#">Móng giả</a>
-    </li>
+    </li> -->
   </ul>
 </div>
 <div class="container py-5 new-product-page">
@@ -73,6 +97,34 @@
     </p>
   </div>
   <div class="row new-product-home">
+    <?php if (!empty($newestProducts)): ?>
+        <div class="col-md-8">
+            <div class="product-card">
+                <img
+                    src="<?php echo $newestProducts[0]['img']; ?>" 
+                    class="img-fluid"
+                    alt="<?php echo htmlspecialchars($newestProducts[0]['name']); ?>" />
+                <button class="btn btn-custom">Mua ngay</button>
+            </div>
+        </div>
+        <?php if (isset($newestProducts[1])): ?>
+        <div class="col-md-4">
+            <div class="product-card mb-3" style="height: 100%;">
+                <img
+                    src="<?php echo $newestProducts[1]['img']; ?>" 
+                    class="img-fluid"
+                    alt="<?php echo htmlspecialchars($newestProducts[1]['name']); ?>"
+                    style="height: 100%; object-fit: cover;" />
+                <button class="btn btn-custom">Mua ngay</button>
+            </div>
+        </div>
+        <?php endif; ?>
+    <?php else: ?>
+        <p>Không có sản phẩm mới.</p>
+    <?php endif; ?>
+</div>
+
+  <!-- <div class="row new-product-home">
     <div class="col-md-8">
       <div class="product-card">
         <img
@@ -176,7 +228,7 @@
         <button class="btn btn-custom">Mua ngay</button>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 
@@ -283,6 +335,7 @@
         </div>
       </div>
     </div>
+    
     <div class="col">
       <div class="card h-100 text-center">
         <img
@@ -342,6 +395,8 @@
     </div>
   </div>
 </div>
+
+
 <!-- Banner  -->
 <div class="container my-4">
   <div

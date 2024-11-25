@@ -243,6 +243,14 @@ if (isset($_GET['page']) && ($_GET['page'] != "")) {
          include_once "view/blog.php";
          break;
       default:
+      if (isset($_GET['id_category']) && ($_GET['id_category'] > 0)) {
+         $id_category = $_GET['id_category'];
+      } else {
+         $id_category = 0;
+      }
+      $productlist = getproduct($id_category);
+      $catalog_list = get_catalog();
+
          // echo "Bạn đang vào trang chủ";
          // require home
          // $newproduct = getproduct();

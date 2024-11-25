@@ -108,4 +108,17 @@ function get_products_in_category($id_category) {
    return $db->get_all($sql);
 }
 
+function getNewestProductsByCategory($id_category) {
+   $db = new ConnectModel();
+   $sql = "SELECT * FROM product 
+           WHERE id_category = :id_category
+           ORDER BY create_at DESC
+           LIMIT 2"; // Lấy 2 sản phẩm mới nhất
+   return $db->get_all($sql, ['id_category' => $id_category]);
+}
+
+
+
+
+
 ?>
