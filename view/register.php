@@ -3,14 +3,14 @@
         <h2 class="text-center title">Đăng ký tài khoản</h2>
         <p class="text-center p-login">Nhập thông tin của bạn</p>
 
-        <div class="box-lg d-flex justify-content-center my-3">
+        <!-- <div class="box-lg d-flex justify-content-center my-3">
             <button class="btn btn-google-login">
                 <img src="images/gg-logo.png" alt="Google logo" /> Đăng nhập với
                 Google
             </button>
         </div>
 
-        <div class="text-center or">Hoặc</div>
+        <div class="text-center or">Hoặc</div> -->
 
         <form action="index.php?page=addusers" method="POST" id="form-login" class="mt-4 mx-auto" style="max-width: 400px">
             <div class="mb-3 form-group">
