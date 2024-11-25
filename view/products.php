@@ -24,7 +24,6 @@ foreach ($productlist as $product) {
             </a>
                 <div class="product-card__body">
                     <h6 class="product-card__title">' . $name . '</h6>
-                    <p class="product-card__description">' . $description . '</p>
                     <p class="product-card__old-price">' . $price . 'đ</p>
                     <p class="product-card__price">' . $discount_price . 'đ</p>
                     <div class="product-card__actions">

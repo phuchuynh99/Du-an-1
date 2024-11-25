@@ -60,8 +60,8 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="topic-name" class="col-form-label">Mô tả:</label>
-                    <input type="text" class="form-control" name="description" value="<?=$productdescription?>">
+                    <label for="topic-name" class="col-form-label">Mô t:</label>
+                    <input type="text" class="form-control" name="name" value="<?=$productdescription?>">
                 </div>
             </div>
             <div class="modal-body">
