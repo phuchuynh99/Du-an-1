@@ -95,6 +95,7 @@ if (isset($_GET['page'])) {
             if (isset($_POST['btnupdate'])) {
                 $id = $_POST['id'];
                 $name = $_POST['name'];
+                $description =$_POST['description'];
                 $price = $_POST['price'];
                 $discount_price = $_POST['discount_price'];
                 $id_category = $_POST['idcatalog'];
@@ -120,7 +121,7 @@ if (isset($_GET['page'])) {
                 }
 
                 // Cập nhật sản phẩm vào database, bao gồm trạng thái
-                update_product($id, $id_category, $img, $name, $price, $discount_price, $status);
+                update_product($id, $id_category, $img, $name, $price, $discount_price, $status, $description);
 
                 // Chuyển hướng về trang danh sách sản phẩm
                 header('Location: index.php?page=product');
@@ -131,6 +132,7 @@ if (isset($_GET['page'])) {
             // Lấy dữ liệu từ form
             if (isset($_POST['btnadd'])) {
                 $name = $_POST['name'];
+                $description = $_POST['description'];
                 $price = $_POST['price'];
                 $id_category = $_POST['idcatalog']; // Đã sửa key
 
@@ -143,7 +145,7 @@ if (isset($_GET['page'])) {
                 }
 
                 // Thêm vô database
-                add_product($id_category, $img, $name, $price);
+                add_product($id_category, $img, $name, $price, $description);
             }
 
             $productlist = getproduct();

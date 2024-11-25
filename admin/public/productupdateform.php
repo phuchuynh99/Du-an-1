@@ -8,6 +8,7 @@
         }
     }
     $productname = $name;
+    $productdescription = $description;
     $productid = $id;
     $productimg = $img;
     $discount_price = $discount_price;
@@ -55,6 +56,12 @@
                 <div class="mb-3">
                     <label for="topic-name" class="col-form-label">Tên sản phẩm:</label>
                     <input type="text" class="form-control" name="name" value="<?=$productname?>">
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="topic-name" class="col-form-label">Mô tả:</label>
+                    <input type="text" class="form-control" name="description" value="<?=$productdescription?>">
                 </div>
             </div>
             <div class="modal-body">

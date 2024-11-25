@@ -109,6 +109,7 @@
             aria-selected="true"
           >
             Mô tả
+            
           </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -136,12 +137,11 @@
           role="tabpanel"
           aria-labelledby="description-tab"
         >
-          <h4>Sản Phẩm: Bộ Sơn Gel Nail Màu Pastel</h4>
+          <h4><?= $product['name'] ?></h4>
+          
           <p>
-            Bộ Sơn Gel Nail Màu Pastel là lựa chọn hoàn hảo cho những ai yêu
-            thích sự nhẹ nhàng, thanh lịch nhưng vẫn muốn thể hiện phong cách
-            riêng...
-          </p>
+          <?= $product['description'] ?>
+        </p>
         </div>
 
         <!-- Đánh giá -->
@@ -166,7 +166,8 @@ foreach ( $productrelated as $related) {
     extract($related);
     $imgPath = ($img != "") ? './' . PATH_IMG . './' . $img : 'public/img/default_image.jpg';
     $linkDetail = 'index.php?page=productdetail&idproduct=' . $id;
-    $productlistHTML .='<div class="col">
+    $productlistHTML .='<div>
+    <div class="col">
     <div class="card h-100 text-center">
     <a href="' . $linkDetail .'">
         <img src="' . $imgPath . '" class="card-img-top" alt="' . $name . '" />
@@ -182,11 +183,12 @@ foreach ( $productrelated as $related) {
             <button class="btn btn-outline-secondary w-100">Mua ngay</button>
         </div>
     </div>
+</div>
 </div>';
 
 }
  ?>
-<div></div>
+
 <div class="container custom-products my-4">
       <h2 class="mb-4">Sản phẩm tương tự</h2>
       <p class="">
@@ -199,5 +201,7 @@ foreach ( $productrelated as $related) {
          <!-- </div> -->
          </div>
 </div>
+</div>
+
         
 
