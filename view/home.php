@@ -443,6 +443,3 @@
   </div>
 </div>
 
-<div class="footer__logo">
-  <img src="assets/images/1.png" alt="" />
-</div>
