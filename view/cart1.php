@@ -40,36 +40,32 @@
         </div>
       </div>
       <div class="py-2">
-        <?php $i = 1; $total = 0;
-        foreach ($cart as &$pro) : ?>
-          <div class="row align-items-center text-center">
-            <div class="col d-flex align-items-center">
-              <img
-                src="layout/assets/images/<?= $pro['img'] ?>"
-                alt="Product Image"
-                class="img-fluid me-3"
-                style="width: 80px; height: 80px" />
-              <span><?= $pro['name'] ?></span>
-            </div>
-            <div class="col text-danger"><?= number_format($pro['price']) ?>đ</div>
-            <div class="col d-flex justify-content-center align-items-center">
-              <a href="index.php?page=cart&action=decrease&id=<?=$pro['id']?>" class="btn btn-outline-secondary">-</a>
-              <input
-                type="text"
-                class="form-control mx-2 text-center"
-                style="width: 50px"
-                value="<?= $pro['SoLuong'] ?>" />
-              <a href="index.php?page=cart&action=increase&id=<?=$pro['id']?>" class="btn btn-outline-secondary">+</a>
-            </div>
-            <div class="col text-danger"><?= number_format($pro['total']) ?>đ</div>
-            <div class="col">
-              <a href="index.php?page=cart&action=delete&index=<?= $i - 1 ?>" class="btn btn-outline-danger">
-                <i class="fa-solid fa-trash"></i>
-              </a>
-            </div>
+        <div class="row align-items-center text-center">
+          <div class="col d-flex align-items-center">
+            <img
+              src="images/OIP.jpg"
+              alt="Product Image"
+              class="img-fluid me-3"
+              style="width: 80px; height: 80px" />
+            <span>Sơ Mi Đơn Giản Thanh Lịch</span>
           </div>
-        <?php $i++; $total += $pro['total'];
-      endforeach; ?>
+          <div class="col text-danger">450,000đ</div>
+          <div class="col d-flex justify-content-center align-items-center">
+            <button class="btn btn-outline-secondary">-</button>
+            <input
+              type="text"
+              class="form-control mx-2 text-center"
+              style="width: 50px"
+              value="1" />
+            <button class="btn btn-outline-secondary">+</button>
+          </div>
+          <div class="col text-danger">450,000đ</div>
+          <div class="col">
+            <button class="btn btn-outline-danger">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
       </div>
       <div class="d-flex gap-3 mt-3">
         <button class="btn btn-outline-secondary cart-continue-btn">
@@ -94,7 +90,7 @@
         </div>
         <div class="d-flex justify-content-between py-2">
           <span class="fw-bold text-danger">Tổng cộng</span>
-          <span class="fw-bold text-danger"><?=number_format($total)?>đ</span>
+          <span class="fw-bold text-danger">450,000đ</span>
         </div>
         <button class="btn btn-secondary w-100 mt-3 cart-payment-btn">
           Tiến hành thanh toán
