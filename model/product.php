@@ -1,11 +1,11 @@
 <?php
 include_once "connect.php";
 
-function getproduct($id=0){
+function getproduct($id_category = 0) {
    $db = new ConnectModel();
    $sql = "SELECT * FROM product WHERE 1";
-   if($id > 0){
-      $sql .= " AND id_category=".$id;
+   if ($id_category > 0) {
+       $sql .= " AND id_category = " . $id_category; // Lọc theo id_category
    }
    $sql .= " ORDER BY id DESC";
    return $db->get_all($sql);
@@ -29,9 +29,9 @@ function getfeatureproduct(){
    return $db->get_all($sql);
 }
 
-function get_related_product($idcatalog, $id){
+function get_related_product($id_category, $id){
    $db = new ConnectModel();
-   $sql = "SELECT * FROM product WHERE idcatalog = ".$idcatalog." AND id <> ".$id." ORDER BY id DESC";
+   $sql = "SELECT * FROM product WHERE id_category = ".$id_category." AND id <> ".$id." ORDER BY id DESC";
    return $db->get_all($sql);
 }
 
@@ -43,10 +43,10 @@ function get_product_detail($id){
 
 function get_idcatalog($id){
    $db = new ConnectModel();
-   $sql = "SELECT idcatalog FROM product WHERE id = ".$id;
+   $sql = "SELECT id_category FROM product WHERE id = ".$id;
    $getone = $db->get_one($sql);
    extract($getone);
-   return $idcatalog;
+   return $id_category;
 }
 
 function ten_file_hinh($id){

@@ -1,6 +1,6 @@
 <?php
 include_once "connect.php";
-
+require_once 'mailer_helper.php';
 
 function getAllUser() {
     $db = new ConnectModel();
@@ -13,6 +13,13 @@ function getOneUserById($id) {
     $sql = "SELECT * FROM users WHERE id = ?";
     return $db->get_one($sql, [$id]);
 }
+
+function getOneUserByEmail($email) {
+    $db = new ConnectModel();
+    $sql = "SELECT * FROM users WHERE email = ?";
+    return $db->get_one($sql, [$email]);
+}
+
 
 // Kiểm tra người dùng với mật khẩu đã mã hóa
 function checkUser($username, $password) {
@@ -77,6 +84,33 @@ function checkUserRole($username, $password) {
 }
 
 
+function forgotPassword($email) {
+    $db = new ConnectModel();
+
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $user = $db->get_one($sql, [$email]);
+
+    if ($user) {
+        // Tạo token reset mật khẩu và thời gian hết hạn
+        $token = bin2hex(random_bytes(16));
+        $expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));
+
+        // Lưu token và thời gian hết hạn vào database
+        $updateSql = "UPDATE users SET reset_token = ?, token_expiry = ? WHERE email = ?";
+        $db->update($updateSql, [$token, $expiry, $email]);
+
+        // Gửi email reset mật khẩu
+        $resetLink = "http://yourwebsite.com/reset_password.php?token=$token";
+        $subject = "Lấy lại mật khẩu";
+        $body = "Click vào link sau để đặt lại mật khẩu: <a href='$resetLink'>$resetLink</a>";
+
+        $result = sendMail($email, $subject, $body);
+
+        return $result === true ? "Email lấy lại mật khẩu đã được gửi. Vui lòng kiểm tra hộp thư." : $result;
+    } else {
+        return "Email không tồn tại trong hệ thống.";
+    }
+}
 
 
 
