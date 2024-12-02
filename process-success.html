@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="assets/css/main.css" /> -->
+    <link rel="stylesheet" href="public/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <!-- Logo -->
+            <a class="logo navbar-brand" href="#">
+              <img src="assets/images/1.png" alt="" />
+            </a>
+            <!-- Toggle menu cho mobile -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu chính -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="products.html">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="blog.html">Blog</a>
+                </li>
+                <li class="nav-item d-block d-md-none d-lg-none">
+                  <a class="nav-link" href="cart.html">Giỏ hàng</a>
+                </li>
+                <li class="nav-item d-block d-md-none d-lg-none">
+                  <a class="nav-link" href="login.html">Đăng nhập</a>
+                </li>
+                <li class="nav-item d-block d-md-none d-lg-none">
+                  <a class="nav-link" href="login.html">Đăng ký</a>
+                </li>
+              </ul>
+              <div class="d-flex align-items-center head-icon">
+                <a href="cart.html" class="nav-link">
+                  <i class="fas fa-shopping-cart d-none d-md-block"></i>
+                </a>
+
+                <div class="ht-right">
+                  <ul class="ht-us-menu d-flex">
+                    <!-- User menu -->
+                    <!-- <li>
+                      <?php
+                            if (isset($_SESSION['userinfo']) && !empty($_SESSION['userinfo'])) {
+                            echo '<a href="#">' . $_SESSION['userinfo']['username'] . '<i class="fa fa-angle-down"></i></a>
+                                  <ul class="ht-dropdown">
+                                    <li><a href="index.php?page=userUpdateForm">Chỉnh sửa tài khoản</a></li>
+                                    <li><a href="index.php?page=logout">Đăng xuất</a></li>
+                                  </ul>';
+                            } else {
+                            echo '<a href="#">Login<i class="fa fa-angle-down"></i></a>
+                                  <ul class="ht-dropdown">
+                                    <li><a href="index.php?page=login">Đăng nhập</a></li>
+                                    <li><a href="index.php?page=register">Đăng ký</a></li>
+                                  </ul>';
+                            } ?>
+                    </li> -->
+                    <!-- Auth menu -->
+                    <li>
+                      <a href="#" class="d-none d-md-block"
+                        >Login<i class="fa fa-angle-down"></i
+                      ></a>
+                      <ul class="ht-dropdown">
+                        <li><a href="login.html">Đăng nhập</a></li>
+                        <li><a href="login.html">Đăng ký</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container process-success-wrapper">
+      <!-- Success Message -->
+      <div class="d-flex justify-content-center mb-4">
+        <div class="icon-check">
+          <i class="fa-solid fa-check-circle"></i>
+          <!-- Green check circle icon -->
+        </div>
+      </div>
+      <h3 class="mb-3 text-center">Thanh toán thành công</h3>
+      <p class="text-center">
+        Cảm ơn quý khách đã đặt hàng. Sản phẩm của quý khách sẽ sớm được giao
+        đến đơn vị vận chuyển. Mong quý khách giữ điện thoại để có hàng sớm
+        nhất.
+      </p>
+
+      <!-- Back to Home Button -->
+      <a href="/" class="btn btn-outline-secondary mb-4 btn-back-home">
+        <i class="fa-solid fa-arrow-left-circle"></i>Quay về trang chủ
+      </a>
+
+      <!-- Product Review Section -->
+    </div>
+
+    <div class="footer__logo">
+      <img src="assets/images/1.png" alt="" />
+    </div>
+    <footer class="bg-light text-dark py-4">
+      <div class="container">
+        <div class="row py-3 text-center">
+          <div class="col-md-4">
+            <h5 class="mb-3">Thông tin liên hệ</h5>
+            <p><i class="fas fa-phone"></i> 012345678</p>
+            <p><i class="fas fa-envelope"></i> abcdef@gmail.com</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 quốc lộ 1A, Tân Thới
+              Hiệp, Quận 12
+            </p>
+          </div>
+
+          <div class="col-md-4">
+            <h5 class="mb-3">Điều khoản sử dụng</h5>
+            <ul class="list-unstyled">
+              <p class="text-dark">Chính sách bảo mật</p>
+              <p class="text-dark">Chính sách giao hàng</p>
+              <p class="text-dark">Chính sách đền bù</p>
+            </ul>
+          </div>
+
+          <div class="col-md-4">
+            <h5 class="mb-3">Liên hệ với chúng tôi</h5>
+            <p>
+              Hãy là người đầu tiên biết về các chương trình giảm giá độc quyền
+              và sản phẩm mới.
+            </p>
+            <form>
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email của bạn"
+                />
+                <button class="btn btn-dark" type="submit">Gửi</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <!-- Social Media Icons -->
+          <a href="#" class="text-dark me-2"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-dark me-2"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="text-dark me-2"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-dark me-2"
+            ><i class="fab fa-pinterest"></i
+          ></a>
+          <a href="#" class="text-dark me-2"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="text-dark"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
